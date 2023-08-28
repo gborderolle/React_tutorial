@@ -29,6 +29,21 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+    <div id="ejemplo-html"></div>
+    <script>
+      const ejemploHtml = document.getElementById("ejemplo-html");
+      const render = () => {
+        ejemploHtml.innerHTML=`
+        <h3>Ejemplo HTML</h3>
+        <input/>
+        <div>${new Date()}</div>
+        `;
+      }
+
+      setInterval(render, 2000);
+    </script>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
