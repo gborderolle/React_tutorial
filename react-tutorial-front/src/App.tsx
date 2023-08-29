@@ -6,16 +6,17 @@ import Formulario from "./Formulario";
 import ProyectarContenido from "./ProyectarContenido";
 import ProyectarContenido2 from "./ProyectarContenido2";
 import EjemploReloj from "./EjemploReloj";
+import ContenidoDinamico from "./ContenidoDinamico";
 
 function App() {
 
   const [titulo, setTitulo] = useState('[titulo]');
   const [cuerpo, setCuerpo] = useState('[cuerpo]');
 
-  const subtitulo = "Esto es un subtítulo";
-  const duplicar = (valor: number) => valor * 2; // función flecha
+  // const subtitulo = "Esto es un subtítulo";
+  // const duplicar = (valor: number) => valor * 2; // función flecha
 
-  const manejarClick = () => console.log('Click!');
+  // const manejarClick = () => console.log('Click!');
 
   const manejarKeyUpTexto = (e: React.KeyboardEvent<HTMLInputElement>) => {
     setCuerpo(e.currentTarget.value);
@@ -31,23 +32,27 @@ function App() {
   }
   const parte3 = <div style={estilos}></div>
 
+  const calificaciones = [
+    { nombre: 'Juanito', calificacion: 23 },
+    { nombre: 'Maria', calificacion: 66 },
+    { nombre: 'Roberto', calificacion: 86 },
+    { nombre: 'Reinaldo', calificacion: 100 }
+  ]
+
+
   return (
     <>
 
-      <ProyectarContenido2
+      {/* <ProyectarContenido2
         //parte1={<span>Este es un span del padre</span>}
         parte2={parte2}
         parte3={parte3}
-        />
+        /> */}
 
-      {/* <ProyectarContenido>
-        <>
-          <span>Hola, proyectando cont.</span>
-        </>
-      </ProyectarContenido> */}
+      {calificaciones.map(cal => <ContenidoDinamico key={cal.nombre} {...cal} />)}
 
+      {/* <ContenidoDinamico calificacion={calificaciones.cañ} nombre={"Ramón"}/> */}
 
-      {/* <button onClick={manejarClick}>Click me</button> */}
       <br />
       <br />
       <form style={{ width: '40%' }}>
