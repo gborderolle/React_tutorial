@@ -1,5 +1,3 @@
-export default function CreateMovie(){
-    return(
-        <>Crear Película</>
-    )
+export default function CreateMovie() {
+  return <>Crear Película</>;
 }

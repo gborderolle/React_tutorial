@@ -13,29 +13,31 @@ import IndexMovies from "./movies/IndexMovies";
 import CreateReview from "./reviews/CreateReview";
 import EditReview from "./reviews/EditReview";
 import IndexReviews from "./reviews/IndexReviews";
+import RedirectToLanding from "./utils/RedirectToLanding";
 
-const paths=[
-    {path:'/genres/create', component: CreateGenre},
-    {path:'/genres/edit/:id(\\d+)', component: EditGenre}, //"\\d+" int
-    {path:'/genres', component: IndexGenres},
+const paths = [
+  { path: "/genres/edit/:id", component: EditGenre },
+  { path: "/genres/create", component: CreateGenre },
+  { path: "/genres", component: IndexGenres },
 
-    {path:'/movies/create', component: CreateMovie},
-    {path:'/movies/edit/:id(\\d+)', component: EditMovie},
-    {path:'/movies', component: IndexMovies},
+  { path: "/movies/edit/:id", component: EditMovie },
+  { path: "/movies/create", component: CreateMovie },
+  { path: "/movies", component: IndexMovies },
 
-    {path:'/actors/create', component: CreateMovie},
-    {path:'/actors/edit/:id(\\d+)', component: EditMovie},
-    {path:'/actors', component: IndexActors},
+  { path: "/actors/edit/:id", component: EditMovie },
+  { path: "/actors/create", component: CreateMovie },
+  { path: "/actors", component: IndexActors },
 
-    {path:'/cinemas/create', component: CreateMovie},
-    {path:'/cinemas/edit/:id(\\d+)', component: EditMovie},
-    {path:'/cinemas', component: IndexCinemas},
+  { path: "/cinemas/edit/:id", component: EditMovie },
+  { path: "/cinemas/create", component: CreateMovie },
+  { path: "/cinemas", component: IndexCinemas },
 
-    {path:'/reviews/create', component: CreateReview},
-    {path:'/reviews/edit/:id(\\d+)', component: EditReview},
-    {path:'/reviews', component: IndexReviews},
+  { path: "/reviews/edit/:id", component: EditReview },
+  { path: "/reviews/create", component: CreateReview },
+  { path: "/reviews", component: IndexReviews },
 
-{path:'/', component: LandingPage},
+  { path: "/", component: LandingPage },
+  { path: "*", component: RedirectToLanding },
 ];
 
 export default paths;
