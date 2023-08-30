@@ -1,79 +1,135 @@
-import React, { useState } from "react";
+// Configurar ruteo
+// Clase 63: https://www.udemy.com/course/desarrollando-aplicaciones-en-react-y-aspnet-core/learn/lecture/25858262#overview
+
+import { useEffect, useState } from "react";
 import "./App.css";
-import MostrarTexto from "./MostrarTexto";
-import BootCard from "./BootCard";
-import Formulario from "./Formulario";
-import ProyectarContenido from "./ProyectarContenido";
-import ProyectarContenido2 from "./ProyectarContenido2";
-import EjemploReloj from "./EjemploReloj";
-import ContenidoDinamico from "./ContenidoDinamico";
+import ListMovies from "./movies/ListMovies";
+import { landingPageDTO, movie } from "./movies/movie.model";
+import MovieSingle from "./movies/movieSingle";
+import Button from "./utils/Button";
+import Menu from "./utils/Menu";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import IndexGenres from "./genres/IndexGenres";
 
 function App() {
+  const [movies, setMovies] = useState<landingPageDTO>({});
 
-  const [titulo, setTitulo] = useState('[titulo]');
-  const [cuerpo, setCuerpo] = useState('[cuerpo]');
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setMovies({
+        moviesInTheatres: [
+          {
+            id: 1,
+            title: "The Equalizer 3",
+            description:
+              "Desde que renunció a su vida como asesino del gobierno, Robert McCall ha luchado para reconciliarse con las cosas horribles que ha hecho en el pasado y encuentra un extraño consuelo en hacer justicia en nombre de los oprimidos. Mientras se encuentra en su casa en el sur de Italia, descubre que sus nuevos amigos están bajo el control de los jefes del crimen local.",
+            poster:
+              "https://www.elseptimoarte.net/carteles/341/the_equalizer_3_98440.jpg",
+          },
+          {
+            id: 2,
+            title: "Talk to me",
+            description:
+              "Cuando un grupo de amigos descubre cómo invocar espíritus utilizando una mano embalsamada, se enganchan a esta nueva sensación hasta que uno de ellos va demasiado lejos y abre la puerta al mundo de los espíritus, obligándoles a elegir en quién confiar: En los muertos o en los vivos.",
+            poster:
+              "https://www.elseptimoarte.net/carteles/341/hablame_97828.jpg",
+          },
+          {
+            id: 3,
+            title: "Irgendwann werden wir uns alles erzählen",
+            description:
+              "Verano de 1990, antigua Alemania Oriental. María está a punto de cumplir 19 años y vive en la granja de los padres de su novio Johannes. En un ambiente lleno de posibilidades y con una sensación de inicio de una nueva era con la reunificación alemana, María prefiere perderse en los libros que concentrarse en graduarse. A esto se le añade el inicio de una pasión secreta y un nuevo amor hacia Henner, el carismático y determinante granjero de al lado que le dobla la edad.",
+            poster:
+              "https://www.elseptimoarte.net/carteles/341/algun_dia_nos_lo_contaremos_todo_98130.jpg",
+          },
+        ],
+        moviesNextReleases: [
+          {
+            id: 1,
+            title: "The Old Guard 2",
+            description:
+              "Basada en las novelas gráficas de Greg Rucka y Leandro Fernández, la primera entrega sigue a un equipo encubierto de mercenarios inmortales que, de repente, quedan expuestos al mundo. Es entonces cuando deben luchar para mantener su identidad en secreto justo cuando se les une un nuevo e inesperado miembro.",
+            poster:
+              "https://es.web.img3.acsta.net/c_310_420/pictures/21/08/27/10/48/0715374.png",
+          },
+          {
+            id: 2,
+            title: "La monja II",
+            description:
+              "Año 1956. En Francia donde el mal campa a sus anchas, con un sacerdote asesinado, y todas las señales apuntan al demonio Valak. La hermana Irene tendrá que enfrentarse a esta malévola pero familiar fuerza que debe ser contenida a toda costa.",
+            poster:
+              "https://es.web.img3.acsta.net/c_310_420/pictures/23/07/18/09/37/2734596.jpg",
+          },
+          {
+            id: 3,
+            title: "Kraven The Hunter",
+            description:
+              "Película de acción y fantasía que gira en torno al origen del icónico supervillano Kraven el Cazador, antagonista de Spider Man. Desde joven, Sergei Kravinoff (Aaron Taylor-Johnson) fue entrenado para convertirse en un despiadado cazador. Ahora, transformado en Kraven el Cazador, deberá afrontar su pasado haciendo uso de sus excepcionales habilidades para la lucha y la caza.",
+            poster:
+              "https://es.web.img3.acsta.net/c_310_420/pictures/23/06/20/10/18/3149358.jpg",
+          },
+          {
+            id: 1,
+            title: "The Old Guard 2",
+            description:
+              "Basada en las novelas gráficas de Greg Rucka y Leandro Fernández, la primera entrega sigue a un equipo encubierto de mercenarios inmortales que, de repente, quedan expuestos al mundo. Es entonces cuando deben luchar para mantener su identidad en secreto justo cuando se les une un nuevo e inesperado miembro.",
+            poster:
+              "https://es.web.img3.acsta.net/c_310_420/pictures/21/08/27/10/48/0715374.png",
+          },
+          {
+            id: 2,
+            title: "La monja II",
+            description:
+              "Año 1956. En Francia donde el mal campa a sus anchas, con un sacerdote asesinado, y todas las señales apuntan al demonio Valak. La hermana Irene tendrá que enfrentarse a esta malévola pero familiar fuerza que debe ser contenida a toda costa.",
+            poster:
+              "https://es.web.img3.acsta.net/c_310_420/pictures/23/07/18/09/37/2734596.jpg",
+          },
+          {
+            id: 3,
+            title: "Kraven The Hunter",
+            description:
+              "Película de acción y fantasía que gira en torno al origen del icónico supervillano Kraven el Cazador, antagonista de Spider Man. Desde joven, Sergei Kravinoff (Aaron Taylor-Johnson) fue entrenado para convertirse en un despiadado cazador. Ahora, transformado en Kraven el Cazador, deberá afrontar su pasado haciendo uso de sus excepcionales habilidades para la lucha y la caza.",
+            poster:
+              "https://es.web.img3.acsta.net/c_310_420/pictures/23/06/20/10/18/3149358.jpg",
+          },
+        ],
+      });
+    }, 1000);
+    return () => clearTimeout(timerId);
+  });
 
-  // const subtitulo = "Esto es un subtítulo";
-  // const duplicar = (valor: number) => valor * 2; // función flecha
-
-  // const manejarClick = () => console.log('Click!');
-
-  const manejarKeyUpTexto = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    setCuerpo(e.currentTarget.value);
-  }
-
-  const manejarKeyUptitulo = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    setTitulo(e.currentTarget.value);
-  }
-
-  const parte2 = <EjemploReloj />
-  const estilos = {
-    backgroundColor: 'red', width: '50px', height: '50px'
-  }
-  const parte3 = <div style={estilos}></div>
-
-  const calificaciones = [
-    { nombre: 'Juanito', calificacion: 23 },
-    { nombre: 'Maria', calificacion: 66 },
-    { nombre: 'Roberto', calificacion: 86 },
-    { nombre: 'Reinaldo', calificacion: 100 }
-  ]
-
+  const movieTest: movie = {
+    id: 1,
+    title: "Spider Man",
+    description:
+      "Spider-Man seeks the help of Doctor Strange to forget his exposed secret identity as Peter Parker. However, Strange's spell goes horribly wrong, leading to unwanted guests entering their universe.",
+    poster:
+      "https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png",
+  };
 
   return (
     <>
-
-      {/* <ProyectarContenido2
-        //parte1={<span>Este es un span del padre</span>}
-        parte2={parte2}
-        parte3={parte3}
-        /> */}
-
-      {calificaciones.map(cal => <ContenidoDinamico key={cal.nombre} {...cal} />)}
-
-      {/* <ContenidoDinamico calificacion={calificaciones.cañ} nombre={"Ramón"}/> */}
-
-      <br />
-      <br />
-      <form style={{ width: '40%' }}>
-        <div className="form-group">
-          <input type="text" className="form-control" onKeyUp={(e) => manejarKeyUptitulo(e)} id="exampleInputEmail1" placeholder="Título" />
+      <BrowserRouter>
+        <Menu />
+        <div className="container">
+          <Routes>
+            <Route path="/genres" element={<IndexGenres />} />
+            <Route
+              path="/"
+              element={
+                <>
+                  <br />
+                  <br />
+                  <h3>En Cartelera</h3>
+                  <ListMovies movies={movies.moviesInTheatres} />
+                  <h3>Próximos estrenos</h3>
+                  <ListMovies movies={movies.moviesNextReleases} />
+                </>
+              }
+            />
+          </Routes>
         </div>
-        <br />
-        <div className="form-group">
-          <input type="text" className="form-control" onKeyUp={(e) => manejarKeyUpTexto(e)} id="exampleInputPassword1" placeholder="Cuerpo" />
-        </div>
-        <br />
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
-
-      <br />
-
-      <MostrarTexto />
-      <BootCard title={titulo} body={cuerpo} />
-      <br />
-      <Formulario />
-
+      </BrowserRouter>
     </>
   );
 }

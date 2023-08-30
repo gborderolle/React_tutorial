@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import "../node_modules/bootstrap/dist/css/bootstrap.css";
+import BootCard from "./BootCard";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,6 +11,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <App />
+    <br />
+    {/* <BootCard /> */}
   </React.StrictMode>
 );
 
