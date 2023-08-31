@@ -12,9 +12,9 @@ export default function EditActor() {
 
   return (
     <>
-      <FormActor model={{ name: '' }}
+      <FormActor
+        model={{ name: "", born: new Date() }}
         onSubmit={async (values) => {
-          await new Promise(r => setTimeout(r, 1000))
           console.log(values);
         }}
       />

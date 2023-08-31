@@ -4,6 +4,7 @@ export interface actor {
   }
   export interface actorCreationDTO {
     name: string;
+    born: Date;
   }
   
   export interface landingPageDTO {

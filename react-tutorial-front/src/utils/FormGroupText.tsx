@@ -18,14 +18,7 @@ export default function FormGroupText(props: formGroupTextProps) {
                     </ErrorMessage>
                     <br />
 
-                    <div className="btn-group" role="group" aria-label="First group">
-                        <Button type="submit" buttonDisabled={props.buttonDisabled}>Guardar</Button>
-                        {props.navigation ? (
-                            <Link className="btn btn-sm btn-secondary" to={props.navigation}>
-                                Cancelar
-                            </Link>
-                        ) : null}
-                    </div>
+
                 </div>
             </div>
         </div>
