@@ -9,3 +9,8 @@ export interface genre {
   
   export interface landingPageDTO {
   }
+
+  export interface genreDTO{
+    id: number;
+    name: string;
+  }

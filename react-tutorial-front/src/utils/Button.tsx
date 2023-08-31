@@ -2,9 +2,9 @@ export default function Button(props: buttonProps) {
   return (
     <button
       type={props.type}
-      className="btn btn-sm btn-primary"
       onClick={props.onClick}
       disabled={props.buttonDisabled}
+      className={props.className}
     >
       {props.children}
     </button>
@@ -16,9 +16,11 @@ interface buttonProps {
   onClick?(): void;
   type: "button" | "submit";
   buttonDisabled?: boolean;
+  className: string;
 }
 
 Button.defaultProps = {
   type: "button",
   disabled: false,
+  className: 'btn btn-sm btn-primary'
 };

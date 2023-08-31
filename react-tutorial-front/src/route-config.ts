@@ -13,6 +13,7 @@ import EditGenre from "./genres/EditGenre";
 import IndexGenres from "./genres/IndexGenres";
 import CreateMovie from "./movies/CreateMovie";
 import EditMovie from "./movies/EditMovie";
+import FilterMovies from "./movies/FilterMovies";
 import IndexMovies from "./movies/IndexMovies";
 import CreateReview from "./reviews/CreateReview";
 import EditReview from "./reviews/EditReview";
@@ -25,6 +26,7 @@ const paths = [
   { path: "/genres", component: IndexGenres },
 
   { path: "/movies/edit/:id", component: EditMovie },
+  { path: "/movies/filter", component: FilterMovies },
   { path: "/movies/create", component: CreateMovie },
   { path: "/movies", component: IndexMovies },
 
