@@ -4,6 +4,9 @@ export interface movie {
   poster: string;
   description: string;
 }
+export interface movieCreationDTO {
+  title: string;
+}
 
 export interface landingPageDTO {
   moviesInTheatres?: movie[];

@@ -2,7 +2,11 @@
 // Clase 64: https://www.udemy.com/course/desarrollando-aplicaciones-en-react-y-aspnet-core/learn/lecture/25858264#overview
 
 import LandingPage from "./LandingPage";
+import CreateActor from "./actors/CreateActor";
+import EditActor from "./actors/EditActor";
 import IndexActors from "./actors/IndexActors";
+import CreateCinema from "./cinemas/CreateCinema";
+import EditCinema from "./cinemas/EditCinema";
 import IndexCinemas from "./cinemas/IndexCinemas";
 import CreateGenre from "./genres/CreateGenre";
 import EditGenre from "./genres/EditGenre";
@@ -24,12 +28,12 @@ const paths = [
   { path: "/movies/create", component: CreateMovie },
   { path: "/movies", component: IndexMovies },
 
-  { path: "/actors/edit/:id", component: EditMovie },
-  { path: "/actors/create", component: CreateMovie },
+  { path: "/actors/edit/:id", component: EditActor },
+  { path: "/actors/create", component: CreateActor },
   { path: "/actors", component: IndexActors },
 
-  { path: "/cinemas/edit/:id", component: EditMovie },
-  { path: "/cinemas/create", component: CreateMovie },
+  { path: "/cinemas/edit/:id", component: EditCinema },
+  { path: "/cinemas/create", component: CreateCinema },
   { path: "/cinemas", component: IndexCinemas },
 
   { path: "/reviews/edit/:id", component: EditReview },

@@ -6,6 +6,9 @@ import { landingPageDTO, movie } from "./movies/movie.model";
 import Menu from "./utils/Menu";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import paths from "./route-config";
+import setupValidations from "./Validations";
+
+setupValidations();
 
 function App() {
 

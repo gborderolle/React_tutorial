@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
+import FormActor from "./FormActor";
 
 export default function EditActor() {
   const navigate = useNavigate();
@@ -11,8 +12,12 @@ export default function EditActor() {
 
   return (
     <>
-      <h3>Modificar Actor</h3>
-      <h4>El id es {id}</h4>
+      <FormActor model={{ name: '' }}
+        onSubmit={async (values) => {
+          await new Promise(r => setTimeout(r, 1000))
+          console.log(values);
+        }}
+      />
     </>
   );
 }

@@ -67,10 +67,12 @@ export default function LandingPage() {
 
   return (
     <>
-      <h3>En Cartelera</h3>
-      <ListMovies movies={movies.moviesInTheatres} />
-      <h3>Próximos estrenos</h3>
-      <ListMovies movies={movies.moviesNextReleases} />
+      <div className="mt-4">
+        <h3>En Cartelera</h3>
+        <ListMovies movies={movies.moviesInTheatres} />
+        <h3>Próximos estrenos</h3>
+        <ListMovies movies={movies.moviesNextReleases} />
+      </div>
     </>
   );
 }
