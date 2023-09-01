@@ -6,7 +6,7 @@ export default function MovieSingle(props: MovieSingleProps) {
   return (
     <>
       <div>
-        <div className="card" style={{ width: "18rem" }}>
+        <div className="card" style={{ width: "20rem" }}>
           <a href={setupLink()}>
             <img
               className="card-img-top"

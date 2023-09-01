@@ -12,7 +12,9 @@ export default function EditCinema() {
 
   return (
     <>
-      <FormCinema model={{ name: '' }}
+      <FormCinema
+        formName="Modificar cine"
+        model={{ name: '' }}
         onSubmit={async (values) => {
           await new Promise(r => setTimeout(r, 1000))
           console.log(values);

@@ -4,5 +4,5 @@ export default function ShowErrorField(props: showErrorFieldProps) {
 
 // define los parámetros de entrada del componente
 interface showErrorFieldProps {
-  message: string | undefined;
+  message: string;
 }

@@ -2,27 +2,50 @@ import { Form, Formik, FormikHelpers } from "formik";
 import FormGroupText from "../utils/FormGroupText";
 import * as Yup from 'yup';
 import { reviewCreationDTO } from "../reviews/review.model";
+import { Link } from "react-router-dom";
+import Button from "../utils/Button";
 
 export default function FormReview(props: formReviewProps) {
     return (
 
         <Formik
-            initialValues={{
-                name: "",
-            }}
-
+            initialValues={props.model}
             onSubmit={props.onSubmit}
-
             validationSchema={Yup.object({
                 name: Yup.string()
                     .required('Dato requerido.')
                     .firstCharCapitalization()
             })}
         >
-
             {(formikProps) => (
                 <Form>
-                    <FormGroupText buttonDisabled={formikProps.isSubmitting} formName="Crear review" field="name" label="Nombre" navigation="/reviews" />
+                    <div className="mt-4">
+                        <div className="card text-white bg-secondary mb-3" style={{ maxWidth: "20rem" }}>
+
+                            <div className="card-header"><h3>{props.formName}</h3></div>
+                            <div className="card-body">
+
+                                <FormGroupText
+                                    formName={props.formName}
+                                    field="name"
+                                    label="Nombre"
+                                />
+
+                                <br />
+                                <div className="btn-group" role="group" aria-label="First group">
+                                    <Button type="submit" disabled={formikProps.isSubmitting}>
+                                        Guardar
+                                    </Button>
+                                    <Link className="btn btn-sm btn-secondary" to="/actors">
+                                        Cancelar
+                                    </Link>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
                 </Form>
             )}
 
@@ -32,7 +55,7 @@ export default function FormReview(props: formReviewProps) {
 }
 
 interface formReviewProps {
+    formName: string;
     model: reviewCreationDTO;
     onSubmit(values: reviewCreationDTO, action: FormikHelpers<reviewCreationDTO>): void;
-
 }

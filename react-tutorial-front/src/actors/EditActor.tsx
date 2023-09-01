@@ -13,7 +13,9 @@ export default function EditActor() {
   return (
     <>
       <FormActor
-        model={{ name: "", born: new Date() }}
+        formName="Modificar actor"
+        model={{ name: "", born: new Date(), 
+        photoURL:'https://highprofiles.info/wp-content/uploads/2016/04/Yorke-main-900x600.jpg' }}
         onSubmit={async (values) => {
           console.log(values);
         }}

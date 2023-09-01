@@ -14,7 +14,6 @@ export default function FormGroupDate(props: formGroupDateProps) {
         className="form-control"
         id={props.field}
         name={props.field}
-        // defaultValue={values[props.field]?.toLocaleDateString("en-CA")}
         defaultValue={
           values[props.field]
             ? values[props.field].toLocaleDateString("en-CA")
@@ -27,7 +26,7 @@ export default function FormGroupDate(props: formGroupDateProps) {
         }}
       />
       {touched[props.field] && errors[props.field] ? (
-        <ShowErrorField message={errors[props.field]?.toString()} />
+        <ShowErrorField message={errors[props.field]?.toString()!} />
       ) : null}
     </div>
   );

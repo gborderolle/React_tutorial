@@ -3,6 +3,8 @@
 
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "../utils/Button";
+import FormActor from "../actors/FormActor";
+import FormGenre from "./FormGenre";
 
 export default function EditGenre() {
   const navigate = useNavigate();
@@ -15,8 +17,13 @@ export default function EditGenre() {
 
   return (
     <>
-      <h3>Modificar Género</h3>
-      <h4>El id es {id}</h4>
+      <FormGenre
+        formName="Modificar género"
+        model={{ name: ""}}
+        onSubmit={async (values) => {
+          console.log(values);
+        }}
+      />
     </>
-  );
+  )
 }

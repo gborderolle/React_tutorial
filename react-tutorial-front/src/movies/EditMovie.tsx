@@ -12,12 +12,13 @@ export default function EditMovie() {
 
   return (
     <>
-      <FormMovie model={{ title: '' }}
+      <FormMovie
+        formName="Modificar película"
+        model={{ title: ""}}
         onSubmit={async (values) => {
-          await new Promise(r => setTimeout(r, 1000))
           console.log(values);
         }}
       />
     </>
-  );
+  )
 }

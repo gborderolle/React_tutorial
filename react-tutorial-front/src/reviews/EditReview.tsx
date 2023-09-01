@@ -12,7 +12,9 @@ export default function EditReview() {
 
   return (
     <>
-      <FormReview model={{ name: '' }}
+      <FormReview
+        formName="Modificar review"
+        model={{ name: '' }}
         onSubmit={async (values) => {
           await new Promise(r => setTimeout(r, 1000))
           console.log(values);

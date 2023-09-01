@@ -7,8 +7,8 @@ export default function CreateActor() {
   return (
     <>
       <FormActor
+        formName="Crear actor"
         model={{ name: "", born: new Date() }}
-        buttonDisabled
         onSubmit={async (values) => {
           console.log(values);
         }}
