@@ -6,6 +6,11 @@ export interface movie {
 }
 export interface movieCreationDTO {
   title: string;
+  onCinema: boolean;
+  trailer?: string;
+  datePremiere?: Date;
+  poster?: File;
+  posterURL?: string;
 }
 
 export interface landingPageDTO {

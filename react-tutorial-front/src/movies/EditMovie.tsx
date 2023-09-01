@@ -14,7 +14,7 @@ export default function EditMovie() {
     <>
       <FormMovie
         formName="Modificar película"
-        model={{ title: ""}}
+        model={{ title: "", onCinema: true }}
         onSubmit={async (values) => {
           console.log(values);
         }}

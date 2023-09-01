@@ -4,6 +4,8 @@ export interface cinema {
   }
   export interface cinemaCreationDTO {
     name: string;
+    latitude?: number;
+    longitude?: number;
   }
   
   export interface landingPageDTO {

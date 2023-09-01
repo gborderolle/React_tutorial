@@ -21,7 +21,7 @@ export default function FormGroupText(props: formGroupTextProps) {
 
 // define los parámetros de entrada del componente
 interface formGroupTextProps {
-    formName: string;
+    formName?: string;
     field: string;
     label?: string;
     placeholder?: string;

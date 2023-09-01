@@ -4,9 +4,19 @@ import * as Yup from 'yup';
 import { cinemaCreationDTO } from "./cinema.model";
 import { Link } from "react-router-dom";
 import Button from "../utils/Button";
-import LeafletMap from "../utils/LeafletMap";
+import LeafletMapForm from "../utils/LeafletMapForm";
+import { coordinateDTO } from "../utils/coordinateDTO";
 
 export default function FormCinema(props: formCinemaProps) {
+
+    function transformCoordinates(): coordinateDTO[] | undefined {
+        if (props.model.latitude && props.model.longitude) {
+            const response: coordinateDTO = { latitude: props.model.latitude, longitude: props.model.longitude }
+            return [response];
+        }
+        return undefined;
+    }
+
     return (
 
         <Formik
@@ -33,7 +43,9 @@ export default function FormCinema(props: formCinemaProps) {
                                 />
 
                                 <div style={{ marginBottom: '1rem' }}>
-                                    <LeafletMap/>
+                                    <LeafletMapForm fieldLat="latitude" fieldLong="longitude"
+                                        coordinates={transformCoordinates()}
+                                    />
                                 </div>
 
                                 <br />
