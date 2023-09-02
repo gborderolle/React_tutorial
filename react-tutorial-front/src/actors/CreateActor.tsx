@@ -1,16 +1,44 @@
-import { Field, Formik, Form, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import FormGroupText from "../utils/FormGroupText";
+import axios from "axios";
 import FormActor from "./FormActor";
+import { actorCreationDTO } from "./actor.model";
+import { urlActors } from "../utils/endpoints";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import ShowErrors from "../utils/ShowErrors";
 
 export default function CreateActor() {
+  const navigate = useNavigate(); // sirve para navegar entre las páginas
+  const [errors, setErrors] = useState<string[]>([]);
+
+  async function createActor(actor: actorCreationDTO) {
+
+    console.log("Intentando crear actor", actor);
+    try {
+      const config = {
+        headers: {
+          "x-version": "2",
+        },
+      };
+      await axios.post(urlActors, actor, config);
+      navigate("/actors");
+    } catch (error: any) {
+      if (error.response && error.response.data) {
+        setErrors(error.response.data);
+      } else {
+        // handle other errors or set a default error message
+        setErrors(["An unexpected error occurred."]);
+      }
+    }
+  }
+
   return (
     <>
+      <ShowErrors errors={errors} />
       <FormActor
         formName="Crear actor"
-        model={{ name: "", born: new Date() }}
+        model={{ name: "" }}
         onSubmit={async (values) => {
-          console.log(values);
+          await createActor(values);
         }}
       />
     </>

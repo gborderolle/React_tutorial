@@ -1,30 +1,45 @@
-import { Link } from "react-router-dom";
+import IndexEntity from "../utils/IndexEntity";
+import { actorDTO } from "./actor.model";
+import { urlActors } from "../utils/endpoints";
 
 export default function IndexActors() {
   return (
-    <div className="mt-4">
-      <div
-        className="card text-white bg-secondary mb-3"
-        style={{ maxWidth: "50rem" }}
+    <>
+      <IndexEntity<actorDTO>
+        url={urlActors}
+        urlCreate="create"
+        title="Actors"
+        entityName="Actor"
       >
-        <div className="card-header">
-          <h3>Índice Actores</h3>
-        </div>
-        <div className="card-body">
-          <ol className="list-group list-group-numbered">
-            <li className="list-group-item d-flex justify-content-between align-items-start">
-              <div className="ms-2 me-auto">
-                <Link to="/actors/create">Crear</Link>
-              </div>
-            </li>
-            <li className="list-group-item d-flex justify-content-between align-items-start">
-              <div className="ms-2 me-auto">
-                <Link to="/actors/edit">Modificar</Link>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </div>
+        {(actors, buttons) => (
+          <>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Foto</th>
+                <th>Nombre</th>
+                <th>Nacimiento</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Array.isArray(actors) &&
+                actors.map((actor, index) => (
+                  <tr key={actor.id}>
+                    <td>{index + 1}</td>
+                    <td>
+                      <img src={actor.photoURL} alt="Foto del actor." />
+                    </td>
+                    <td>{actor.name}</td>
+                    <td>{actor.born?.toString()}</td>
+                    <td>{buttons(`actors/edit/${actor.id}`, actor.id)}</td>
+                    {/* le paso la función buttons() que es parte del hijo */}
+                  </tr>
+                ))}
+            </tbody>
+          </>
+        )}
+      </IndexEntity>
+    </>
   );
 }

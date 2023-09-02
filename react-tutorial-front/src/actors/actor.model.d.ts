@@ -4,7 +4,7 @@ export interface actor {
 }
 export interface actorCreationDTO {
   name: string;
-  born: Date;
+  born?: Date;
   photo?: File;
   photoURL?: string;
   biography?: string;
@@ -17,4 +17,11 @@ export interface actorMovieDTO {
   name: string;
   character: string;
   photoURL: string;
+}
+
+export interface actorDTO {
+  id: number;
+  name: string;
+  born: Date;
+  photoURL?: string;
 }
