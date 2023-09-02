@@ -1,30 +1,39 @@
-import { Link } from "react-router-dom";
+import IndexEntity from "../utils/IndexEntity";
+import { cinemaDTO } from "./cinema.model";
+import { urlCinemas } from "../utils/endpoints";
 
 export default function IndexCinemas() {
   return (
-    <div className="mt-4">
-      <div
-        className="card text-white bg-secondary mb-3"
-        style={{ maxWidth: "50rem" }}
+    <>
+      <IndexEntity<cinemaDTO>
+        url={urlCinemas}
+        urlCreate="create"
+        title="Cine"
+        entityName="Cinema"
       >
-        <div className="card-header">
-          <h3>Índice Cines</h3>
-        </div>
-        <div className="card-body">
-          <ol className="list-group list-group-numbered">
-            <li className="list-group-item d-flex justify-content-between align-items-start">
-              <div className="ms-2 me-auto">
-                <Link to="/cinemas/create">Crear</Link>
-              </div>
-            </li>
-            <li className="list-group-item d-flex justify-content-between align-items-start">
-              <div className="ms-2 me-auto">
-                <Link to="/cinemas/edit">Modificar</Link>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </div>
+        {(cinemas, buttons) => (
+          <>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Array.isArray(cinemas) &&
+                cinemas.map((cinema, index) => (
+                  <tr key={cinema.id}>
+                    <td>{index + 1}</td>
+                    <td>{cinema.name}</td>
+                    <td>{buttons(`cinemas/edit/${cinema.id}`, cinema.id)}</td>
+                    {/* le paso la función buttons() que es parte del hijo */}
+                  </tr>
+                ))}
+            </tbody>
+          </>
+        )}
+      </IndexEntity>
+    </>
   );
 }

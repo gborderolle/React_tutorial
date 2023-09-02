@@ -1,44 +1,37 @@
-import { cinemaDTO } from "../cinemas/cinema.model";
-import { genreDTO } from "../genres/genre.model";
+import axios from "axios";
 import FormMovie from "./FormMovie";
+import { movieCreationDTO } from "./movie.model";
+import { urlMovies } from "../utils/endpoints";
+import { useNavigate } from "react-router-dom";
+import ShowErrors from "../utils/ShowErrors";
+import { useState } from "react";
 
 export default function CreateMovie() {
-  const genres: genreDTO[] = [
-    { id: 1, name: "Acción" },
-    { id: 2, name: "Terror" },
-    { id: 3, name: "Drama" },
-    { id: 4, name: "Comedia" },
-  ];
+  const navigate = useNavigate(); // sirve para navegar entre las páginas
+  const [errors, setErrors] = useState<string[]>([]);
 
-  const cinemas: cinemaDTO[] = [
-    {
-      id: 1,
-      name: "Moviecenter",
-      latitude: -34.903330145650386,
-      longitude: -56.137249458647425,
-    },
-    {
-      id: 2,
-      name: "Life Cinemas",
-      latitude: -34.91894597486183,
-      longitude: -56.156750917390845,
-    },
-    {
-      id: 3,
-      name: "Cinemateca",
-      latitude: -34.90853352555303,
-      longitude: -56.200940150687146,
-    },
-    {
-      id: 4,
-      name: "Punta Carretas",
-      latitude: -34.92071812554256,
-      longitude: -56.15575005033036,
-    },
-  ];
+  async function createMovie(movie: movieCreationDTO) {
+    try {
+      const config = {
+        headers: {
+          "x-version": "2",
+        },
+      };
+      await axios.post(urlMovies, movie, config);
+      navigate("/movies");
+    } catch (error: any) {
+      if (error.response && error.response.data) {
+        setErrors(error.response.data);
+      } else {
+        // handle other errors or set a default error message
+        setErrors(["An unexpected error occurred."]);
+      }
+    }
+  }
 
   return (
     <>
+      <ShowErrors errors={errors} />
       <FormMovie
         formName="Crear película"
         model={{ title: "", onCinema: true }}
@@ -47,9 +40,9 @@ export default function CreateMovie() {
           console.log(values);
         }}
         selectedGenres={[]}
-        noSelectedGenres={genres}
+        noSelectedGenres={[]} //
         selectedCinemas={[]}
-        noSelectedCinemas={cinemas}
+        noSelectedCinemas={[]} //
         selectedActors={[]}
       />
     </>

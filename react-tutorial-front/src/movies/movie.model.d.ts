@@ -22,3 +22,10 @@ export interface landingPageDTO {
   moviesInTheatres?: movie[];
   moviesNextReleases?: movie[];
 }
+
+export interface movieDTO {
+  id: number;
+  title: string;
+  poster: Date;
+  description: string;
+}

@@ -13,8 +13,8 @@ import MultipleSelector, {
 import { useState } from "react";
 import { genreDTO } from "../genres/genre.model";
 import { cinemaDTO } from "../cinemas/cinema.model";
-import TypeaheadActors from "../actors/TypeaheadActors";
 import { actorMovieDTO } from "../actors/actor.model";
+import TypeaheadActors from "../actors/TypeaheadActors";
 
 export default function FormMovie(props: formMovieProps) {
   const [selectedActors, setSelectedActors] = useState<actorMovieDTO[]>(

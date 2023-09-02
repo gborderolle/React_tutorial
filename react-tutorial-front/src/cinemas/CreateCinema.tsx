@@ -1,16 +1,44 @@
+import axios from "axios";
 import FormCinema from "./FormCinema";
+import { cinemaCreationDTO } from "./cinema.model";
+import { urlCinemas } from "../utils/endpoints";
+import { useNavigate } from "react-router-dom";
+import ShowErrors from "../utils/ShowErrors";
+import { useState } from "react";
 
 export default function CreateCinema() {
+  const navigate = useNavigate(); // sirve para navegar entre las páginas
+  const [errors, setErrors] = useState<string[]>([]);
+
+  async function createCinema(cinema: cinemaCreationDTO) {
+    try {
+      const config = {
+        headers: {
+          "x-version": "2",
+        },
+      };
+      await axios.post(urlCinemas, cinema, config);
+      navigate("/cinemas");
+    } catch (error: any) {
+      if (error.response && error.response.data) {
+        setErrors(error.response.data);
+      } else {
+        // handle other errors or set a default error message
+        setErrors(["An unexpected error occurred."]);
+      }
+    }
+  }
+
   return (
     <>
+      <ShowErrors errors={errors} />
       <FormCinema
         formName="Crear cine"
-        model={{ name: '' }}
+        model={{ name: "" }}
         onSubmit={async (values) => {
-          await new Promise(r => setTimeout(r, 1000))
-          console.log(values);
+          await createCinema(values);
         }}
       />
     </>
-  )
+  );
 }
