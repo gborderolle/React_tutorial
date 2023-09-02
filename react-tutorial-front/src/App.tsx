@@ -11,7 +11,6 @@ import setupValidations from "./Validations";
 setupValidations();
 
 function App() {
-
   const movieTest: movie = {
     id: 1,
     title: "Spider Man",
@@ -25,10 +24,9 @@ function App() {
     <>
       <BrowserRouter>
         <Menu />
-        <div className="container">
-
+        <div className="container" style={{ marginLeft: "100px" }}>
           <Routes>
-            {paths.map(pathObj => (
+            {paths.map((pathObj) => (
               <Route
                 key={pathObj.path}
                 path={pathObj.path}
@@ -36,7 +34,6 @@ function App() {
               />
             ))}
           </Routes>
-
         </div>
       </BrowserRouter>
     </>

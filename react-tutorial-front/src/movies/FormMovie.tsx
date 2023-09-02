@@ -1,64 +1,184 @@
 import { Form, Formik, FormikHelpers } from "formik";
 import FormGroupText from "../utils/FormGroupText";
-import * as Yup from 'yup';
+import * as Yup from "yup";
 import { movieCreationDTO } from "../movies/movie.model";
 import { Link } from "react-router-dom";
 import Button from "../utils/Button";
 import FormGroupCheckbox from "../utils/FormGroupCheckbox";
 import FormGroupDate from "../utils/FormGroupDate";
 import FormGroupImage from "../utils/FormGroupImage";
+import MultipleSelector, {
+  multipleSelectorModel,
+} from "../utils/MultipleSelector";
+import { useState } from "react";
+import { genreDTO } from "../genres/genre.model";
+import { cinemaDTO } from "../cinemas/cinema.model";
+import TypeaheadActors from "../actors/TypeaheadActors";
+import { actorMovieDTO } from "../actors/actor.model";
 
 export default function FormMovie(props: formMovieProps) {
-    return (
+  const [selectedActors, setSelectedActors] = useState<actorMovieDTO[]>(
+    props.selectedActors
+  );
 
-        <Formik
-            initialValues={props.model}
-            onSubmit={props.onSubmit}
-            validationSchema={Yup.object({
-                title: Yup.string()
-                    .required('Dato requerido.')
-                    .firstCharCapitalization()
-            })}
-        >
-            {(formikProps) => (
+  const [selectedGenres, setSelectedGenres] = useState(
+    mapDTO(props.selectedGenres)
+  );
+  const [noSelectedGenres, setNoSelectedGenres] = useState(
+    mapDTO(props.noSelectedGenres)
+  );
 
-                <Form>
-                    <div className="mt-4">
-                        <div className="card text-white bg-secondary mb-3" style={{ maxWidth: "20rem" }}>
+  const [selectedCinemas, setSelectedCinemas] = useState(
+    mapDTO(props.selectedCinemas)
+  );
+  const [noSelectedCinemas, setNoSelectedCinemas] = useState(
+    mapDTO(props.noSelectedCinemas)
+  );
 
-                            <div className="card-header"><h3>{props.formName}</h3></div>
-                            <div className="card-body">
+  function mapDTO(
+    array: { id: number; name: string }[]
+  ): multipleSelectorModel[] {
+    return array.map((value) => {
+      return { key: value.id, value: value.name };
+    });
+  }
 
-                                <FormGroupText formName={props.formName} field="title" label="Nombre" />
-                                <FormGroupCheckbox field="onCinema" label="En cines" />
-                                <FormGroupText formName={props.formName} field="trailer" label="Trailer" />
-                                <FormGroupDate field={"premiereDate"} label={"Fecha lanzamiento"} />
-                                <FormGroupImage field={"poster"} label={"Poster"} imageURL={props.model.posterURL} />
-                                <br />
-                                <div className="btn-group" role="group" aria-label="First group">
-                                    <Button type="submit" disabled={formikProps.isSubmitting}>
-                                        Guardar
-                                    </Button>
-                                    <Link className="btn btn-sm btn-secondary" to="/">
-                                        Cancelar
-                                    </Link>
-                                </div>
+  return (
+    <Formik
+      initialValues={props.model}
+      onSubmit={(values, actions) => {
+        values.genreIds = selectedGenres.map((value) => value.key);
+        values.cinemaIds = selectedCinemas.map((value) => value.key);
+        values.actors = selectedActors;
 
-                            </div>
-                        </div>
+        props.onSubmit(values, actions);
+      }}
+      validationSchema={Yup.object({
+        title: Yup.string()
+          .required("Dato requerido.")
+          .firstCharCapitalization(),
+      })}
+    >
+      {(formikProps) => (
+        <Form>
+          <div className="mt-4">
+            <div
+              className="card text-white bg-secondary mb-3"
+              style={{ maxWidth: "50rem" }}
+            >
+              <div className="card-header">
+                <h3>{props.formName}</h3>
+              </div>
+              <div className="card-body">
+                <FormGroupText
+                  formName={props.formName}
+                  field="title"
+                  label="Nombre"
+                />
+                <FormGroupCheckbox field="onCinema" label="En cines" />
+                <FormGroupText
+                  formName={props.formName}
+                  field="trailer"
+                  label="Trailer"
+                />
+                <FormGroupDate
+                  field={"premiereDate"}
+                  label={"Fecha lanzamiento"}
+                />
+                <FormGroupImage
+                  field={"poster"}
+                  label={"Poster"}
+                  imageURL={props.model.posterURL}
+                />
 
-                    </div>
+                <br />
+                <div className="form-group">
+                  <label>Géneros:</label>
+                  <MultipleSelector
+                    selected={selectedGenres}
+                    noSelected={noSelectedGenres}
+                    onChange={(selected, noSelected) => {
+                      setSelectedGenres(selected);
+                      setNoSelectedGenres(noSelected);
+                    }}
+                  />
+                </div>
 
-                </Form>
-            )}
+                <br />
+                <div className="form-group">
+                  <label>Cines:</label>
+                  <MultipleSelector
+                    selected={selectedCinemas}
+                    noSelected={noSelectedCinemas}
+                    onChange={(selected, noSelected) => {
+                      setSelectedCinemas(selected);
+                      setNoSelectedCinemas(noSelected);
+                    }}
+                  />
+                </div>
 
-        </Formik>
+                <div className="form-group">
+                  <TypeaheadActors
+                    onAdd={(actors) => setSelectedActors(actors)}
+                    onRemove={(actor) => {
+                      const actors = selectedActors.filter((x) => x !== actor);
+                      setSelectedActors(actors);
+                    }}
+                    actors={selectedActors}
+                    listUI={(actor: actorMovieDTO) => (
+                      <>
+                        {actor.name} /
+                        <input
+                          placeholder="Personaje"
+                          type="text"
+                          value={actor.character}
+                          onChange={(e) => {
+                            const index = selectedActors.findIndex(
+                              (x) => x.id === actor.id
+                            );
 
-    )
+                            const actors = [...selectedActors];
+                            actors[index].character = e.currentTarget.value;
+                            setSelectedActors(actors);
+                          }}
+                        />
+                      </>
+                    )}
+                  />
+                </div>
+
+                <br />
+                <div
+                  className="btn-group"
+                  role="group"
+                  aria-label="First group"
+                >
+                  <Button type="submit" disabled={formikProps.isSubmitting}>
+                    Guardar
+                  </Button>
+                  <Link className="btn btn-sm btn-secondary" to="/">
+                    Cancelar
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Form>
+      )}
+    </Formik>
+  );
 }
 
 interface formMovieProps {
-    model: movieCreationDTO;
-    formName: string;
-    onSubmit(values: movieCreationDTO, action: FormikHelpers<movieCreationDTO>): void;
+  model: movieCreationDTO;
+  formName: string;
+  onSubmit(
+    values: movieCreationDTO,
+    action: FormikHelpers<movieCreationDTO>
+  ): void;
+  selectedGenres: genreDTO[];
+  noSelectedGenres: genreDTO[];
+  selectedCinemas: cinemaDTO[];
+  noSelectedCinemas: cinemaDTO[];
+  selectedActors: actorMovieDTO[];
 }

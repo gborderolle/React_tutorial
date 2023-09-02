@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-export default function anchor(props: anchorProps) {
+export default function Anchor(props: anchorProps) {
   return (
     <>
       {/* <a href={props.url} className="btn btn-primary">

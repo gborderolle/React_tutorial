@@ -10,7 +10,6 @@ import FormGroupMarkdown from "../utils/FormGroupMarkdown";
 
 export default function FormActor(props: formActorProps) {
   return (
-
     <Formik
       initialValues={props.model}
       onSubmit={props.onSubmit}
@@ -19,30 +18,39 @@ export default function FormActor(props: formActorProps) {
           .required("Dato requerido.")
           .firstCharCapitalization(),
 
-        born: Yup.date()
-          .nullable()
-          .required("Dato requerido."),
+        born: Yup.date().nullable().required("Dato requerido."),
       })}
     >
       {(formikProps) => (
         <Form>
           <div className="mt-4">
-            <div className="card text-white bg-secondary mb-3" style={{ maxWidth: "80rem" }}>
-
-              <div className="card-header"><h3>{props.formName}</h3></div>
+            <div
+              className="card text-white bg-secondary mb-3"
+              style={{ maxWidth: "50rem" }}
+            >
+              <div className="card-header">
+                <h3>{props.formName}</h3>
+              </div>
               <div className="card-body">
-
                 <FormGroupText
                   formName={props.formName}
                   field="name"
                   label="Nombre"
                 />
                 <FormGroupDate label="Fecha de nacimiento" field="born" />
-                <FormGroupImage field="photo" label="Foto" imageURL={props.model.photoURL} />
+                <FormGroupImage
+                  field="photo"
+                  label="Foto"
+                  imageURL={props.model.photoURL}
+                />
                 <FormGroupMarkdown field="biography" label="Biografía" />
 
                 <br />
-                <div className="btn-group" role="group" aria-label="First group">
+                <div
+                  className="btn-group"
+                  role="group"
+                  aria-label="First group"
+                >
                   <Button type="submit" disabled={formikProps.isSubmitting}>
                     Guardar
                   </Button>
@@ -50,9 +58,7 @@ export default function FormActor(props: formActorProps) {
                     Cancelar
                   </Link>
                 </div>
-
               </div>
-
             </div>
           </div>
         </Form>
@@ -66,6 +72,6 @@ interface formActorProps {
   model: actorCreationDTO;
   onSubmit(
     values: actorCreationDTO,
-    action: FormikHelpers<actorCreationDTO>,
+    action: FormikHelpers<actorCreationDTO>
   ): void;
 }
