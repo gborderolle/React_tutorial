@@ -1,5 +1,3 @@
-// Clase 143: https://www.udemy.com/course/desarrollando-aplicaciones-en-react-y-aspnet-core/learn/lecture/26095218#notes
-
 import axios, { AxiosResponse, isAxiosError } from "axios";
 import FormMovie from "./FormMovie";
 import { urlMovies } from "../utils/endpoints";
@@ -18,26 +16,44 @@ export default function EditMovie() {
   const [errors, setErrors] = useState<string[]>([]);
 
   useEffect(() => {
-    console.log(`${urlMovies}/PutGet/${id}`);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get<ApiResponse<any>>(`${urlMovies}/PutGet/${id}`, {
+          headers: {
+            "x-version": "2",
+          },
+        });
 
-    axios
-      .get(`${urlMovies}/PutGet/${id}`)
-      //.then((response: AxiosResponse<moviePutGetDTO>) => {
-      .then((response: AxiosResponse<any>) => {
-        const model: movieCreationDTO = {
-          title: response.data.movie.title,
-          onCinema: response.data.movie.onCinema,
-          trailer: response.data.movie.trailer,
-          posterURL: response.data.movie.posterURL,
-          description: response.data.movie.description,
-          datePremiere: new Date(response.data.movie.datePremiere),
-        };
-        setMovie(model);
-        setMoviePutGet(response.data.result);
-      });
+        if (response && response.data) {
+          const model: movieCreationDTO = {
+            title: response.data.result.movie.title,
+            onCinema: response.data.result.movie.onCinema,
+            trailer: response.data.result.movie.trailer,
+            posterURL: response.data.result.movie.posterURL,
+            description: response.data.result.movie.description,
+            datePremiere: new Date(response.data.result.movie.datePremiere),
+          };
+
+          setMovie(model);
+          setMoviePutGet(response.data.result);
+        } else {
+          throw new Error("Unexpected data format from the API.");
+        }
+
+      } catch (error) {
+        if (isAxiosError(error) && error.message) {
+          setErrors([error.message]);
+        } else {
+          setErrors(["An unexpected error occurred."]);
+        }
+      }
+
+    };
+
+    fetchData();
   }, [id]);
 
-  async function editMovie(editMovie: movieCreationDTO) {
+  const editMovie = async (editMovie: movieCreationDTO) => {
     try {
       const formData = ConvertMovieToFormData(editMovie);
       await axios.put<ApiResponse<any>>(`${urlMovies}/${id}`, formData, {
@@ -46,6 +62,7 @@ export default function EditMovie() {
           "Content-Type": "multipart/form-data", // importante si endpoint recibe "[FromForm]"
         },
       });
+      navigate("/movies");
     } catch (error) {
       if (isAxiosError(error) && error.response) {
         setErrors(error.response.data);
@@ -53,8 +70,7 @@ export default function EditMovie() {
         setErrors(["An unexpected error occurred."]);
       }
     }
-    navigate("/movies");
-  }
+  };
 
   return (
     <>
@@ -81,25 +97,3 @@ interface ApiResponse<T> {
   isSuccess: boolean;
   result: T;
 }
-
-// ShowErrors errors={errors}></ShowErrors>
-//       {movie && moviePutGet ? (
-//         <EditEntity<movieCreationDTO, movieDTO>
-//           url={urlMovies}
-//           urlIndex="/movies"
-//           entityName="Movies"
-//           transformFormData={ConvertMovieToFormData}
-//         >
-//           {(entity, edit) => (
-//             <FormMovie
-//               formName="Modificar película"
-//               model={entity!}
-//               onSubmit={(values) => edit(values)}
-//               noSelectedGenres={moviePutGet.noSelectedGenres}
-//               selectedGenres={moviePutGet.selectedGenres}
-//               noSelectedCinemas={moviePutGet.noSelectedCinemas}
-//               selectedCinemas={moviePutGet.selectedCinemas}
-//               selectedActors={moviePutGet.actors}
-//             />
-//           )}
-//         </EditEntity>

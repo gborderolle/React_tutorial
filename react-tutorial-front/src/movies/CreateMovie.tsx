@@ -27,19 +27,15 @@ export default function CreateMovie() {
           "Content-Type": "multipart/form-data", // importante si endpoint recibe "[FromForm]"
         },
       };
-      await axios
-        .post(urlMovies, formData, config)
-        .then((response: AxiosResponse<number>) => {
-          // ToDo: number?
-          navigate(`/movies/${response.data}`); // ToDo: data?
-          setLoaded(true);
-        });
-    } catch (error: any) {
+      const response = await axios.post<number>(urlMovies, formData, config);
+      navigate(`/movies/${response.data}`);
+      setLoaded(true);
+    }
+    catch (error: any) {
       if (error.response && error.response.data) {
-        setErrors(error.response.data);
+        setErrors([error.response.data]); // Asegúrate de que esto es un array
       } else {
-        // handle other errors or set a default error message
-        setErrors(["An unexpected error occurred."]);
+        setErrors([error.message || "An unexpected error occurred."]);
       }
     }
   }
@@ -57,6 +53,13 @@ export default function CreateMovie() {
         setNoSelectedGenres(response.data.result.genres);
         setNoSelectedCinemas(response.data.result.cinemas);
         setLoaded(true);
+      })
+      .catch((error: any) => {
+        if (error.response && error.response.data) {
+          setErrors([error.response.data]); // Asegúrate de que esto es un array
+        } else {
+          setErrors([error.message || "An unexpected error occurred."]);
+        }
       });
   }, []);
 

@@ -55,7 +55,11 @@ export default function IndexEntity<T>(props: indexEntityProps<T>) {
         }
       })
       .catch((error) => {
-        setErrors(error.response.data);
+        if (error.response && error.response.data) {
+          setErrors([error.response.data]); // Asegúrate de que esto es un array
+        } else {
+          setErrors([error.message || "An unexpected error occurred."]);
+        }
       });
   }
 

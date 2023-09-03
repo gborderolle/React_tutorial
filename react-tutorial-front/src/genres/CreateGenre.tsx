@@ -21,10 +21,9 @@ export default function CreateGenre() {
       navigate("/genres");
     } catch (error: any) {
       if (error.response && error.response.data) {
-        setErrors(error.response.data);
+        setErrors([error.response.data]); // Asegúrate de que esto es un array
       } else {
-        // handle other errors or set a default error message
-        setErrors(["An unexpected error occurred."]);
+        setErrors([error.message || "An unexpected error occurred."]);
       }
     }
   }
