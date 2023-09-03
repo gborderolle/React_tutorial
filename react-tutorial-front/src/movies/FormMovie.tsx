@@ -137,7 +137,6 @@ export default function FormMovie(props: formMovieProps) {
                             const index = selectedActors.findIndex(
                               (x) => x.id === actor.id
                             );
-
                             const actors = [...selectedActors];
                             actors[index].character = e.currentTarget.value;
                             setSelectedActors(actors);

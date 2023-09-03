@@ -30,8 +30,7 @@ export default function CreateMovie() {
       const response = await axios.post<number>(urlMovies, formData, config);
       navigate(`/movies/${response.data}`);
       setLoaded(true);
-    }
-    catch (error: any) {
+    } catch (error: any) {
       if (error.response && error.response.data) {
         setErrors([error.response.data]); // Asegúrate de que esto es un array
       } else {
@@ -46,7 +45,6 @@ export default function CreateMovie() {
         "x-version": "2",
       },
     };
-
     axios
       .get(`${urlMovies}/postget`, config)
       .then((response: AxiosResponse<moviesPostGetDTO>) => {

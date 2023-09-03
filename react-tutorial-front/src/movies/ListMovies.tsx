@@ -1,5 +1,4 @@
 import GenericList from "../utils/GenericList";
-import Loading from "../utils/Loading";
 import { movie } from "./movie.model";
 import MovieSingle from "./movieSingle";
 

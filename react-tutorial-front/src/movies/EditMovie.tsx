@@ -11,43 +11,66 @@ import ShowErrors from "../utils/ShowErrors";
 export default function EditMovie() {
   const navigate = useNavigate();
   const { id }: any = useParams();
-  const [movie, setMovie] = useState<movieCreationDTO>();
-  const [moviePutGet, setMoviePutGet] = useState<moviePutGetDTO>();
   const [errors, setErrors] = useState<string[]>([]);
+
+  const initial_moviePutGetDTO: moviePutGetDTO = {
+    movie: {
+      title: "",
+      onCinema: true,
+    },
+    noSelectedGenres: [],
+    selectedGenres: [],
+    noSelectedCinemas: [],
+    selectedCinemas: [],
+    actors: [],
+  };
+
+  const [moviePutGet, setMoviePutGet] = useState<moviePutGetDTO>(
+    initial_moviePutGetDTO
+  );
+
+  const [movie, setMovie] = useState<movieCreationDTO>({
+    title: "",
+    onCinema: true,
+  });
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await axios.get<ApiResponse<any>>(`${urlMovies}/PutGet/${id}`, {
-          headers: {
-            "x-version": "2",
-          },
-        });
+      const config = {
+        headers: {
+          "x-version": "2",
+        },
+      };
+      let urlcompleta = `${urlMovies}/${id}`;
+      console.log("request: " + urlcompleta);
 
+      try {
+        const response: AxiosResponse<moviePutGetDTO> = await axios.get(
+          urlcompleta,
+          config
+        );
         if (response && response.data) {
           const model: movieCreationDTO = {
-            title: response.data.result.movie.title,
-            onCinema: response.data.result.movie.onCinema,
-            trailer: response.data.result.movie.trailer,
-            posterURL: response.data.result.movie.posterURL,
-            description: response.data.result.movie.description,
-            datePremiere: new Date(response.data.result.movie.datePremiere),
+            title: response.data.movie.title,
+            onCinema: response.data.movie.onCinema,
+            trailer: response.data.movie.trailer,
+            posterURL: response.data.movie.posterURL,
+            description: response.data.movie.description,
+            //premiere: new Date(response.data.movie.premiere),
           };
 
           setMovie(model);
-          setMoviePutGet(response.data.result);
+          setMoviePutGet(response.data);
         } else {
-          throw new Error("Unexpected data format from the API.");
+          throw new Error("Formato de datos inesperado de la API.");
         }
-
-      } catch (error) {
-        if (isAxiosError(error) && error.message) {
-          setErrors([error.message]);
+      } catch (error: any) {
+        if (error.response && error.response.data) {
+          setErrors([error.response.data]); // Asegúrate de que esto es un array
         } else {
-          setErrors(["An unexpected error occurred."]);
+          setErrors([error.message || "Ha ocurrido un error inesperado."]);
         }
       }
-
     };
 
     fetchData();
@@ -72,6 +95,11 @@ export default function EditMovie() {
     }
   };
 
+  console.log("movie:" + movie);
+  console.log(movie);
+  console.log("moviePutGet:" + moviePutGet);
+  console.log(moviePutGet);
+
   return (
     <>
       <ShowErrors errors={errors}></ShowErrors>
@@ -80,11 +108,11 @@ export default function EditMovie() {
           formName="Modificar película"
           model={movie}
           onSubmit={(values) => editMovie(values)}
-          noSelectedGenres={moviePutGet.noSelectedGenres}
-          selectedGenres={moviePutGet.selectedGenres}
-          noSelectedCinemas={moviePutGet.noSelectedCinemas}
-          selectedCinemas={moviePutGet.selectedCinemas}
-          selectedActors={moviePutGet.actors}
+          noSelectedGenres={moviePutGet.noSelectedGenres || []} // Verificación de Nullidad aquí
+          selectedGenres={moviePutGet.selectedGenres || []} // Verificación de Nullidad aquí
+          noSelectedCinemas={moviePutGet.noSelectedCinemas || []} // Verificación de Nullidad aquí
+          selectedCinemas={moviePutGet.selectedCinemas || []} // Verificación de Nullidad aquí
+          selectedActors={moviePutGet.actors || []} // Verificación de Nullidad aquí
         />
       ) : (
         <Loading />

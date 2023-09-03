@@ -12,7 +12,6 @@ export default function LandingPage() {
     loadData();
   }, []);
 
-
   function loadData() {
     axios
       .get(`${urlMovies}`, {
@@ -22,7 +21,10 @@ export default function LandingPage() {
       })
       .then((response: AxiosResponse) => {
         if (response.data.isSuccess && Array.isArray(response.data.result)) {
-          setMovies({ moviesInTheatres: response.data.result, moviesNextReleases: [] });
+          setMovies({
+            moviesInTheatres: response.data.result,
+            moviesNextReleases: [],
+          });
         } else {
           console.error("Unexpected data format from the API.");
         }

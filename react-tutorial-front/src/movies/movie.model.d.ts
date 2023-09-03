@@ -33,7 +33,7 @@ export interface movieDTO {
 }
 
 export interface moviePutGetDTO {
-  movie: movieDTO;
+  movie: movieCreationDTO;
   selectedGenres: genreDTO[];
   noSelectedGenres: genreDTO[];
   selectedCinemas: cinemaDTO[];
