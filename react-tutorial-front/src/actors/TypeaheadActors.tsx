@@ -4,45 +4,23 @@
 // Clase 89: https://www.udemy.com/course/desarrollando-aplicaciones-en-react-y-aspnet-core/learn/lecture/25968684#overview
 // Mostrar foto junto a la sugerencia
 
+import axios, { isAxiosError, AxiosResponse } from "axios";
 import { Typeahead } from "react-bootstrap-typeahead";
 import { actorMovieDTO } from "./actor.model";
-import { ReactElement, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
+import { urlActors } from "../utils/endpoints";
 
 export default function TypeaheadActors(props: typeaheadActorsProps) {
-  const actors: actorMovieDTO[] = [
-    {
-      id: 1,
-      name: "Brad Pitt",
-      character: "",
-      photoURL: "https://flxt.tmsimg.com/assets/1366_v9_bc.jpg",
-    },
-    {
-      id: 2,
-      name: "Cillian Murphy",
-      character: "",
-      photoURL:
-        "https://i.guim.co.uk/img/media/7b482387e8703a4abb253b8007b1eadcbe2ba822/1648_678_2104_1262/master/2104.jpg",
-    },
-    {
-      id: 3,
-      name: "Margot Robbie",
-      character: "",
-      photoURL:
-        "https://static.wikia.nocookie.net/ideas/images/2/2d/Margot_Robbie.jpg",
-    },
-    {
-      id: 4,
-      name: "Bradley Cooper",
-      character: "",
-      photoURL:
-        "https://cdn.britannica.com/57/199057-050-CCE5410A/Bradley-Cooper-2008.jpg",
-    },
-  ];
-
+  const [actors, setActors] = useState<actorMovieDTO[]>([]);
+  const [errors, setErrors] = useState<string[]>([]);
   const selection: actorMovieDTO[] = [];
   const [draggedElement, setDraggedElement] = useState<
     actorMovieDTO | undefined
   >(undefined);
+
+  useEffect(() => {
+    loadData();
+  }, []);
 
   function dragStartEvent(actor: actorMovieDTO) {
     setDraggedElement(actor);
@@ -65,14 +43,38 @@ export default function TypeaheadActors(props: typeaheadActorsProps) {
     }
   }
 
+  function loadData() {
+    axios
+      .get(`${urlActors}`, {
+        headers: {
+          "x-version": "2",
+        },
+      })
+      .then((response: AxiosResponse) => {
+        if (response.data.isSuccess && Array.isArray(response.data.result)) {
+          setActors(response.data.result);
+        } else {
+          console.error("Unexpected data format from the API.");
+        }
+      })
+      .catch((error) => {
+        if (isAxiosError(error) && error.response) {
+          setErrors(error.response.data);
+        } else {
+          console.error(error);
+        }
+      });
+  }
+
   return (
     <>
       <label>Actores:</label>
       <Typeahead
         id="typeahead"
-        onChange={(actors: any) => {
-          if (props.actors.findIndex((x) => x.id === actors[0].id) === -1) {
-            props.onAdd([...props.actors, actors[0]]);
+        onChange={(selectedOptions: any[]) => {
+          const selectedActor = selectedOptions[0] as actorMovieDTO;
+          if (props.actors.findIndex((x) => x.id === selectedActor.id) === -1) {
+            props.onAdd([...props.actors, selectedActor]);
           }
         }}
         options={actors}
@@ -97,7 +99,6 @@ export default function TypeaheadActors(props: typeaheadActorsProps) {
           </>
         )} // mostrar foto junto a la sugerencia
       />
-
       <ul className="list-group">
         {props.actors.map((actor) => (
           <li

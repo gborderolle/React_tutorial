@@ -27,8 +27,13 @@ export default function CreateMovie() {
           "Content-Type": "multipart/form-data", // importante si endpoint recibe "[FromForm]"
         },
       };
-      await axios.post(urlMovies, formData, config);
-      navigate("/movies");
+      await axios
+        .post(urlMovies, formData, config)
+        .then((response: AxiosResponse<number>) => {
+          // ToDo: number?
+          navigate(`/movies/${response.data}`); // ToDo: data?
+          setLoaded(true);
+        });
     } catch (error: any) {
       if (error.response && error.response.data) {
         setErrors(error.response.data);
@@ -40,14 +45,14 @@ export default function CreateMovie() {
   }
 
   useEffect(() => {
-
     const config = {
       headers: {
         "x-version": "2",
       },
     };
 
-    axios.get(`${urlMovies}/postget`, config)
+    axios
+      .get(`${urlMovies}/postget`, config)
       .then((response: AxiosResponse<moviesPostGetDTO>) => {
         setNoSelectedGenres(response.data.result.genres);
         setNoSelectedCinemas(response.data.result.cinemas);

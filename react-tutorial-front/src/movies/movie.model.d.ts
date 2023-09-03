@@ -1,4 +1,5 @@
 import { actorMovieDTO } from "../actors/actor.model";
+import { cinemaDTO } from "../cinemas/cinema.model";
 
 export interface movie {
   id: number;
@@ -31,14 +32,18 @@ export interface movieDTO {
   description?: string;
 }
 
-// export interface moviesPostGetDTO {
-//   genres: genreDTO[];
-//   cinemas: cinemaDTO[];
-// }
+export interface moviePutGetDTO {
+  movie: movieDTO;
+  selectedGenres: genreDTO[];
+  noSelectedGenres: genreDTO[];
+  selectedCinemas: cinemaDTO[];
+  noSelectedCinemas: cinemaDTO[];
+  actors: actorMovieDTO[];
+}
 
 export type moviesPostGetDTO = {
   result: {
-    genres: genreDTO[],
-    cinemas: cinemaDTO[]
-  }
+    genres: genreDTO[];
+    cinemas: cinemaDTO[];
+  };
 };

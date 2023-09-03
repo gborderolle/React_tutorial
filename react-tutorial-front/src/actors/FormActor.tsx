@@ -15,7 +15,6 @@ export default function FormActor(props: formActorProps) {
   };
   return (
     <Formik
-      //initialValues={props.model}
       initialValues={initialValues}
       onSubmit={props.onSubmit}
       validationSchema={Yup.object({

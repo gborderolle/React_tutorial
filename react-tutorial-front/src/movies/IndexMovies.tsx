@@ -1,6 +1,7 @@
 import IndexEntity from "../utils/IndexEntity";
 import { movieDTO } from "./movie.model";
 import { urlMovies } from "../utils/endpoints";
+import FormGroupMarkdown from "../utils/FormGroupMarkdown";
 
 export default function IndexMovies() {
   return (
@@ -51,8 +52,8 @@ export default function IndexMovies() {
 
 {
   /* <li className="list-group-item d-flex justify-content-between align-items-start">
-              <div className="ms-2 me-auto">
-                <Link to="/movies/filter">Filtrar</Link>
-              </div>
-            </li> */
+      <div className="ms-2 me-auto">
+        <Link to="/movies/filter">Filtrar</Link>
+      </div>
+    </li> */
 }
