@@ -31,7 +31,14 @@ export interface movieDTO {
   description?: string;
 }
 
-export interface moviesPostGetDTO {
-  genres: genreDTO[];
-  cinemas: cinemaDTO[];
-}
+// export interface moviesPostGetDTO {
+//   genres: genreDTO[];
+//   cinemas: cinemaDTO[];
+// }
+
+export type moviesPostGetDTO = {
+  result: {
+    genres: genreDTO[],
+    cinemas: cinemaDTO[]
+  }
+};

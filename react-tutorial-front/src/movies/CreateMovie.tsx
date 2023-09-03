@@ -20,15 +20,14 @@ export default function CreateMovie() {
 
   async function createMovie(movie: movieCreationDTO) {
     try {
-      //const formData = ConvertMovieToFormData(movie);
-
+      const formData = ConvertMovieToFormData(movie);
       const config = {
         headers: {
           "x-version": "2",
           "Content-Type": "multipart/form-data", // importante si endpoint recibe "[FromForm]"
         },
       };
-      await axios.post(urlMovies, movie, config);
+      await axios.post(urlMovies, formData, config);
       navigate("/movies");
     } catch (error: any) {
       if (error.response && error.response.data) {
@@ -41,11 +40,17 @@ export default function CreateMovie() {
   }
 
   useEffect(() => {
-    axios
-      .get(`${urlMovies}/postget`)
+
+    const config = {
+      headers: {
+        "x-version": "2",
+      },
+    };
+
+    axios.get(`${urlMovies}/postget`, config)
       .then((response: AxiosResponse<moviesPostGetDTO>) => {
-        setNoSelectedGenres(response.data.genres);
-        setNoSelectedCinemas(response.data.cinemas);
+        setNoSelectedGenres(response.data.result.genres);
+        setNoSelectedCinemas(response.data.result.cinemas);
         setLoaded(true);
       });
   }, []);
