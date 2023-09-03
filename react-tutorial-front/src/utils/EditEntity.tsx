@@ -1,6 +1,7 @@
 // Generics (mejorado con ChatGPT),Clase 122: https://www.udemy.com/course/desarrollando-aplicaciones-en-react-y-aspnet-core/learn/lecture/26021372#overview
 
 import axios from "axios";
+import { AxiosResponse } from "axios";
 import { useState, useEffect, ReactElement } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ShowErrors from "./ShowErrors";
@@ -77,17 +78,35 @@ export default function EditEntity<TCreate, TRead>(
   // Function to edit and update the entity.
   const editEntity = async (editEntity: TCreate) => {
     try {
-      const response = await axios.put<ApiResponse<TCreate[]>>(
-        `${props.url}/${id}`,
-        editEntity,
-        {
-          headers: {
-            "x-version": "2",
-          },
-        }
-      );
-      if (response.data.isSuccess && response.data.result != null) {
-        setEntity(props.transform(response.data.result as TRead));
+      let response: AxiosResponse<ApiResponse<TCreate[]>> | undefined;
+      if (props.transformFormData) {
+        const formData = props.transformFormData(editEntity);
+        console.log("FormData:", formData);
+
+        response = await axios.put<ApiResponse<TCreate[]>>(
+          `${props.url}/${id}`,
+          formData,
+          {
+            headers: {
+              "x-version": "2",
+              "Content-Type": "multipart/form-data", // importante si endpoint recibe "[FromForm]"
+            },
+          }
+        );
+      } else {
+        response = await axios.put<ApiResponse<TCreate[]>>(
+          `${props.url}/${id}`,
+          editEntity,
+          {
+            headers: {
+              "x-version": "2",
+            },
+          }
+        );
+      }
+
+      if (response!.data.isSuccess && response!.data.result != null) {
+        setEntity(props.transform(response!.data.result as TRead));
       } else {
         throw new Error("Unexpected data format from the API.");
       }
@@ -117,6 +136,7 @@ interface editEntityProps<TCreate, TRead> {
   entityName: string; // Name of the entity, for display purposes
   children(entity: TCreate, edit: (entity: TCreate) => void): ReactElement; // Render prop pattern for the child component
   transform(entity: TRead): TCreate; // Optional transformation function to convert fetched data to a different shape
+  transformFormData?(model: TCreate): FormData;
 }
 
 // Default transformation function (a no-op) for the component.

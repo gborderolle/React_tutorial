@@ -1,26 +1,22 @@
-import { useNavigate, useParams } from "react-router-dom";
 import FormCinema from "./FormCinema";
+import EditEntity from "../utils/EditEntity";
+import { urlCinemas } from "../utils/endpoints";
+import { cinemaCreationDTO, cinemaDTO } from "./cinema.model";
 
 export default function EditCinema() {
-  const navigate = useNavigate();
-  const { id }: any = useParams(); // Para leer parámetros de la URL
-
-  if (isNaN(id)) {
-    navigate("/cinemas");
-    return null;
-  }
-
   return (
-    <>
-      <FormCinema
-        formName="Modificar cine"
-        model={{ name: 'Punta Carretas', latitude: -34.9226703553533, longitude: -56.15922588594252 }}
-        onSubmit={async (values) => {
-          await new Promise(r => setTimeout(r, 1000))
-          console.log(values);
-        }}
-      />
-    </>
+    <EditEntity<cinemaCreationDTO, cinemaDTO>
+      url={urlCinemas}
+      urlIndex="/cinemas"
+      entityName="Cines"
+    >
+      {(entity, editEntity) => (
+        <FormCinema
+          formName="Modificar cine"
+          model={entity}
+          onSubmit={(values) => editEntity(values)}
+        />
+      )}
+    </EditEntity>
   );
 }
-

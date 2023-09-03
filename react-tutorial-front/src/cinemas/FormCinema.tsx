@@ -45,7 +45,6 @@ export default function FormCinema(props: formCinemaProps) {
                   field="name"
                   label="Nombre"
                 />
-
                 <div style={{ marginBottom: "1rem" }}>
                   <LeafletMapForm
                     fieldLat="latitude"
@@ -63,7 +62,7 @@ export default function FormCinema(props: formCinemaProps) {
                   <Button type="submit" disabled={formikProps.isSubmitting}>
                     Guardar
                   </Button>
-                  <Link className="btn btn-sm btn-secondary" to="/actors">
+                  <Link className="btn btn-sm btn-secondary" to="/cinemas">
                     Cancelar
                   </Link>
                 </div>

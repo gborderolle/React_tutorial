@@ -15,6 +15,7 @@ import { genreDTO } from "../genres/genre.model";
 import { cinemaDTO } from "../cinemas/cinema.model";
 import { actorMovieDTO } from "../actors/actor.model";
 import TypeaheadActors from "../actors/TypeaheadActors";
+import FormGroupMarkdown from "../utils/FormGroupMarkdown";
 
 export default function FormMovie(props: formMovieProps) {
   const [selectedActors, setSelectedActors] = useState<actorMovieDTO[]>(
@@ -50,7 +51,6 @@ export default function FormMovie(props: formMovieProps) {
         values.genreIds = selectedGenres.map((value) => value.key);
         values.cinemaIds = selectedCinemas.map((value) => value.key);
         values.actors = selectedActors;
-
         props.onSubmit(values, actions);
       }}
       validationSchema={Yup.object({
@@ -90,6 +90,7 @@ export default function FormMovie(props: formMovieProps) {
                   label={"Poster"}
                   imageURL={props.model.posterURL}
                 />
+                <FormGroupMarkdown field="description" label="Descripción" />
 
                 <br />
                 <div className="form-group">

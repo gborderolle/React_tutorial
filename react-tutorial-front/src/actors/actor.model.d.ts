@@ -22,6 +22,7 @@ export interface actorMovieDTO {
 export interface actorDTO {
   id: number;
   name: string;
+  biography?: string;
   born: Date;
   photoURL?: string;
 }

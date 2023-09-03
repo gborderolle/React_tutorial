@@ -10,6 +10,7 @@ export interface movieCreationDTO {
   title: string;
   onCinema: boolean;
   trailer?: string;
+  description?: string;
   datePremiere?: Date;
   poster?: File;
   posterURL?: string;
@@ -26,6 +27,11 @@ export interface landingPageDTO {
 export interface movieDTO {
   id: number;
   title: string;
-  poster: Date;
-  description: string;
+  posterURL?: string;
+  description?: string;
+}
+
+export interface moviesPostGetDTO {
+  genres: genreDTO[];
+  cinemas: cinemaDTO[];
 }

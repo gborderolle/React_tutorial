@@ -9,16 +9,21 @@ import FormGroupImage from "../utils/FormGroupImage";
 import FormGroupMarkdown from "../utils/FormGroupMarkdown";
 
 export default function FormActor(props: formActorProps) {
+  const initialValues: actorCreationDTO = {
+    ...props.model,
+    biography: props.model.biography || "",
+  };
   return (
     <Formik
-      initialValues={props.model}
+      //initialValues={props.model}
+      initialValues={initialValues}
       onSubmit={props.onSubmit}
       validationSchema={Yup.object({
         name: Yup.string()
           .required("Dato requerido.")
           .firstCharCapitalization(),
 
-        born: Yup.date().nullable().required("Dato requerido."),
+        //born: Yup.date().nullable().required("Dato requerido."),
       })}
     >
       {(formikProps) => (

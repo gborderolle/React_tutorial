@@ -43,10 +43,18 @@ export default function MultipleSelector(props: multipleSelectorProps) {
         ))}
       </ul>
       <div className="multiple-selector-buttons">
-        <button type="button" onClick={selectAll}>
+        <button
+          type="button"
+          className="btn btn-light btn-sm"
+          onClick={selectAll}
+        >
           {">>"}
         </button>
-        <button type="button" onClick={deselectAll}>
+        <button
+          type="button"
+          className="btn btn-light btn-sm"
+          onClick={deselectAll}
+        >
           {"<<"}
         </button>
       </div>

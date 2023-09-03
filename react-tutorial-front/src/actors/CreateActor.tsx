@@ -11,12 +11,11 @@ export default function CreateActor() {
   const [errors, setErrors] = useState<string[]>([]);
 
   async function createActor(actor: actorCreationDTO) {
-
-    console.log("Intentando crear actor", actor);
     try {
       const config = {
         headers: {
           "x-version": "2",
+          "Content-Type": "multipart/form-data", // importante si endpoint recibe "[FromForm]"
         },
       };
       await axios.post(urlActors, actor, config);

@@ -1,25 +1,22 @@
-import { useNavigate, useParams } from "react-router-dom";
 import FormReview from "./FormReview";
+import EditEntity from "../utils/EditEntity";
+import { urlReviews } from "../utils/endpoints";
+import { reviewCreationDTO, reviewDTO } from "./review.model";
 
 export default function EditReview() {
-  const navigate = useNavigate();
-  const { id }: any = useParams(); // Para leer parámetros de la URL
-
-  if (isNaN(id)) {
-    navigate("/reviews");
-    return null;
-  }
-
   return (
-    <>
-      <FormReview
-        formName="Modificar review"
-        model={{ name: '' }}
-        onSubmit={async (values) => {
-          await new Promise(r => setTimeout(r, 1000))
-          console.log(values);
-        }}
-      />
-    </>
+    <EditEntity<reviewCreationDTO, reviewDTO>
+      url={urlReviews}
+      urlIndex="/reviews" // Fixed the backslash to forward slash
+      entityName="reviews"
+    >
+      {(entity, editEntity) => (
+        <FormReview
+          formName="Modificar review"
+          model={entity}
+          onSubmit={(values) => editEntity(values)}
+        />
+      )}
+    </EditEntity>
   );
 }

@@ -1,11 +1,17 @@
-// Manejando fechas
-// Clase 79: https://www.udemy.com/course/desarrollando-aplicaciones-en-react-y-aspnet-core/learn/lecture/25918556#overview
-
 import { useFormikContext } from "formik";
 import ShowErrorField from "./ShowErrorField";
 
 export default function FormGroupDate(props: formGroupDateProps) {
-  const { values, validateForm, touched, errors } = useFormikContext<any>();
+  const { values, validateForm, touched, errors, setFieldValue } = useFormikContext<any>();
+
+  const getDateValue = () => {
+    const value = values[props.field];
+    if (value instanceof Date) {
+      return value.toLocaleDateString("en-CA");
+    }
+    return "";  // Default return value if not a date
+  };
+
   return (
     <div className="form-group">
       <label htmlFor={props.field}>{props.label}</label>
@@ -14,14 +20,10 @@ export default function FormGroupDate(props: formGroupDateProps) {
         className="form-control"
         id={props.field}
         name={props.field}
-        defaultValue={
-          values[props.field]
-            ? values[props.field].toLocaleDateString("en-CA")
-            : ""
-        }
+        defaultValue={getDateValue()}
         onChange={(e) => {
           const date = new Date(e.currentTarget.value + "T00:00:00");
-          values[props.field] = date;
+          setFieldValue(props.field, date);  // Use setFieldValue to update the value
           validateForm();
         }}
       />

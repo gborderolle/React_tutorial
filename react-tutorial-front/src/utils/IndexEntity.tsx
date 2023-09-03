@@ -1,13 +1,12 @@
 import axios, { isAxiosError, AxiosResponse } from "axios";
 import { ReactElement, useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Pagination from "./Pagination";
 import Button from "./Button";
 import GenericList from "./GenericList";
 import showConfirm from "./ShowConfirm";
 
 export default function IndexEntity<T>(props: indexEntityProps<T>) {
-  const navigate = useNavigate();
   const [entities, setEntities] = useState<T[]>();
   const [totalPages, setTotalPages] = useState(0);
   const [recordsPerPage, setRecordsPerPage] = useState(10);
@@ -33,7 +32,6 @@ export default function IndexEntity<T>(props: indexEntityProps<T>) {
         setErrors(["An unexpected error occurred."]);
       }
     }
-    navigate(props.url);
   }
 
   function loadData() {
@@ -63,11 +61,11 @@ export default function IndexEntity<T>(props: indexEntityProps<T>) {
 
   const buttons = (urlEdit: string, id: number) => (
     <>
-      <Link className="btn btn-success" to={urlEdit}>
+      <Link className="btn btn-success btn-sm mr-1" to={urlEdit}>
         Editar
       </Link>
       <Button
-        className="btn btn-danger"
+        className="btn btn-danger btn-sm"
         onClick={() => showConfirm(() => deleteEntity(id))}
       >
         Borrar
@@ -145,4 +143,5 @@ interface indexEntityProps<T> {
   ): ReactElement;
   title: string;
   entityName: string;
+  urlBack: string;
 }

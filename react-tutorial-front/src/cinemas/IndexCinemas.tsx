@@ -10,6 +10,7 @@ export default function IndexCinemas() {
         urlCreate="create"
         title="Cine"
         entityName="Cinema"
+        urlBack="/cinemas"
       >
         {(cinemas, buttons) => (
           <>
@@ -26,7 +27,7 @@ export default function IndexCinemas() {
                   <tr key={cinema.id}>
                     <td>{index + 1}</td>
                     <td>{cinema.name}</td>
-                    <td>{buttons(`cinemas/edit/${cinema.id}`, cinema.id)}</td>
+                    <td>{buttons(`edit/${cinema.id}`, cinema.id)}</td>
                     {/* le paso la función buttons() que es parte del hijo */}
                   </tr>
                 ))}

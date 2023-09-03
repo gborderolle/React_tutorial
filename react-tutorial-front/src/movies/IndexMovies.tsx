@@ -10,6 +10,7 @@ export default function IndexMovies() {
         urlCreate="create"
         title="Películas"
         entityName="Película"
+        urlBack="/movies"
       >
         {(movies, buttons) => (
           <>
@@ -17,6 +18,7 @@ export default function IndexMovies() {
               <tr>
                 <th>#</th>
                 <th>Título</th>
+                <th>Poster</th>
                 <th>Descripción</th>
                 <th>Acciones</th>
               </tr>
@@ -27,8 +29,15 @@ export default function IndexMovies() {
                   <tr key={movie.id}>
                     <td>{index + 1}</td>
                     <td>{movie.title}</td>
+                    <div className="actor-image-container">
+                      <img
+                        src={movie.posterURL}
+                        alt="Poster de la película."
+                        className="img-fluid rounded"
+                      />
+                    </div>
                     <td>{movie.description}</td>
-                    <td>{buttons(`movies/edit/${movie.id}`, movie.id)}</td>
+                    <td>{buttons(`edit/${movie.id}`, movie.id)}</td>
                     {/* le paso la función buttons() que es parte del hijo */}
                   </tr>
                 ))}
@@ -40,10 +49,10 @@ export default function IndexMovies() {
   );
 }
 
-
-
-{/* <li className="list-group-item d-flex justify-content-between align-items-start">
+{
+  /* <li className="list-group-item d-flex justify-content-between align-items-start">
               <div className="ms-2 me-auto">
                 <Link to="/movies/filter">Filtrar</Link>
               </div>
-            </li> */}
+            </li> */
+}
