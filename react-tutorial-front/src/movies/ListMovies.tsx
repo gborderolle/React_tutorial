@@ -1,5 +1,5 @@
 import GenericList from "../utils/GenericList";
-import { movie } from "./movie.model";
+import { movieDTO } from "./movie.model";
 import MovieSingle from "./movieSingle";
 
 export default function ListMovies(props: listMoviesProps) {
@@ -48,5 +48,5 @@ export default function ListMovies(props: listMoviesProps) {
   );
 }
 interface listMoviesProps {
-  movies?: movie[];
+  movies?: movieDTO[];
 }

@@ -30,16 +30,17 @@ export default function IndexMovies() {
                   <tr key={movie.id}>
                     <td>{index + 1}</td>
                     <td>{movie.title}</td>
-                    <div className="actor-image-container">
-                      <img
-                        src={movie.posterURL}
-                        alt="Poster de la película."
-                        className="img-fluid rounded"
-                      />
-                    </div>
+                    <td>
+                      <div className="actor-image-container">
+                        <img
+                          src={movie.posterURL}
+                          alt="Poster de la película."
+                          className="img-fluid rounded"
+                        />
+                      </div>
+                    </td>
                     <td>{movie.description}</td>
                     <td>{buttons(`edit/${movie.id}`, movie.id)}</td>
-                    {/* le paso la función buttons() que es parte del hijo */}
                   </tr>
                 ))}
             </tbody>

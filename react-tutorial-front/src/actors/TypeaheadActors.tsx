@@ -100,7 +100,7 @@ export default function TypeaheadActors(props: typeaheadActorsProps) {
         )} // mostrar foto junto a la sugerencia
       />
       <ul className="list-group">
-        {props.actors.map((actor) => (
+        {props.actors?.map((actor) => (
           <li
             key={actor.id}
             className="list-group-item list-group-item-action"

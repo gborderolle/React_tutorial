@@ -7,7 +7,7 @@ export default function EditGenre() {
   return (
     <EditEntity<genreCreationDTO, genreDTO>
       url={urlGenres}
-      urlIndex="/genres" // Fixed the backslash to forward slash
+      urlIndex="/genres"
       entityName="Géneros"
     >
       {(entity, editEntity) => (

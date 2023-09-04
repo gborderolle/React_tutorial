@@ -3,6 +3,7 @@ import {
   MapContainer,
   TileLayer,
   useMapEvent,
+  Popup,
   Marker as LeafletMarker,
 } from "react-leaflet";
 import icon from "leaflet/dist/images/marker-icon.png";
@@ -44,12 +45,14 @@ export default function LeafletMap(props: leafletMapProps) {
         attribution="React películas"
         url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <MapClick
-        setPoint={(coordinates) => {
-          setCoordinates([coordinates]);
-          props.clickMapEvent(coordinates);
-        }}
-      />
+      {props.readOnly ? null :
+        <MapClick
+          setPoint={(coordinates) => {
+            setCoordinates([coordinates]);
+            props.clickMapEvent(coordinates);
+          }}
+        />
+      }
       {coordinates.map((coord: coordinateDTO) => (
         <MapMarker key={coord.latitude + coord.longitude} {...coord} />
       ))}
@@ -62,14 +65,21 @@ interface leafletMapProps {
   coordinates: coordinateDTO[];
   clickMapEvent(coordinates: coordinateDTO): void;
   centerInit?: coordinateDTO;
+  readOnly: boolean;
 }
 
 LeafletMap.defaultProps = {
   height: "500px",
+  readOnly: false,
+  clickMapEvent: () => { }
 };
 
 function MapMarker(props: coordinateDTO) {
-  return <LeafletMarker position={[props.latitude, props.longitude]} />;
+  return (
+    <LeafletMarker position={[props.latitude, props.longitude]}>
+      {props.name ? <Popup>{props.name}</Popup> : null}
+    </LeafletMarker>
+  );
 }
 
 function MapClick(props: mapClickProps) {

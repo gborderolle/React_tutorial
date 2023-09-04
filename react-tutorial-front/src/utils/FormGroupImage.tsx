@@ -1,12 +1,8 @@
 import { error } from "console";
 import { useFormikContext } from "formik";
 import { ChangeEvent, useState } from "react";
-import { string } from "yup";
 
 export default function FormGroupImage(props: formGroupImageProps) {
-
-    const divStyle = { marginTop: '10px' }
-    const imgStyle = { width: '540px' }
 
     const [imageURL, setImageURL] = useState('');
     const [imageBase64, setImageBase64] = useState(props.imageURL);
@@ -39,22 +35,19 @@ export default function FormGroupImage(props: formGroupImageProps) {
             <div className="form-group">
                 <label htmlFor={props.label}></label>
                 <div>
-                    <input type="file" accept=".jpg, .jpeg, .png" onChange={onChangeEvent} />
+                    <input type="file" accept=".jpg, .jpeg, .png" onChange={onChangeEvent} className="form-control" />
                 </div>
-                {imageBase64 ?
-                    <div>
-                        <div style={divStyle}>
-                            <img src={imageBase64} style={imgStyle} alt="Imagen seleccionada" />
-                        </div>
-                    </div> : null
-                }
-                {imageURL ?
-                    <div>
-                        <div style={divStyle}>
-                            <img src={imageURL} style={imgStyle} alt="Imagen seleccionada" />
-                        </div>
-                    </div> : null
-                }
+                {imageBase64 ? (
+                    <div className="mt-3">
+                        <img src={imageBase64} className="img-fluid rounded" alt="Imagen seleccionada" />
+                    </div>
+                ) : null}
+
+                {imageURL ? (
+                    <div className="mt-3">
+                        <img src={imageURL} className="img-fluid rounded" alt="Imagen seleccionada" />
+                    </div>
+                ) : null}
             </div>
         </>
     )

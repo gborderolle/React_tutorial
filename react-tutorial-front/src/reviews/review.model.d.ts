@@ -8,6 +8,7 @@ export interface reviewCreationDTO {
 
 export interface reviewDTO {
   name: string;
+  score: number;
 }
 
 export interface landingPageDTO {}

@@ -15,6 +15,7 @@ export default function EditMovie() {
 
   const initial_moviePutGetDTO: moviePutGetDTO = {
     movie: {
+      id: 0,
       title: "",
       onCinema: true,
     },
@@ -25,14 +26,8 @@ export default function EditMovie() {
     actors: [],
   };
 
-  const [moviePutGet, setMoviePutGet] = useState<moviePutGetDTO>(
-    initial_moviePutGetDTO
-  );
-
-  const [movie, setMovie] = useState<movieCreationDTO>({
-    title: "",
-    onCinema: true,
-  });
+  const [moviePutGet, setMoviePutGet] = useState<moviePutGetDTO>();
+  const [movie, setMovie] = useState<movieCreationDTO>();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,10 +36,8 @@ export default function EditMovie() {
           "x-version": "2",
         },
       };
-      let urlcompleta = `${urlMovies}/${id}`;
-      console.log("request: " + urlcompleta);
-
       try {
+        let urlcompleta = `${urlMovies}/putget/${id}`;
         const response: AxiosResponse<moviePutGetDTO> = await axios.get(
           urlcompleta,
           config
@@ -56,7 +49,9 @@ export default function EditMovie() {
             trailer: response.data.movie.trailer,
             posterURL: response.data.movie.posterURL,
             description: response.data.movie.description,
+            datePremiere: response.data.movie.datePremiere
             //premiere: new Date(response.data.movie.premiere),
+            //fechaLanzamiento: new Date(respuesta.data.pelicula.fechaLanzamiento)
           };
 
           setMovie(model);
@@ -95,10 +90,10 @@ export default function EditMovie() {
     }
   };
 
-  console.log("movie:" + movie);
-  console.log(movie);
-  console.log("moviePutGet:" + moviePutGet);
+  console.log("-------------------- inicio");
+  // console.log(movie);
   console.log(moviePutGet);
+  console.log("-------------------- fin");
 
   return (
     <>
@@ -106,13 +101,19 @@ export default function EditMovie() {
       {movie && moviePutGet ? (
         <FormMovie
           formName="Modificar película"
+          noSelectedGenres={moviePutGet.noSelectedGenres} // Verificación de Nullidad aquí
+          selectedGenres={moviePutGet.selectedGenres} // Verificación de Nullidad aquí
+          noSelectedCinemas={moviePutGet.noSelectedCinemas} // Verificación de Nullidad aquí
+          selectedCinemas={moviePutGet.selectedCinemas} // Verificación de Nullidad aquí
+          selectedActors={moviePutGet.actors} // Verificación de Nullidad aquí
           model={movie}
-          onSubmit={(values) => editMovie(values)}
-          noSelectedGenres={moviePutGet.noSelectedGenres || []} // Verificación de Nullidad aquí
-          selectedGenres={moviePutGet.selectedGenres || []} // Verificación de Nullidad aquí
-          noSelectedCinemas={moviePutGet.noSelectedCinemas || []} // Verificación de Nullidad aquí
-          selectedCinemas={moviePutGet.selectedCinemas || []} // Verificación de Nullidad aquí
-          selectedActors={moviePutGet.actors || []} // Verificación de Nullidad aquí
+          onSubmit={async (values) => await editMovie(values)}
+
+        // noSelectedGenres={moviePutGet.noSelectedGenres || []} // Verificación de Nullidad aquí
+        // selectedGenres={moviePutGet.selectedGenres || []} // Verificación de Nullidad aquí
+        // noSelectedCinemas={moviePutGet.noSelectedCinemas || []} // Verificación de Nullidad aquí
+        //selectedCinemas={moviePutGet.selectedCinemas || []} // Verificación de Nullidad aquí
+        // selectedActors={moviePutGet.actors || []} // Verificación de Nullidad aquí
         />
       ) : (
         <Loading />

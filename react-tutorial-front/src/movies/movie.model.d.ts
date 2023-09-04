@@ -1,12 +1,8 @@
 import { actorMovieDTO } from "../actors/actor.model";
 import { cinemaDTO } from "../cinemas/cinema.model";
+import { genreDTO } from "../genres/genre.model";
+import { reviewDTO } from "../reviews/review.model";
 
-export interface movie {
-  id: number;
-  title: string;
-  poster: string;
-  description: string;
-}
 export interface movieCreationDTO {
   title: string;
   onCinema: boolean;
@@ -28,12 +24,27 @@ export interface landingPageDTO {
 export interface movieDTO {
   id: number;
   title: string;
+  onCinema: boolean;
   posterURL?: string;
+  trailer?: string;
   description?: string;
+  datePremiere?: Date;
+  cinemas?: cinemaDTO[];
+  genres?: genreDTO[];
+  actors?: actorMovieDTO[];
+  reviews?: reviewDTO[];
+}
+
+export interface movieDetailsDTO {
+  movie: movieDTO;
+  cinemas?: cinemaDTO[];
+  genres?: genreDTO[];
+  actors?: actorMovieDTO[];
+  reviews?: reviewDTO[];
 }
 
 export interface moviePutGetDTO {
-  movie: movieCreationDTO;
+  movie: movieDTO;
   selectedGenres: genreDTO[];
   noSelectedGenres: genreDTO[];
   selectedCinemas: cinemaDTO[];

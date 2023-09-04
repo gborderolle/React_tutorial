@@ -10,19 +10,19 @@ export interface actorCreationDTO {
   biography?: string;
 }
 
-export interface landingPageDTO {}
+export interface landingPageDTO { }
 
 export interface actorMovieDTO {
   id: number;
   name: string;
-  character: string;
-  photoURL: string;
+  character?: string;
+  photoURL?: string;
 }
 
 export interface actorDTO {
   id: number;
   name: string;
   biography?: string;
-  born: Date;
+  born?: Date;
   photoURL?: string;
 }

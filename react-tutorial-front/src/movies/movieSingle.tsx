@@ -1,7 +1,7 @@
-import { movie } from "./movie.model";
+import { movieDTO } from "./movie.model";
 
 export default function MovieSingle(props: MovieSingleProps) {
-  const setupLink = () => `/movie/${props.movie.id}`;
+  const setupLink = () => `/movies/${props.movie.id}`;
 
   return (
     <>
@@ -10,7 +10,7 @@ export default function MovieSingle(props: MovieSingleProps) {
           <a href={setupLink()}>
             <img
               className="card-img-top"
-              src={props.movie.poster}
+              src={props.movie.posterURL}
               alt="Poster"
             />
           </a>
@@ -29,5 +29,5 @@ export default function MovieSingle(props: MovieSingleProps) {
 }
 
 interface MovieSingleProps {
-  movie: movie;
+  movie: movieDTO;
 }
