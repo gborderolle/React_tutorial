@@ -3,7 +3,10 @@ export default function ShowErrors(props: showErrorsProps) {
   const style = { color: "red" };
 
   if (!Array.isArray(props.errors)) {
-    console.error('ShowErrors component received a non-array prop:', props.errors);
+    console.error(
+      "ShowErrors component received a non-array prop:",
+      props.errors
+    );
     return null;
   }
 
@@ -12,7 +15,9 @@ export default function ShowErrors(props: showErrorsProps) {
       {props.errors.length > 0 ? (
         <ul style={style}>
           {props.errors.map((error, index) => (
-            <li key={index}>{error}</li>
+            <li key={index}>
+              {typeof error === "string" ? error : JSON.stringify(error)}
+            </li>
           ))}
         </ul>
       ) : null}
@@ -21,5 +26,5 @@ export default function ShowErrors(props: showErrorsProps) {
 }
 
 interface showErrorsProps {
-  errors: string[];
+  errors: Array<string | object>;
 }

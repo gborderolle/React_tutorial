@@ -7,24 +7,12 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../utils/Loading";
 import ShowErrors from "../utils/ShowErrors";
+import moment from "moment";
 
 export default function EditMovie() {
   const navigate = useNavigate();
   const { id }: any = useParams();
   const [errors, setErrors] = useState<string[]>([]);
-
-  const initial_moviePutGetDTO: moviePutGetDTO = {
-    movie: {
-      id: 0,
-      title: "",
-      onCinema: true,
-    },
-    noSelectedGenres: [],
-    selectedGenres: [],
-    noSelectedCinemas: [],
-    selectedCinemas: [],
-    actors: [],
-  };
 
   const [moviePutGet, setMoviePutGet] = useState<moviePutGetDTO>();
   const [movie, setMovie] = useState<movieCreationDTO>();
@@ -43,15 +31,14 @@ export default function EditMovie() {
           config
         );
         if (response && response.data) {
+          const { movie } = response.data;
           const model: movieCreationDTO = {
-            title: response.data.movie.title,
-            onCinema: response.data.movie.onCinema,
-            trailer: response.data.movie.trailer,
-            posterURL: response.data.movie.posterURL,
-            description: response.data.movie.description,
-            datePremiere: response.data.movie.datePremiere
-            //premiere: new Date(response.data.movie.premiere),
-            //fechaLanzamiento: new Date(respuesta.data.pelicula.fechaLanzamiento)
+            title: movie.title,
+            onCinema: movie.onCinema,
+            trailer: movie.trailer,
+            posterURL: movie.posterURL,
+            description: movie.description,
+            premiere: moment(movie.premiere).toDate(),
           };
 
           setMovie(model);
@@ -90,30 +77,19 @@ export default function EditMovie() {
     }
   };
 
-  console.log("-------------------- inicio");
-  // console.log(movie);
-  console.log(moviePutGet);
-  console.log("-------------------- fin");
-
   return (
     <>
       <ShowErrors errors={errors}></ShowErrors>
       {movie && moviePutGet ? (
         <FormMovie
           formName="Modificar película"
-          noSelectedGenres={moviePutGet.noSelectedGenres} // Verificación de Nullidad aquí
-          selectedGenres={moviePutGet.selectedGenres} // Verificación de Nullidad aquí
-          noSelectedCinemas={moviePutGet.noSelectedCinemas} // Verificación de Nullidad aquí
-          selectedCinemas={moviePutGet.selectedCinemas} // Verificación de Nullidad aquí
-          selectedActors={moviePutGet.actors} // Verificación de Nullidad aquí
+          noSelectedGenres={moviePutGet.noSelectedGenres}
+          selectedGenres={moviePutGet.selectedGenres}
+          noSelectedCinemas={moviePutGet.noSelectedCinemas}
+          selectedCinemas={moviePutGet.selectedCinemas}
+          selectedActors={moviePutGet.actorMovieDTO || []}
           model={movie}
           onSubmit={async (values) => await editMovie(values)}
-
-        // noSelectedGenres={moviePutGet.noSelectedGenres || []} // Verificación de Nullidad aquí
-        // selectedGenres={moviePutGet.selectedGenres || []} // Verificación de Nullidad aquí
-        // noSelectedCinemas={moviePutGet.noSelectedCinemas || []} // Verificación de Nullidad aquí
-        //selectedCinemas={moviePutGet.selectedCinemas || []} // Verificación de Nullidad aquí
-        // selectedActors={moviePutGet.actors || []} // Verificación de Nullidad aquí
         />
       ) : (
         <Loading />

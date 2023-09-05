@@ -76,15 +76,13 @@ export default function FormMovie(props: formMovieProps) {
                   label="Nombre"
                 />
                 <FormGroupCheckbox field="onCinema" label="En cines" />
+                <br />
                 <FormGroupText
                   formName={props.formName}
                   field="trailer"
                   label="Trailer"
                 />
-                <FormGroupDate
-                  field={"premiereDate"}
-                  label={"Fecha lanzamiento"}
-                />
+                <FormGroupDate field={"premiere"} label={"Fecha lanzamiento"} />
                 <FormGroupImage
                   field={"poster"}
                   label={"Poster"}
@@ -132,14 +130,23 @@ export default function FormMovie(props: formMovieProps) {
                         <input
                           placeholder="Personaje"
                           type="text"
-                          value={actor.character}
+                          value={actor.character || ""} // Usar cadena vacía como valor por defecto
                           onChange={(e) => {
+                            // Buscar el índice del actor en el array selectedActors
                             const index = selectedActors.findIndex(
                               (x) => x.id === actor.id
                             );
-                            const actors = [...selectedActors];
-                            actors[index].character = e.currentTarget.value;
-                            setSelectedActors(actors);
+
+                            // Verificar si el índice es válido
+                            if (index !== -1) {
+                              const actors = [...selectedActors];
+
+                              // Actualizar el campo 'character' del actor
+                              actors[index].character = e.currentTarget.value;
+
+                              // Actualizar el estado de selectedActors
+                              setSelectedActors(actors);
+                            }
                           }}
                         />
                       </>

@@ -35,24 +35,19 @@ export default function LeafletMap(props: leafletMapProps) {
   }
 
   return (
-    <MapContainer
-      //center={[-34.90783547400955, -56.192392002849544]}
-      center={init}
-      zoom={14}
-      style={{ height: props.height }}
-    >
+    <MapContainer center={init} zoom={14} style={{ height: props.height }}>
       <TileLayer
         attribution="React películas"
         url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {props.readOnly ? null :
+      {props.readOnly ? null : (
         <MapClick
           setPoint={(coordinates) => {
             setCoordinates([coordinates]);
             props.clickMapEvent(coordinates);
           }}
         />
-      }
+      )}
       {coordinates.map((coord: coordinateDTO) => (
         <MapMarker key={coord.latitude + coord.longitude} {...coord} />
       ))}
@@ -71,7 +66,7 @@ interface leafletMapProps {
 LeafletMap.defaultProps = {
   height: "500px",
   readOnly: false,
-  clickMapEvent: () => { }
+  clickMapEvent: () => {},
 };
 
 function MapMarker(props: coordinateDTO) {

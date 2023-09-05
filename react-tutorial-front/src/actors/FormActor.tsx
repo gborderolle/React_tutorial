@@ -7,12 +7,16 @@ import { Link } from "react-router-dom";
 import Button from "../utils/Button";
 import FormGroupImage from "../utils/FormGroupImage";
 import FormGroupMarkdown from "../utils/FormGroupMarkdown";
+import { useState } from "react";
 
 export default function FormActor(props: formActorProps) {
   const initialValues: actorCreationDTO = {
     ...props.model,
     biography: props.model.biography || "",
   };
+
+  const [born, setBorn] = useState<Date>(props.model.born || new Date());
+
   return (
     <Formik
       initialValues={initialValues}
@@ -21,6 +25,7 @@ export default function FormActor(props: formActorProps) {
         name: Yup.string()
           .required("Dato requerido.")
           .firstCharCapitalization(),
+        born: Yup.date(),
 
         //born: Yup.date().nullable().required("Dato requerido."),
       })}
@@ -41,14 +46,13 @@ export default function FormActor(props: formActorProps) {
                   field="name"
                   label="Nombre"
                 />
-                <FormGroupDate label="Fecha de nacimiento" field="born" />
+                <FormGroupDate field="born" label="Fecha de nacimiento" />
                 <FormGroupImage
                   field="photo"
                   label="Foto"
                   imageURL={props.model.photoURL}
                 />
                 <FormGroupMarkdown field="biography" label="Biografía" />
-
                 <br />
                 <div
                   className="btn-group"

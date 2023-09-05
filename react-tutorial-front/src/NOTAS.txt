@@ -1,0 +1,25 @@
+Genres
+    Create - OK
+    Edit - OK
+    
+Cinemas
+    Create - OK
+    Edit - OK
+    
+Actors
+    Create - OK
+    Edit - OK?
+
+Movies
+    Create - OK: El mejor caso, tomar en cuenta
+        Cosas a considerar:
+            APIResponse que devuelve el id creado
+            Manejo de errorMessages del server
+            El uso del endpoint guardando datos simples (solo ids) --> Verificar si sirve realmente
+
+    Edit
+
+Reviews
+    Create
+    Edit
+    

@@ -27,14 +27,27 @@ export default function CreateMovie() {
           "Content-Type": "multipart/form-data", // importante si endpoint recibe "[FromForm]"
         },
       };
-      const response = await axios.post<number>(urlMovies, formData, config);
-      navigate(`/movies/${response.data}`);
-      setLoaded(true);
-    } catch (error: any) {
-      if (error.response && error.response.data) {
-        setErrors([error.response.data]); // Asegúrate de que esto es un array
+      //const response = await axios.post<number>(urlMovies, formData, config);
+      const response = await axios.post<APIResponse<ResponseId>>(
+        urlMovies,
+        formData,
+        config
+      );
+      if (response.data.isSuccess) {
+        navigate(`/movies/${response.data.result.id}`);
+        setLoaded(true);
       } else {
-        setErrors([error.message || "An unexpected error occurred."]);
+        setErrors(response.data.errorMessages);
+      }
+    } catch (error: any) {
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.errorMessages
+      ) {
+        setErrors(error.response.data.errorMessages);
+      } else {
+        setErrors(["Se produjo un error inesperado."]);
       }
     }
   }
@@ -82,4 +95,15 @@ export default function CreateMovie() {
       )}
     </>
   );
+}
+
+interface APIResponse<T> {
+  statusCode: number;
+  isSuccess: boolean;
+  errorMessages: string[];
+  result: T;
+}
+
+interface ResponseId {
+  id: number;
 }

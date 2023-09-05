@@ -1,15 +1,19 @@
 import { useFormikContext } from "formik";
 import ShowErrorField from "./ShowErrorField";
+import moment from "moment";
 
 export default function FormGroupDate(props: formGroupDateProps) {
-  const { values, validateForm, touched, errors, setFieldValue } = useFormikContext<any>();
+  const { values, validateForm, touched, errors, setFieldValue } =
+    useFormikContext<any>();
 
   const getDateValue = () => {
     const value = values[props.field];
-    if (value instanceof Date) {
-      return value.toLocaleDateString("en-CA");
+    if (value != undefined) {
+      console.log(value);
+      console.log(moment(value).toString());
+      return moment(value).format("YYYY-MM-DD");
     }
-    return "";  // Default return value if not a date
+    return "";
   };
 
   return (
@@ -21,9 +25,10 @@ export default function FormGroupDate(props: formGroupDateProps) {
         id={props.field}
         name={props.field}
         defaultValue={getDateValue()}
+        //defaultValue={new Date().toLocaleDateString("en-CA")}
         onChange={(e) => {
           const date = new Date(e.currentTarget.value + "T00:00:00");
-          setFieldValue(props.field, date);  // Use setFieldValue to update the value
+          setFieldValue(props.field, date); // Use setFieldValue to update the value
           validateForm();
         }}
       />

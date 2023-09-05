@@ -26,8 +26,8 @@ export function ConvertMovieToFormData(movie: movieCreationDTO): FormData {
   if (movie.description) {
     formData.append("description", movie.description);
   }
-  if (movie.datePremiere) {
-    formData.append("premiere", dateFormat(movie.datePremiere));
+  if (movie.premiere) {
+    formData.append("premiere", dateFormat(movie.premiere));
   }
   if (movie.poster) {
     formData.append("poster", movie.poster, movie.poster.name);

@@ -8,7 +8,7 @@ export interface movieCreationDTO {
   onCinema: boolean;
   trailer?: string;
   description?: string;
-  datePremiere?: Date;
+  premiere?: Date;
   poster?: File;
   posterURL?: string;
   genreIds?: number[];
@@ -28,7 +28,7 @@ export interface movieDTO {
   posterURL?: string;
   trailer?: string;
   description?: string;
-  datePremiere?: Date;
+  premiere?: Date;
   cinemas?: cinemaDTO[];
   genres?: genreDTO[];
   actors?: actorMovieDTO[];
@@ -49,7 +49,7 @@ export interface moviePutGetDTO {
   noSelectedGenres: genreDTO[];
   selectedCinemas: cinemaDTO[];
   noSelectedCinemas: cinemaDTO[];
-  actors: actorMovieDTO[];
+  actorMovieDTO: actorMovieDTO[];
 }
 
 export type moviesPostGetDTO = {
