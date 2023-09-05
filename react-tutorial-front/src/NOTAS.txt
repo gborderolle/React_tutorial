@@ -8,13 +8,13 @@ Cinemas
     
 Actors
     Create - OK
-    Edit - OK?
+    Edit - OK
 
 Movies
     Create - OK: El mejor caso, tomar en cuenta
         Cosas a considerar:
-            APIResponse que devuelve el id creado
-            Manejo de errorMessages del server
+            APIResponse que devuelve el id creado y navega al detalle: GET: movies/{id}     --> Mmm cuidado, mejorar
+            Manejo de errorMessages del server                                              --> Mmm cuidado, mejorar
             El uso del endpoint guardando datos simples (solo ids) --> Verificar si sirve realmente
 
     Edit
@@ -23,3 +23,16 @@ Reviews
     Create
     Edit
     
+--
+ToDos:
+
+- Hacer FilterMovies
+
+
+---
+VS Code
+Key shortcuts:
+Fold methods: Ctrl k + Ctrl 2 --> Ctrl M O
+Comentar bloque: Shift alt S
+Dar formato: Shift alt F y Guardar (ctrl S)
+Unfold all: Ctrl k J

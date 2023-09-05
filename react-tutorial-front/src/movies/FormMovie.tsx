@@ -1,3 +1,5 @@
+// Formulario que sirve para Crear y Editar movies
+
 import { Form, Formik, FormikHelpers } from "formik";
 import FormGroupText from "../utils/FormGroupText";
 import * as Yup from "yup";
@@ -87,6 +89,7 @@ export default function FormMovie(props: formMovieProps) {
                   field={"poster"}
                   label={"Poster"}
                   imageURL={props.model.posterURL}
+                  customStyle='{"maxWidth": "25rem", "borderRadius": "10px"}'
                 />
                 <FormGroupMarkdown field="description" label="Descripción" />
 

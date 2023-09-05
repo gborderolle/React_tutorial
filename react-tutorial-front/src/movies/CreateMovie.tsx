@@ -9,6 +9,7 @@ import { genreDTO } from "../genres/genre.model";
 import { cinemaDTO } from "../cinemas/cinema.model";
 import Loading from "../utils/Loading";
 import { ConvertMovieToFormData } from "../utils/FormDataUtils";
+import { APIResponse, ResponseId } from "../utils/ApiResponse";
 
 export default function CreateMovie() {
   const navigate = useNavigate(); // sirve para navegar entre las páginas
@@ -27,7 +28,6 @@ export default function CreateMovie() {
           "Content-Type": "multipart/form-data", // importante si endpoint recibe "[FromForm]"
         },
       };
-      //const response = await axios.post<number>(urlMovies, formData, config);
       const response = await axios.post<APIResponse<ResponseId>>(
         urlMovies,
         formData,
@@ -97,13 +97,4 @@ export default function CreateMovie() {
   );
 }
 
-interface APIResponse<T> {
-  statusCode: number;
-  isSuccess: boolean;
-  errorMessages: string[];
-  result: T;
-}
 
-interface ResponseId {
-  id: number;
-}

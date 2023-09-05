@@ -1,7 +1,7 @@
 import IndexEntity from "../utils/IndexEntity";
 import { movieDTO } from "./movie.model";
 import { urlMovies } from "../utils/endpoints";
-import FormGroupMarkdown from "../utils/FormGroupMarkdown";
+import { Link, NavLink } from "react-router-dom";
 
 export default function IndexMovies() {
   return (
@@ -29,7 +29,15 @@ export default function IndexMovies() {
                 movies.map((movie, index) => (
                   <tr key={movie.id}>
                     <td>{index + 1}</td>
-                    <td>{movie.title}</td>
+                    <td>
+                      <Link
+                        key={movie.id}
+                        to={`/movies/${movie.id}`}
+                        className="m-2"
+                      >
+                        {movie.title}
+                      </Link>
+                    </td>
                     <td>
                       <div className="actor-image-container">
                         <img

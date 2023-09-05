@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { landingPageDTO } from "./movies/movie.model";
+import { landingPageDTO, movieDTO } from "./movies/movie.model";
 import ListMovies from "./movies/ListMovies";
 import axios, { AxiosResponse, isAxiosError } from "axios";
 import { urlActors, urlMovies } from "./utils/endpoints";
@@ -18,13 +18,22 @@ export default function LandingPage() {
         headers: {
           "x-version": "2",
         },
+        params: {
+          page: 1,
+          recordsPerPage: 100,
+        },
       })
       .then((response: AxiosResponse) => {
         if (response.data.isSuccess && Array.isArray(response.data.result)) {
-          setMovies({
-            moviesInTheatres: response.data.result,
-            moviesNextReleases: [],
-          });
+          const movies = response.data.result as movieDTO[];
+          if (movies && movies.length > 0) {
+            const onCinemas = movies.filter(obj => obj.onCinema);
+            const offCinemas = movies.filter(obj => !obj.onCinema);
+            setMovies({
+              moviesInTheatres: onCinemas,
+              moviesNextReleases: offCinemas,
+            });
+          }
         } else {
           console.error("Unexpected data format from the API.");
         }

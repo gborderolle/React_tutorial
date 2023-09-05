@@ -9,8 +9,6 @@ export default function FormGroupDate(props: formGroupDateProps) {
   const getDateValue = () => {
     const value = values[props.field];
     if (value != undefined) {
-      console.log(value);
-      console.log(moment(value).toString());
       return moment(value).format("YYYY-MM-DD");
     }
     return "";
@@ -25,7 +23,6 @@ export default function FormGroupDate(props: formGroupDateProps) {
         id={props.field}
         name={props.field}
         defaultValue={getDateValue()}
-        //defaultValue={new Date().toLocaleDateString("en-CA")}
         onChange={(e) => {
           const date = new Date(e.currentTarget.value + "T00:00:00");
           setFieldValue(props.field, date); // Use setFieldValue to update the value
@@ -38,7 +35,6 @@ export default function FormGroupDate(props: formGroupDateProps) {
     </div>
   );
 }
-
 interface formGroupDateProps {
   field: string;
   label: string;

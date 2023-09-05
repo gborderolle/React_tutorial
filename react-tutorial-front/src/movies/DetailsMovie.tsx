@@ -52,7 +52,7 @@ export default function DetailsMovie() {
   }
 
   function generateURLYoutubeEmbed(url: string): string {
-    if (!url) {
+    if (!url || !url.includes('&')) {
       return "";
     }
     const video_id = url.split("v=")[1];
@@ -115,35 +115,7 @@ export default function DetailsMovie() {
                 ))}
               </div>
             </div>
-          </div>
-          <div className="col-md-8">
-            <h2>
-              {movieDetails.movie.title} (
-              {moment(movieDetails.movie.premiere).toDate().getFullYear()})
-            </h2>
-            <p className="text-muted">
-              {movieDetails.genres?.map((genre) => (
-                <Link
-                  key={genre.id}
-                  to={`/movies/filter?genreId=${genre.id}`}
-                  className="btn btn-primary btn-sm rounded m-1"
-                >
-                  {genre.name}
-                </Link>
-              ))}
-            </p>
-            <p className="lead">{movieDetails.movie.description}</p>
-            {movieDetails.movie.trailer && (
-              <div className="embed-responsive embed-responsive-16by9 mb-3">
-                <iframe
-                  src={generateURLYoutubeEmbed(movieDetails.movie.trailer)}
-                  title="youtube-trailer"
-                  className="embed-responsive-item"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            )}
+            <br />
             <div className="card">
               <div className="card-body">
                 <h4 className="card-title">Reseñas:</h4>
@@ -157,16 +129,71 @@ export default function DetailsMovie() {
                 ))}
               </div>
             </div>
+          </div>
+          <div className="col-md-8">
+            <div className="row">
+              <div className="col d-flex align-items-center">
+                <h2>
+                  {movieDetails.movie.title} (
+                  {moment(movieDetails.movie.premiere).toDate().getFullYear()})
+                </h2>
+                <Link
+                  key={id}
+                  to={`/movies/edit/${id}`}
+                  className="m-2"
+                >
+                  Editar
+                </Link>
+              </div>
+            </div>
 
+            <p className="text-muted">
+              {movieDetails.genres?.map((genre) => (
+                <Link
+                  key={genre.id}
+                  to={`/movies/filter?genreId=${genre.id}`}
+                  className="btn btn-primary btn-sm rounded m-1"
+                >
+                  {genre.name}
+                </Link>
+              ))}
+            </p>
+            <div className="card">
+              <div className="card-body">
+                <h4 className="card-title">Sinópsis:</h4>
+                <p className="lead">{movieDetails.movie.description}</p>
+              </div>
+            </div>
+            <br />
+            <div className="card">
+              <div className="card-body">
+                <h4 className="card-title">Trailer:</h4>
+                <div className="embed-responsive embed-responsive-16by9 mb-3">
+                  {movieDetails.movie.trailer && (
+                    <iframe
+                      src={generateURLYoutubeEmbed(movieDetails.movie.trailer)}
+                      title="youtube-trailer"
+                      className="embed-responsive-item"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  )}
+                </div>
+              </div>
+            </div>
+            <br />
             <div className="card">
               <div className="card-body">
                 <h4 className="card-title">Cines:</h4>
-                <LeafletMap
-                  coordinates={convertCoordinates()}
-                  readOnly={true}
-                />
+                {movieDetails.cinemas && movieDetails.cinemas.length > 0 && (
+                  <LeafletMap
+                    coordinates={convertCoordinates()}
+                    readOnly={true}
+                  />
+                )}
               </div>
             </div>
+
           </div>
         </div>
       ) : (

@@ -7,6 +7,7 @@ import Menu from "./utils/Menu";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import paths from "./route-config";
 import setupValidations from "./Validations";
+import Footer from "./utils/Footer";
 
 setupValidations();
 
@@ -32,7 +33,9 @@ function App() {
             ))}
           </Routes>
         </div>
+      <Footer />
       </BrowserRouter>
+
     </>
   );
 }

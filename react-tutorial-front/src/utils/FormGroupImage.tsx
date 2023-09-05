@@ -9,6 +9,8 @@ export default function FormGroupImage(props: formGroupImageProps) {
 
     const { values } = useFormikContext<any>();
 
+    const customStyleObj = props.customStyle ? JSON.parse(props.customStyle) : {};
+
     const onChangeEvent = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.currentTarget.files) {
             const file = e.currentTarget.files[0];
@@ -39,13 +41,23 @@ export default function FormGroupImage(props: formGroupImageProps) {
                 </div>
                 {imageBase64 ? (
                     <div className="mt-3">
-                        <img src={imageBase64} className="img-fluid rounded" alt="Imagen seleccionada" />
+                        <img 
+                          src={imageBase64} 
+                          className={`img-fluid rounded ${props.customClass || ''}`} 
+                          alt="Imagen seleccionada" 
+                          style={customStyleObj}
+                        />
                     </div>
                 ) : null}
 
                 {imageURL ? (
                     <div className="mt-3">
-                        <img src={imageURL} className="img-fluid rounded" alt="Imagen seleccionada" />
+                         <img 
+                          src={imageURL} 
+                          className={`img-fluid rounded ${props.customClass || ''}`} 
+                          alt="Imagen seleccionada"
+                          style={customStyleObj}
+                        />
                     </div>
                 ) : null}
             </div>
@@ -57,6 +69,8 @@ interface formGroupImageProps {
     field: string;
     label: string;
     imageURL?: string;
+    customClass?: string;
+    customStyle?: string;
 }
 
 FormGroupImage.defaultProps = {
