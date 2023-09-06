@@ -7,6 +7,7 @@ import Loading from "../utils/Loading";
 import LeafletMap from "../utils/LeafletMap";
 import { coordinateDTO } from "../utils/coordinateDTO";
 import moment from "moment";
+import Rating from "../utils/Rating";
 
 export default function DetailsMovie() {
   const { id } = useParams();
@@ -140,6 +141,9 @@ export default function DetailsMovie() {
                   Editar
                 </Link>
               </div>
+            </div>
+            <div>
+              Tu voto: <Rating maxValue={5} selectedValue={0} onChange={() => { }} />
             </div>
 
             <p className="text-muted">
