@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import Authorized from "../auth/Authorized";
 
 export default function Menu() {
   return (
@@ -77,6 +78,23 @@ export default function Menu() {
                 Reviews
               </NavLink>
             </li>
+            <Authorized
+              role="admin"
+              authorized={
+                <>
+                  <li className="nav-item">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "nav-link active" : "nav-link"
+                      }
+                      to="/reviews"
+                    >
+                      Administración
+                    </NavLink>
+                  </li>
+                </>
+              }
+            ></Authorized>
           </ul>
         </div>
       </div>

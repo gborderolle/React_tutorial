@@ -58,11 +58,3 @@ export default function IndexMovies() {
     </>
   );
 }
-
-{
-  /* <li className="list-group-item d-flex justify-content-between align-items-start">
-      <div className="ms-2 me-auto">
-        <Link to="/movies/filter">Filtrar</Link>
-      </div>
-    </li> */
-}

@@ -12,13 +12,14 @@ export default function CreateActor() {
 
   async function createActor(actor: actorCreationDTO) {
     try {
+      const url_values = urlActors;
       const config = {
         headers: {
           "x-version": "2",
           "Content-Type": "multipart/form-data", // importante si endpoint recibe "[FromForm]"
         },
       };
-      await axios.post(urlActors, actor, config);
+      await axios.post(url_values, actor, config);
       navigate("/actors");
     } catch (error: any) {
       if (error.response && error.response.data) {

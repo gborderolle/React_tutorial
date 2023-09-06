@@ -17,7 +17,8 @@ Movies
             Manejo de errorMessages del server                                              --> Mmm cuidado, mejorar
             El uso del endpoint guardando datos simples (solo ids) --> Verificar si sirve realmente
 
-    Edit
+    Edit - OK
+    Filter
 
 Reviews
     Create

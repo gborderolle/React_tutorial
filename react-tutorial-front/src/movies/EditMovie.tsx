@@ -19,16 +19,15 @@ export default function EditMovie() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const config = {
-        headers: {
-          "x-version": "2",
-        },
-      };
       try {
-        let urlcompleta = `${urlMovies}/putget/${id}`;
+        const url_values = `${urlMovies}/putget/${id}`;
+        const param_values = {};
         const response: AxiosResponse<moviePutGetDTO> = await axios.get(
-          urlcompleta,
-          config
+          url_values,
+          {
+            headers: { "x-version": "2" },
+            params: param_values,
+          }
         );
         if (response && response.data) {
           const { movie } = response.data;
@@ -60,8 +59,9 @@ export default function EditMovie() {
 
   const editMovie = async (editMovie: movieCreationDTO) => {
     try {
+      const url_values = `${urlMovies}/${id}`;
       const formData = ConvertMovieToFormData(editMovie);
-      await axios.put<ApiResponse<any>>(`${urlMovies}/${id}`, formData, {
+      await axios.put<ApiResponse<any>>(url_values, formData, {
         headers: {
           "x-version": "2",
           "Content-Type": "multipart/form-data", // importante si endpoint recibe "[FromForm]"

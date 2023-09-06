@@ -30,7 +30,7 @@ export default function IndexGenres() {
                   <tr key={genre.id}>
                     <td>{index + 1}</td>
                     <td>{genre.name}</td>
-                    <td>{buttons(`edit/${genre.id}`, genre.id)}</td>{" "}
+                    <td>{buttons(`edit/${genre.id}`, genre.id)}</td>
                     {/* le paso la función buttons() que es parte del hijo */}
                   </tr>
                 ))}

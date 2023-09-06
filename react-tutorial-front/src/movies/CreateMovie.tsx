@@ -21,6 +21,7 @@ export default function CreateMovie() {
 
   async function createMovie(movie: movieCreationDTO) {
     try {
+      const url_values = urlMovies;
       const formData = ConvertMovieToFormData(movie);
       const config = {
         headers: {
@@ -29,7 +30,7 @@ export default function CreateMovie() {
         },
       };
       const response = await axios.post<APIResponse<ResponseId>>(
-        urlMovies,
+        url_values,
         formData,
         config
       );
@@ -53,13 +54,13 @@ export default function CreateMovie() {
   }
 
   useEffect(() => {
-    const config = {
-      headers: {
-        "x-version": "2",
-      },
-    };
+    const url_values = `${urlMovies}/postget`;
+    const param_values = {};
     axios
-      .get(`${urlMovies}/postget`, config)
+      .get(url_values, {
+        headers: { "x-version": "2" },
+        params: param_values,
+      })
       .then((response: AxiosResponse<moviesPostGetDTO>) => {
         setNoSelectedGenres(response.data.result.genres);
         setNoSelectedCinemas(response.data.result.cinemas);
@@ -96,5 +97,3 @@ export default function CreateMovie() {
     </>
   );
 }
-
-

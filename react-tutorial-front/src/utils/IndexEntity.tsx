@@ -19,10 +19,11 @@ export default function IndexEntity<T>(props: indexEntityProps<T>) {
 
   async function deleteEntity(id: number) {
     try {
-      const response = await axios.delete(`${props.url}/${id}`, {
-        headers: {
-          "x-version": "2",
-        },
+      const url_values = `${props.url}/${id}`;
+      const param_values = {};
+      const response = await axios.delete(url_values, {
+        headers: { "x-version": "2" },
+        params: param_values,
       });
       loadData();
     } catch (error) {
@@ -35,15 +36,15 @@ export default function IndexEntity<T>(props: indexEntityProps<T>) {
   }
 
   function loadData() {
+    const url_values = props.url;
+    const param_values = {
+      page,
+      recordsPerPage,
+    };
     axios
-      .get(props.url, {
-        headers: {
-          "x-version": "2",
-        },
-        params: {
-          page,
-          recordsPerPage,
-        },
+      .get(url_values, {
+        headers: { "x-version": "2" },
+        params: param_values,
       })
       .then((response: AxiosResponse) => {
         if (response.data.isSuccess && Array.isArray(response.data.result)) {

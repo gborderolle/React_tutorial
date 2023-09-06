@@ -52,14 +52,12 @@ export default function EditEntity<TCreate, TRead>(
   // Function to fetch the entity data based on the ID provided in the route.
   const fetchEntity = async () => {
     try {
-      const response = await axios.get<ApiResponse<TRead>>(
-        `${props.url}/${id}`,
-        {
-          headers: {
-            "x-version": "2",
-          },
-        }
-      );
+      const url_values = `${props.url}/${id}`;
+      const param_values = {};
+      const response = await axios.get<ApiResponse<TRead>>(url_values, {
+        headers: { "x-version": "2" },
+        params: param_values,
+      });
       if (response.data.isSuccess && response.data.result != null) {
         setEntity(props.transform(response.data.result));
       } else {
@@ -78,13 +76,12 @@ export default function EditEntity<TCreate, TRead>(
   // Function to edit and update the entity.
   const editEntity = async (editEntity: TCreate) => {
     try {
+      const url_values = `${props.url}/${id}`;
       let response: AxiosResponse<ApiResponse<TCreate[]>> | undefined;
       if (props.transformFormData) {
         const formData = props.transformFormData(editEntity);
-        console.log("FormData:", formData);
-
         response = await axios.put<ApiResponse<TCreate[]>>(
-          `${props.url}/${id}`,
+          url_values,
           formData,
           {
             headers: {
@@ -95,7 +92,7 @@ export default function EditEntity<TCreate, TRead>(
         );
       } else {
         response = await axios.put<ApiResponse<TCreate[]>>(
-          `${props.url}/${id}`,
+          url_values,
           editEntity,
           {
             headers: {

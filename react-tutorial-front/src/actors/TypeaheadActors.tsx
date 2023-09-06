@@ -44,11 +44,13 @@ export default function TypeaheadActors(props: typeaheadActorsProps) {
   }
 
   function loadData() {
+    const url_values = `${urlActors}`;
+    const param_values = {};
+
     axios
-      .get(`${urlActors}`, {
-        headers: {
-          "x-version": "2",
-        },
+      .get(url_values, {
+        headers: { "x-version": "2" },
+        params: param_values,
       })
       .then((response: AxiosResponse) => {
         if (response.data.isSuccess && Array.isArray(response.data.result)) {

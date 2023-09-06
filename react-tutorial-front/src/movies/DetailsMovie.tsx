@@ -14,16 +14,15 @@ export default function DetailsMovie() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const config = {
-        headers: {
-          "x-version": "2",
-        },
-      };
       try {
-        let urlcompleta = `${urlMovies}/${id}`;
+        const url_values = `${urlMovies}/${id}`;
+        const param_values = {};
         const response: AxiosResponse<ApiResponse<any>> = await axios.get(
-          urlcompleta,
-          config
+          url_values,
+          {
+            headers: { "x-version": "2" },
+            params: param_values,
+          }
         );
         if (response && response.data && response.data.result) {
           setMovieDetails(response.data.result);
@@ -52,7 +51,7 @@ export default function DetailsMovie() {
   }
 
   function generateURLYoutubeEmbed(url: string): string {
-    if (!url || !url.includes('&')) {
+    if (!url || !url.includes("&")) {
       return "";
     }
     const video_id = url.split("v=")[1];
@@ -137,11 +136,7 @@ export default function DetailsMovie() {
                   {movieDetails.movie.title} (
                   {moment(movieDetails.movie.premiere).toDate().getFullYear()})
                 </h2>
-                <Link
-                  key={id}
-                  to={`/movies/edit/${id}`}
-                  className="m-2"
-                >
+                <Link key={id} to={`/movies/edit/${id}`} className="m-2">
                   Editar
                 </Link>
               </div>
@@ -193,7 +188,6 @@ export default function DetailsMovie() {
                 )}
               </div>
             </div>
-
           </div>
         </div>
       ) : (

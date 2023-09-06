@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { landingPageDTO, movieDTO } from "./movies/movie.model";
 import ListMovies from "./movies/ListMovies";
 import axios, { AxiosResponse, isAxiosError } from "axios";
-import { urlActors, urlMovies } from "./utils/endpoints";
+import { urlMovies } from "./utils/endpoints";
+import Authorized from "./auth/Authorized";
 
 export default function LandingPage() {
   const [errors, setErrors] = useState<string[]>([]);
@@ -13,22 +14,22 @@ export default function LandingPage() {
   }, []);
 
   function loadData() {
+    const url_values = `${urlMovies}`;
+    const param_values = {
+      page: 1,
+      recordsPerPage: 100,
+    };
     axios
-      .get(`${urlMovies}`, {
-        headers: {
-          "x-version": "2",
-        },
-        params: {
-          page: 1,
-          recordsPerPage: 100,
-        },
+      .get(url_values, {
+        headers: { "x-version": "2" },
+        params: param_values,
       })
       .then((response: AxiosResponse) => {
         if (response.data.isSuccess && Array.isArray(response.data.result)) {
           const movies = response.data.result as movieDTO[];
           if (movies && movies.length > 0) {
-            const onCinemas = movies.filter(obj => obj.onCinema);
-            const offCinemas = movies.filter(obj => !obj.onCinema);
+            const onCinemas = movies.filter((obj) => obj.onCinema);
+            const offCinemas = movies.filter((obj) => !obj.onCinema);
             setMovies({
               moviesInTheatres: onCinemas,
               moviesNextReleases: offCinemas,
@@ -48,19 +49,27 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="container mt-4">
-      <div className="row">
-        <div className="col">
-          <h3>En Cartelera</h3>
-          <ListMovies movies={movies.moviesInTheatres} />
+    <>
+      <Authorized
+        authorized={<>Estás auth!</>}
+        unauthorized={<>No estás auth!</>}
+        role="admin"
+      />
+
+      <div className="container mt-4">
+        <div className="row">
+          <div className="col">
+            <h3>En Cartelera</h3>
+            <ListMovies movies={movies.moviesInTheatres} />
+          </div>
+        </div>
+        <div className="row mt-4">
+          <div className="col">
+            <h3>Próximos estrenos</h3>
+            <ListMovies movies={movies.moviesNextReleases} />
+          </div>
         </div>
       </div>
-      <div className="row mt-4">
-        <div className="col">
-          <h3>Próximos estrenos</h3>
-          <ListMovies movies={movies.moviesNextReleases} />
-        </div>
-      </div>
-    </div>
+    </>
   );
 }

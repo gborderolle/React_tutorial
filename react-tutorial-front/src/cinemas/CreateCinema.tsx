@@ -12,12 +12,13 @@ export default function CreateCinema() {
 
   async function createCinema(cinema: cinemaCreationDTO) {
     try {
+      const url_values = urlCinemas;
       const config = {
         headers: {
           "x-version": "2",
         },
       };
-      await axios.post(urlCinemas, cinema, config);
+      await axios.post(url_values, cinema, config);
       navigate("/cinemas");
     } catch (error: any) {
       if (error.response && error.response.data) {

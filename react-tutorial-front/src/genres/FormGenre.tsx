@@ -33,7 +33,6 @@ export default function FormGenre(props: formGenreProps) {
                   field="name"
                   label="Nombre"
                 />
-
                 <br />
                 <div
                   className="btn-group"
