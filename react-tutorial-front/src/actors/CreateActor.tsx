@@ -19,8 +19,8 @@ export default function CreateActor() {
           "Content-Type": "multipart/form-data", // importante si endpoint recibe "[FromForm]"
         },
       };
-      await axios
-        .post(url_values, actor, config_values);
+      await axios.post(url_values, actor, config_values);
+
       navigate("/actors");
     } catch (error: any) {
       if (error.response && error.response.data) {

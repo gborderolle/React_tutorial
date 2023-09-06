@@ -29,12 +29,12 @@ export default function CreateMovie() {
           "Content-Type": "multipart/form-data", // importante si endpoint recibe "[FromForm]"
         },
       };
-      const response = await axios
-        .post<APIResponse<ResponseId>>(
-          url_values,
-          formData,
-          config_values
-        );
+      const response = await axios.post<APIResponse<ResponseId>>(
+        url_values,
+        formData,
+        config_values
+      );
+
       if (response.data.isSuccess) {
         navigate(`/movies/${response.data.result.id}`);
         setLoaded(true);

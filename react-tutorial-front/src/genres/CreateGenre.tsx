@@ -18,8 +18,8 @@ export default function CreateGenre() {
           "x-version": "2",
         },
       };
-      await axios
-        .post(url_values, genre, config_values);
+      await axios.post(url_values, genre, config_values);
+
       navigate("/genres");
     } catch (error: any) {
       if (error.response && error.response.data) {

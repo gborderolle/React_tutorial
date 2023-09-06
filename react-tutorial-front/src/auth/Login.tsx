@@ -11,42 +11,45 @@ import AuthenticationContext from "./AuthenticationContext";
 import { APIResponse } from "../utils/ApiResponse";
 
 export default function Login() {
-    const { update } = useContext(AuthenticationContext);
-    const navigate = useNavigate(); // sirve para navegar entre las páginas
-    const [errors, setErrors] = useState<string[]>([]);
+  const { update } = useContext(AuthenticationContext);
+  const navigate = useNavigate(); // sirve para navegar entre las páginas
+  const [errors, setErrors] = useState<string[]>([]);
 
-    async function login(credentials: userCredential) {
-        try {
-            const url_values = `${urlAccounts}/login`;
-            const config_values = {
-                headers: {
-                    "x-version": "2"
-                },
-            };
-            const response = await axios
-                .post<APIResponse<authResponse>>(url_values, credentials, config_values);
+  async function login(credentials: userCredential) {
+    try {
+      const url_values = `${urlAccounts}/login`;
+      const config_values = {
+        headers: {
+          "x-version": "2",
+        },
+      };
+      const response = await axios.post<APIResponse<authResponse>>(
+        url_values,
+        credentials,
+        config_values
+      );
 
-            saveTokenLocalStorage(response.data.result);
-            update(getClaims());
-            navigate("/");
-        } catch (error: any) {
-            if (error.response && error.response.data) {
-                setErrors(error.response.data);
-            } else {
-                // handle other errors or set a default error message
-                setErrors(["An unexpected error occurred."]);
-            }
-        }
+      saveTokenLocalStorage(response.data.result);
+      update(getClaims());
+      navigate("/");
+    } catch (error: any) {
+      if (error.response && error.response.data) {
+        setErrors(error.response.data);
+      } else {
+        // handle other errors or set a default error message
+        setErrors(["An unexpected error occurred."]);
+      }
     }
+  }
 
-    return (
-        <>
-            <h3>Login</h3>
-            <ShowErrors errors={errors}></ShowErrors>
-            <FormAuth
-                model={{ email: '', password: '' }}
-                onSubmit={async (values) => await login(values)} />
-        </>
-    )
-
+  return (
+    <>
+      <h3>Login</h3>
+      <ShowErrors errors={errors}></ShowErrors>
+      <FormAuth
+        model={{ email: "", password: "" }}
+        onSubmit={async (values) => await login(values)}
+      />
+    </>
+  );
 }

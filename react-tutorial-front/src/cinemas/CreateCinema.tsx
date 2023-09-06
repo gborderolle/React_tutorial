@@ -18,8 +18,8 @@ export default function CreateCinema() {
           "x-version": "2",
         },
       };
-      await axios
-        .post(url_values, cinema, config_values);
+      await axios.post(url_values, cinema, config_values);
+
       navigate("/cinemas");
     } catch (error: any) {
       if (error.response && error.response.data) {

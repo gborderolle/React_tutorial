@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { urlMovies } from "../utils/endpoints";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { urlMovies, urlRatings } from "../utils/endpoints";
 import axios, { AxiosResponse } from "axios";
 import { movieDetailsDTO } from "./movie.model";
 import Loading from "../utils/Loading";
@@ -8,10 +8,13 @@ import LeafletMap from "../utils/LeafletMap";
 import { coordinateDTO } from "../utils/coordinateDTO";
 import moment from "moment";
 import Rating from "../utils/Rating";
+import Swal from "sweetalert2";
 
 export default function DetailsMovie() {
   const { id } = useParams();
   const [movieDetails, setMovieDetails] = useState<movieDetailsDTO>();
+  const navigate = useNavigate(); // sirve para navegar entre las páginas
+  const [errors, setErrors] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -78,6 +81,73 @@ export default function DetailsMovie() {
     return `border-${colors[Math.floor(Math.random() * colors.length)]}`;
   }
 
+  async function onVote(vote: number) {
+    try {
+      const url_values = `${urlRatings}`;
+      const param_values = {
+        movieId: +id!,
+        score: vote,
+      };
+      axios.post(url_values, {
+        headers: { "x-version": "2" },
+        params: param_values,
+      });
+
+      // await axios.post(url_values, model_values, config_values);
+      Swal.fire({ icon: "success", title: "Voto recibido" });
+
+      navigate("/movies");
+    } catch (error: any) {
+      if (error.response && error.response.data) {
+        setErrors(error.response.data);
+      } else {
+        // handle other errors or set a default error message
+        setErrors(["An unexpected error occurred."]);
+      }
+    }
+  }
+
+  /*
+
+  async function onVote(vote: number) {
+    try {
+      const url_values = urlRatings;
+      const config_values = {
+        headers: {
+          "x-version": "2",
+        },
+      };
+      const model_values = {
+        movieId: +id!,
+        score: vote,
+      };
+
+      console.log(url_values);
+      console.log(model_values);
+      console.log(config_values);
+
+      await axios.post(
+        url_values,
+        { movieId: +id!, score: vote },
+        config_values
+      );
+      // await axios.post(url_values, model_values, config_values);
+      Swal.fire({ icon: "success", title: "Voto recibido" });
+
+      navigate("/movies");
+    } catch (error: any) {
+      if (error.response && error.response.data) {
+        setErrors(error.response.data);
+      } else {
+        // handle other errors or set a default error message
+        setErrors(["An unexpected error occurred."]);
+      }
+    }
+  }
+
+
+  */
+
   return (
     <div className="container mt-5">
       {movieDetails ? (
@@ -143,7 +213,8 @@ export default function DetailsMovie() {
               </div>
             </div>
             <div>
-              Tu voto: <Rating maxValue={5} selectedValue={0} onChange={() => { }} />
+              Tu voto:{" "}
+              <Rating maxValue={5} selectedValue={0} onChange={onVote} />
             </div>
 
             <p className="text-muted">
