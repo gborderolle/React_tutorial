@@ -1,5 +1,6 @@
 import { Field, ErrorMessage } from "formik";
 import ShowErrorField from "./ShowErrorField";
+import { type } from "os";
 
 export default function FormGroupText(props: formGroupTextProps) {
   const customStyleObj = props.customStyle ? JSON.parse(props.customStyle) : {};
@@ -8,6 +9,7 @@ export default function FormGroupText(props: formGroupTextProps) {
     <>
       {props.label ? <h5 className="card-title">{props.label}</h5> : null}
       <Field
+        type={props.type}
         name={props.field}
         className={`form-control ${props.customClass || ""}`}
         style={customStyleObj}
@@ -24,8 +26,13 @@ export default function FormGroupText(props: formGroupTextProps) {
 interface formGroupTextProps {
   formName?: string;
   field: string;
+  type: 'text' | 'password';
   label?: string;
   placeholder?: string;
   customClass?: string;
   customStyle?: string;
+}
+
+FormGroupText.defaultProps = {
+  type: 'text'
 }

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { movieDTO } from "./movie.model";
 
 export default function MovieSingle(props: MovieSingleProps) {
@@ -7,20 +8,20 @@ export default function MovieSingle(props: MovieSingleProps) {
     <>
       <div>
         <div className="card" style={{ width: "20rem" }}>
-          <a href={setupLink()}>
+          <Link to={setupLink()}>
             <img
               className="card-img-top"
               src={props.movie.posterURL}
               alt="Poster"
             />
-          </a>
+          </Link>
 
           <div className="card-body">
             <h5 className="card-title">{props.movie.title}</h5>
             <p className="card-text">{props.movie.description}</p>
-            <a href={setupLink()} className="btn btn-primary">
+            <Link to={setupLink()} className="btn btn-primary">
               Ver película
-            </a>
+            </Link>
           </div>
         </div>
       </div>

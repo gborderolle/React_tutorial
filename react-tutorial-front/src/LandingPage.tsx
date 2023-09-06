@@ -50,12 +50,6 @@ export default function LandingPage() {
 
   return (
     <>
-      <Authorized
-        authorized={<>Estás auth!</>}
-        unauthorized={<>No estás auth!</>}
-        role="admin"
-      />
-
       <div className="container mt-4">
         <div className="row">
           <div className="col">

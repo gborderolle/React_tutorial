@@ -13,12 +13,13 @@ export default function CreateGenre() {
   async function createGenre(genre: genreCreationDTO) {
     try {
       const url_values = urlGenres;
-      const config = {
+      const config_values = {
         headers: {
           "x-version": "2",
         },
       };
-      await axios.post(url_values, genre, config);
+      await axios
+        .post(url_values, genre, config_values);
       navigate("/genres");
     } catch (error: any) {
       if (error.response && error.response.data) {

@@ -5,6 +5,8 @@ import LandingPage from "./LandingPage";
 import CreateActor from "./actors/CreateActor";
 import EditActor from "./actors/EditActor";
 import IndexActors from "./actors/IndexActors";
+import Login from "./auth/Login";
+import Register from "./auth/Register";
 import CreateCinema from "./cinemas/CreateCinema";
 import EditCinema from "./cinemas/EditCinema";
 import IndexCinemas from "./cinemas/IndexCinemas";
@@ -22,27 +24,30 @@ import IndexReviews from "./reviews/IndexReviews";
 import RedirectToLanding from "./utils/RedirectToLanding";
 
 const paths = [
-  { path: "/genres/edit/:id", component: EditGenre },
-  { path: "/genres/create", component: CreateGenre },
+  { path: "/genres/edit/:id", component: EditGenre, isAdmin: true },
+  { path: "/genres/create", component: CreateGenre, isAdmin: true },
   { path: "/genres", component: IndexGenres, isAdmin: true },
 
-  { path: "/movies/edit/:id", component: EditMovie },
+  { path: "/movies/edit/:id", component: EditMovie, isAdmin: true },
   { path: "/movies/:id", component: DetailsMovie },
   { path: "/movies/filter", component: FilterMovies },
-  { path: "/movies/create", component: CreateMovie },
+  { path: "/movies/create", component: CreateMovie, isAdmin: true },
   { path: "/movies", component: IndexMovies },
 
-  { path: "/actors/edit/:id", component: EditActor },
-  { path: "/actors/create", component: CreateActor },
+  { path: "/actors/edit/:id", component: EditActor, isAdmin: true },
+  { path: "/actors/create", component: CreateActor, isAdmin: true },
   { path: "/actors", component: IndexActors },
 
-  { path: "/cinemas/edit/:id", component: EditCinema },
-  { path: "/cinemas/create", component: CreateCinema },
+  { path: "/cinemas/edit/:id", component: EditCinema, isAdmin: true },
+  { path: "/cinemas/create", component: CreateCinema, isAdmin: true },
   { path: "/cinemas", component: IndexCinemas },
 
-  { path: "/reviews/edit/:id", component: EditReview },
-  { path: "/reviews/create", component: CreateReview },
+  { path: "/reviews/edit/:id", component: EditReview, isAdmin: true },
+  { path: "/reviews/create", component: CreateReview, isAdmin: true },
   { path: "/reviews", component: IndexReviews },
+
+  { path: "/register", component: Register },
+  { path: "/login", component: Login },
 
   { path: "/", component: LandingPage },
   { path: "*", component: RedirectToLanding },

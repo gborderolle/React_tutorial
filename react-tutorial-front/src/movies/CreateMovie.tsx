@@ -23,17 +23,18 @@ export default function CreateMovie() {
     try {
       const url_values = urlMovies;
       const formData = ConvertMovieToFormData(movie);
-      const config = {
+      const config_values = {
         headers: {
           "x-version": "2",
           "Content-Type": "multipart/form-data", // importante si endpoint recibe "[FromForm]"
         },
       };
-      const response = await axios.post<APIResponse<ResponseId>>(
-        url_values,
-        formData,
-        config
-      );
+      const response = await axios
+        .post<APIResponse<ResponseId>>(
+          url_values,
+          formData,
+          config_values
+        );
       if (response.data.isSuccess) {
         navigate(`/movies/${response.data.result.id}`);
         setLoaded(true);
