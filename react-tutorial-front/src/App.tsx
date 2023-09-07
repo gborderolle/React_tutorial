@@ -12,8 +12,10 @@ import { claim } from "./auth/auth.model";
 import AuthenticationContext from "./auth/AuthenticationContext";
 import React from "react";
 import { getClaims } from "./auth/ManageJWT";
+import { setupInterceptor } from "./utils/Interceptors";
 
 setupValidations();
+setupInterceptor();
 
 function App() {
   const [claims, setClaims] = useState<claim[]>([

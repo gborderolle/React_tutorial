@@ -25,6 +25,8 @@ export default function Rating(props: ratingProps) {
         text: "Debes loguearte para votar",
         icon: "error",
       });
+      setSelectedValue(0);
+      props.onChange(0);
       return;
     }
     setSelectedValue(vote);
@@ -37,9 +39,8 @@ export default function Rating(props: ratingProps) {
         <FontAwesomeIcon
           icon={faStar}
           key={index}
-          className={`fa-lg pointer ${
-            selectedValue >= index + 1 ? "checked" : null
-          }`}
+          className={`fa-lg pointer ${selectedValue >= index + 1 ? "checked" : null
+            }`}
           onMouseOver={() => mouseOverEvent(index + 1)}
           onClick={() => onClickEvent(index + 1)}
         />

@@ -10,7 +10,6 @@ export default function IndexCinemas() {
         urlCreate="create"
         title="Cine"
         entityName="Cinema"
-        urlBack="/cinemas"
       >
         {(cinemas, buttons) => (
           <>
@@ -34,7 +33,7 @@ export default function IndexCinemas() {
             </tbody>
           </>
         )}
-      </IndexEntity>
+      </IndexEntity >
     </>
   );
 }

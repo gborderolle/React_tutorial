@@ -81,72 +81,31 @@ export default function DetailsMovie() {
     return `border-${colors[Math.floor(Math.random() * colors.length)]}`;
   }
 
-  async function onVote(vote: number) {
+  const onVote = async (vote: number) => {
     try {
       const url_values = `${urlRatings}`;
       const param_values = {
         movieId: +id!,
         score: vote,
       };
-      axios.post(url_values, {
-        headers: { "x-version": "2" },
-        params: param_values,
-      });
-
-      // await axios.post(url_values, model_values, config_values);
-      Swal.fire({ icon: "success", title: "Voto recibido" });
-
-      navigate("/movies");
-    } catch (error: any) {
-      if (error.response && error.response.data) {
-        setErrors(error.response.data);
-      } else {
-        // handle other errors or set a default error message
-        setErrors(["An unexpected error occurred."]);
-      }
-    }
-  }
-
-  /*
-
-  async function onVote(vote: number) {
-    try {
-      const url_values = urlRatings;
       const config_values = {
         headers: {
-          "x-version": "2",
-        },
+          'x-version': '2',
+          // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXN1YXJpb0B0ZXN0aW5nLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6InVzdWFyaW9AdGVzdGluZy5jb20iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImMyZWU2NDkzLTVhNzMtNDZmMy1hM2YyLTQ2ZDFkMTFkNzE3NiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiZXhwIjoxNzI1Njc1NDQ2fQ.tvIah0sfI4It7dks78BkzG7_mOXJFVUqLZRFUx5fNBI',
+        }
       };
-      const model_values = {
-        movieId: +id!,
-        score: vote,
-      };
+      const response = await axios.post(url_values, param_values, config_values);
 
-      console.log(url_values);
-      console.log(model_values);
-      console.log(config_values);
+      if (response && response.data && response.data.result) {
+        Swal.fire({ icon: "success", title: "Voto recibido" });
 
-      await axios.post(
-        url_values,
-        { movieId: +id!, score: vote },
-        config_values
-      );
-      // await axios.post(url_values, model_values, config_values);
-      Swal.fire({ icon: "success", title: "Voto recibido" });
-
-      navigate("/movies");
-    } catch (error: any) {
-      if (error.response && error.response.data) {
-        setErrors(error.response.data);
       } else {
-        // handle other errors or set a default error message
-        setErrors(["An unexpected error occurred."]);
+        throw new Error("Formato de datos inesperado de la API.");
       }
+    } catch (error: any) {
+      console.error(error);
     }
-  }
-
-
-  */
+  };
 
   return (
     <div className="container mt-5">
@@ -214,7 +173,10 @@ export default function DetailsMovie() {
             </div>
             <div>
               Tu voto:{" "}
-              <Rating maxValue={5} selectedValue={0} onChange={onVote} />
+              <Rating
+                maxValue={5}
+                selectedValue={movieDetails.userVote!}
+                onChange={onVote} />
             </div>
 
             <p className="text-muted">

@@ -38,56 +38,6 @@ export default function Menu() {
 
         <div className="collapse navbar-collapse" id="navbarContent" style={{ display: 'flex', justifyContent: 'space-between' }}>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "nav-link active" : "nav-link"
-                }
-                to="/genres"
-              >
-                Géneros
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "nav-link active" : "nav-link"
-                }
-                to="/movies"
-              >
-                Películas
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "nav-link active" : "nav-link"
-                }
-                to="/actors"
-              >
-                Actores
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "nav-link active" : "nav-link"
-                }
-                to="/cinemas"
-              >
-                Cines
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "nav-link active" : "nav-link"
-                }
-                to="/reviews"
-              >
-                Reviews
-              </NavLink>
-            </li>
             <Authorized
               role="admin"
               authorized={
@@ -97,7 +47,57 @@ export default function Menu() {
                       className={({ isActive }) =>
                         isActive ? "nav-link active" : "nav-link"
                       }
+                      to="/genres"
+                    >
+                      Géneros
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "nav-link active" : "nav-link"
+                      }
+                      to="/movies"
+                    >
+                      Películas
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "nav-link active" : "nav-link"
+                      }
+                      to="/actors"
+                    >
+                      Actores
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "nav-link active" : "nav-link"
+                      }
+                      to="/cinemas"
+                    >
+                      Cines
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "nav-link active" : "nav-link"
+                      }
                       to="/reviews"
+                    >
+                      Reviews
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "nav-link active" : "nav-link"
+                      }
+                      to="/users"
                     >
                       Administración
                     </NavLink>
@@ -105,6 +105,16 @@ export default function Menu() {
                 </>
               }
             ></Authorized>
+            <li className="nav-item">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+                to="/filter"
+              >
+                Filtrar películas
+              </NavLink>
+            </li>
           </ul>
           <div className="d-flex">
             <Authorized

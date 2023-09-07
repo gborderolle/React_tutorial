@@ -91,7 +91,7 @@ export default function IndexEntity<T>(props: indexEntityProps<T>) {
           <ol className="list-group list-group-numbered">
             <li className="list-group-item d-flex justify-content-between align-items-start">
               <div className="ms-2 me-auto">
-                <Link to={props.urlCreate}>Crear {props.entityName}</Link>
+                {props.urlCreate ? <Link to={props.urlCreate}>Crear {props.entityName}</Link> : null}
               </div>
             </li>
             <li className="list-group-item d-flex justify-content-between align-items-start">
@@ -141,12 +141,11 @@ export default function IndexEntity<T>(props: indexEntityProps<T>) {
 
 interface indexEntityProps<T> {
   url: string;
-  urlCreate: string;
+  urlCreate?: string;
   children(
     entities: T[],
     buttons: (urlEdit: string, id: number) => ReactElement
   ): ReactElement;
   title: string;
-  entityName: string;
-  urlBack: string;
+  entityName?: string;
 }

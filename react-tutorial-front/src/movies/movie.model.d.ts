@@ -41,6 +41,8 @@ export interface movieDetailsDTO {
   genres?: genreDTO[];
   actors?: actorMovieDTO[];
   reviews?: reviewDTO[];
+  userVote?: number;
+  averageVote?: number;
 }
 
 export interface moviePutGetDTO {

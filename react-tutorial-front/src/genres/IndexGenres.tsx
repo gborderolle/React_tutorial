@@ -13,7 +13,6 @@ export default function IndexGenres() {
         urlCreate="create"
         title="Géneros"
         entityName="Género"
-        urlBack="/genres"
       >
         {(genres, buttons) => (
           <>

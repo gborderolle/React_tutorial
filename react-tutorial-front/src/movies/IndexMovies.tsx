@@ -11,7 +11,6 @@ export default function IndexMovies() {
         urlCreate="create"
         title="Películas"
         entityName="Película"
-        urlBack="/movies"
       >
         {(movies, buttons) => (
           <>

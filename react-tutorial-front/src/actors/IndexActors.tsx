@@ -10,7 +10,6 @@ export default function IndexActors() {
         urlCreate="create"
         title="Actors"
         entityName="Actor"
-        urlBack="/actors"
       >
         {(actors, buttons) => (
           <>
