@@ -1,11 +1,14 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Navigate, useNavigate } from "react-router-dom";
 import Authorized from "../auth/Authorized";
 import { logout } from "../auth/ManageJWT";
 import Button from "./Button";
 import { useContext } from "react";
 import AuthenticationContext from "../auth/AuthenticationContext";
+import Swal from "sweetalert2";
+import showSuccess from "../messages/ShowSuccess";
 
 export default function Menu() {
+  const navigate = useNavigate(); // sirve para navegar entre las páginas
   const { update, claims } = useContext(AuthenticationContext);
 
   function getUsername(): string {
@@ -124,6 +127,11 @@ export default function Menu() {
                   onClick={() => {
                     logout();
                     update([]);
+
+                    showSuccess('Logout correcto');
+                    setTimeout(() => {
+                      navigate("/");
+                    }, 2000);
                   }}
                   className="nav-link btn btn-link">Log out</Button>
               </>}

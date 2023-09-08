@@ -9,6 +9,7 @@ import { coordinateDTO } from "../utils/coordinateDTO";
 import moment from "moment";
 import Rating from "../utils/Rating";
 import Swal from "sweetalert2";
+import showSuccess from "../messages/ShowSuccess";
 
 export default function DetailsMovie() {
   const { id } = useParams();
@@ -97,8 +98,7 @@ export default function DetailsMovie() {
       const response = await axios.post(url_values, param_values, config_values);
 
       if (response && response.data && response.data.result) {
-        Swal.fire({ icon: "success", title: "Voto recibido" });
-
+        showSuccess('Votación correcta');
       } else {
         throw new Error("Formato de datos inesperado de la API.");
       }

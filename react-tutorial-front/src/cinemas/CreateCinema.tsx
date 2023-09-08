@@ -5,6 +5,7 @@ import { urlCinemas } from "../utils/endpoints";
 import { useNavigate } from "react-router-dom";
 import ShowErrors from "../utils/ShowErrors";
 import { useState } from "react";
+import showSuccess from "../messages/ShowSuccess";
 
 export default function CreateCinema() {
   const navigate = useNavigate(); // sirve para navegar entre las páginas
@@ -20,7 +21,10 @@ export default function CreateCinema() {
       };
       await axios.post(url_values, cinema, config_values);
 
-      navigate("/cinemas");
+      showSuccess('Creación correcta');
+      setTimeout(() => {
+        navigate("/cinemas");
+      }, 2000);
     } catch (error: any) {
       if (error.response && error.response.data) {
         setErrors(error.response.data);

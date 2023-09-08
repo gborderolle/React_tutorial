@@ -5,6 +5,7 @@ import { urlActors } from "../utils/endpoints";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import ShowErrors from "../utils/ShowErrors";
+import showSuccess from "../messages/ShowSuccess";
 
 export default function CreateActor() {
   const navigate = useNavigate(); // sirve para navegar entre las páginas
@@ -21,7 +22,10 @@ export default function CreateActor() {
       };
       await axios.post(url_values, actor, config_values);
 
-      navigate("/actors");
+      showSuccess('Creación correcta');
+      setTimeout(() => {
+        navigate("/actors");
+      }, 2000);
     } catch (error: any) {
       if (error.response && error.response.data) {
         setErrors(error.response.data);

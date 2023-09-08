@@ -9,6 +9,7 @@ import ShowErrors from "../utils/ShowErrors";
 import { getClaims, saveTokenLocalStorage } from "./ManageJWT";
 import AuthenticationContext from "./AuthenticationContext";
 import { APIResponse } from "../utils/ApiResponse";
+import showSuccess from "../messages/ShowSuccess";
 
 export default function Login() {
   const { update } = useContext(AuthenticationContext);
@@ -31,7 +32,11 @@ export default function Login() {
 
       saveTokenLocalStorage(response.data.result);
       update(getClaims());
-      navigate("/");
+
+      showSuccess('Login correcto');
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
     } catch (error: any) {
       if (error.response && error.response.data) {
         setErrors(error.response.data);

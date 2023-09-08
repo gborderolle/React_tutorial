@@ -10,6 +10,7 @@ import { cinemaDTO } from "../cinemas/cinema.model";
 import Loading from "../utils/Loading";
 import { ConvertMovieToFormData } from "../utils/FormDataUtils";
 import { APIResponse, ResponseId } from "../utils/ApiResponse";
+import showSuccess from "../messages/ShowSuccess";
 
 export default function CreateMovie() {
   const navigate = useNavigate(); // sirve para navegar entre las páginas
@@ -36,8 +37,12 @@ export default function CreateMovie() {
       );
 
       if (response.data.isSuccess) {
-        navigate(`/movies/${response.data.result.id}`);
-        setLoaded(true);
+
+        showSuccess('Creación correcta');
+        setTimeout(() => {
+          navigate(`/movies/${response.data.result.id}`);
+          setLoaded(true);
+        }, 2000);
       } else {
         setErrors(response.data.errorMessages);
       }

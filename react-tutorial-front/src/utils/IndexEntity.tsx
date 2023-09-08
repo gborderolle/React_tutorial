@@ -21,7 +21,7 @@ export default function IndexEntity<T>(props: indexEntityProps<T>) {
     try {
       const url_values = `${props.url}/${id}`;
       const param_values = {};
-      const response = await axios.delete(url_values, {
+      await axios.delete(url_values, {
         headers: { "x-version": "2" },
         params: param_values,
       });

@@ -6,6 +6,7 @@ import { userDTO } from "./auth.model";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import showConfirm from "../utils/ShowConfirm";
+import showSuccess from "../messages/ShowSuccess";
 
 export default function IndexUsers() {
     const navigate = useNavigate(); // sirve para navegar entre las páginas
@@ -30,7 +31,10 @@ export default function IndexUsers() {
             };
             await axios.post(url_values, JSON.stringify(id), config_values);
 
-            navigate("/");
+            showSuccess('Creación correcta');
+            setTimeout(() => {
+                navigate("/");
+            }, 2000);
         } catch (error: any) {
             if (error.response && error.response.data) {
                 setErrors(error.response.data);

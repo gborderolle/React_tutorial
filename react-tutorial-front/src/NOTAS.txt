@@ -28,8 +28,6 @@ Reviews
 ToDo's:
 
     - Fix: Username logueado arriba derecha
-    - New: Cada movie tiene que tener una lista de UserRatings y cargar el rating en DetailsMovie (hoy se trae un MovieDetails.Movie.UserVote del endpoint: MovieController:Get(id))
-        Hay que obtener el User logueado (desde Claims) en MovieController->Get() para poder obtener los Ratings de esa movie y user.
 
 --
 Login:
