@@ -1,0 +1,71 @@
+***Backend:
+
+1. Crear sitio en hosting
+2. Crear BD
+3. Setear ConnectionString de BD del hosting en appsettings.json de la app (en producción, no development)
+4. Setear "Production" en opciones del proyecto -> Open debug launch profiles UI -> https y http -> Environment variables -> ASPNETCORE_ENVIRONMENT: Production
+5. Descargar Webdeploy para VS en Hosting (archivo .xml): site1.PublishSettings
+6. Publish -> cargar archivo en VS: web deploy pubxml: Publish -> Import profile
+7. Opciones: Realease, .net7, Framework-dependent, win-x64 (el mismo que <PlatformTarget>x64</PlatformTarget> en las propiedades del proyecto en VS), DB: Use CS y Migrations (guarda si contiene algún DataSeed en la bd)
+8. Publish y login de SmarterASP:
+	gborderolle1-001
+	Gborderolle12a
+
+PD: Si falla, quitar Migrations (pero luego volver a intentar, porque sino la BD queda vacía).
+
+URL final: http://gborderolle1-001-site1.atempurl.com/
+URL de Swagger: http://gborderolle1-001-site1.atempurl.com/swagger/index.html
+URL para front: http://gborderolle1-001-site1.atempurl.com/api/accounts/login
+
+
+Pasaje a HTTPS con Cloudeflare:
+
+URL de Swagger: https://herkicks.uy/swagger/index.html
+URL para front: https://herkicks.uy/api
+
+
+--
+
+Datos:
+
+Hosting: SmarterASP
+Name: reacttutorialback
+
+BD:
+"Data Source=SQL5111.site4now.net;Initial Catalog=db_a4d7d8_reacttutorialback;User Id=db_a4d7d8_reacttutorialback_admin;Password=YOUR_DB_PASSWORD
+
+usr: db_a4d7d8_reacttutorialback_admin
+psw: reacttutorial1234
+
+---------------------------------------------------
+
+*** Frontend:
+
+Deploy a Firebase (gratis)
+Clase 170: https://www.udemy.com/course/desarrollando-aplicaciones-en-react-y-aspnet-core/learn/lecture/26158892#overview
+
+0. Terminal: npm run build
+	PD: Si ya había una carpeta build antes, borrarla y hacer build nuevo
+
+1. Ejecutar esto en la terminal:
+	Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+	npm install -g firebase -f
+	firebase login
+	firebase init (si falla crear el proyecto desde la web)
+
+(si sigue fallando hacerlo desde cmd en el directorio del proyecto -> cmd en la dir de la ventana)
+
+2. Ready? yes
+3. Hosting: Configure files
+4. public directory: build
+5. single page: yes
+6. automatic builds: no
+7. overwrite: yes
+
+8. firebase deploy (verificar antes que el index.html generado en /build levante [puede no funcionar])	
+
+login: [Gmail]
+
+nombre: reactpeliculastutorialfront (nombre único)
+url: https://reactpeliculastutorialfront.firebaseapp.com
+

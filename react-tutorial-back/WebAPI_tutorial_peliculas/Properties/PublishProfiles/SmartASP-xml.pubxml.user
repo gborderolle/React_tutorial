@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <History>True|2023-09-09T07:02:41.8157874Z;True|2023-09-09T03:52:16.6146332-03:00;False|2023-09-09T03:51:30.9889498-03:00;False|2023-09-09T03:47:26.5043256-03:00;False|2023-09-09T03:43:26.8180240-03:00;False|2023-09-09T03:38:00.3277252-03:00;False|2023-09-09T03:35:32.7008980-03:00;False|2023-09-09T03:34:01.2233626-03:00;False|2023-09-09T03:33:24.1396046-03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="ConnectionString_WebAPI_tutorial">
+      <Value>Data Source=SQL5111.site4now.net%3bInitial Catalog=db_a4d7d8_reacttutorialback%3bUser Id=db_a4d7d8_reacttutorialback_admin%3bPassword=reacttutorialback1234</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="WebAPI_tutorial_peliculas.Context.ContextDB">
+      <Value>Data Source=SQL5111.site4now.net%3bInitial Catalog=db_a4d7d8_reacttutorialback%3bUser Id=db_a4d7d8_reacttutorialback_admin%3bPassword=reacttutorial1234</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>
