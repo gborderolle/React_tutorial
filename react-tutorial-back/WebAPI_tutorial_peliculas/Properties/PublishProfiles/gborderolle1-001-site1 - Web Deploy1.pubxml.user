@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <History>True|2023-08-27T20:35:44.5788257Z;True|2023-08-27T16:58:44.8873578-03:00;True|2023-08-27T16:48:38.9778083-03:00;True|2023-08-27T02:46:59.9258918-03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="ConnectionString_WebAPI_tutorial">
+      <Value>Data Source=SQL5111.site4now.net%3bInitial Catalog=db_a4d7d8_webapi%3bUser Id=db_a4d7d8_webapi_admin%3bPassword=webapi1234</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="WebAPI_tutorial_peliculas.Context.ContextDB">
+      <Value>Data Source=SQL5111.site4now.net%3bInitial Catalog=db_a4d7d8_webapi%3bUser Id=db_a4d7d8_webapi_admin%3bPassword=webapi1234</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

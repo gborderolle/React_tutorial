@@ -1,0 +1,151 @@
+﻿Para todos:
+
+Header:
+x-version	1
+
+-----------------------
+
+
+GET
+
+https://localhost:7015/api/movies?Page=1&RecordsPerPage=50
+
+// -- *****************************************************************
+
+GET/1
+
+https://localhost:7015/api/movies/1?Page=1&RecordsPerPage=50
+
+// -- *****************************************************************
+
+POST
+
+
+Movies body:form-data
+
+title:Spiderman
+genres:[{"movieId":"1","genreId":"1"}]
+cinemas:[{"movieId":"1","cinemaId":"1"}]
+actors:[{"ActorId":1,"Character":"Peter Parker"}]
+onCinema:true
+premiere:2019-06-28
+
+
+Cinemas body:raw:json
+{
+    "name": "Moviecenter"
+}
+
+Genres body:raw:json
+{
+    "name": "Moviecenter"
+}
+
+
+------------------------- CUENTAS:
+
+Importante: Cada instancia de Postman (tabs) es independiente a las demás, si te logueas en una no estás logueado en las demás automáticamente.
+
+Registro:
+https://localhost:7015/api/accounts/register
+{
+	"email":"a@a.com",
+	"password":"Aa1234."
+}
+
+
+------> "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImFAYS5jb20iLCJleHAiOjE3MjQ2OTg1MTZ9.cTBxqLs-Eiqpo1E8YUlNu-oDrhMOdwUqwPamHxDMFsk",
+
+Login genérico (en bd desde SeedData())
+
+POST: https://localhost:7015/api/accounts/login
+Body -> raw -> json
+
+User admin:
+{
+	"email":"admin@testing.com",
+	"password":"Aa1234."
+}
+
+User normal:
+{
+	"email":"normal@testing.com",
+	"password":"Aa1234."
+}
+
+Token del usuario: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXN1YXJpb0B0ZXN0aW5nLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6InVzdWFyaW9AdGVzdGluZy5jb20iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImMyZWU2NDkzLTVhNzMtNDZmMy1hM2YyLTQ2ZDFkMTFkNzE3NiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiZXhwIjoxNzI0NzI0MjgxfQ.GYOeN5gY-a24fiS5xufuoFbn0h-sUuLJOZiQMVznRxI
+
+Orden:
+1. hacer login POST "https://localhost:7015/api/accounts/login" con: "usuario@testing.com"
+{
+	"email":"usuario@testing.com",
+	"password":"Aa1234."
+}
+2. colocar token generado en login
+3. consultar si es admin GET "https://localhost:7015/api/accounts/roles"
+4. hacer POST "https://localhost:7015/api/actors" para crear actor: 
+{
+ "name":"Gonzalo"
+}
+
+usuario@testing.com Aa1234.
+
+
+Para las pruebas (endpoints con authorization):
+1. Colocar token en Postman -> Auth:
+    Bearer -> Token: "xxxx",
+2. POST https://localhost:7015/api/accounts/login
+
+
+------------
+
+Publicar un review en peli 1
+
+POST: https://localhost:7015/api/movies/1/reviews
+{
+	"content":"Muy buena, recomendadísima",
+	"score":4
+}
+
+
+// -- **********************************************************************************************************************************
+
+PUT
+
+{ 
+"name": "Aventura ID 1"
+}
+
+
+// -- **********************************************************************************************************************************
+
+PATCH
+
+Movies body:raw:json
+[
+    { 
+    "op": "replace", 
+    "path": "/title", 
+    "value": "Pelicula 3" 
+    }
+]
+
+
+// -- **********************************************************************************************************************************
+
+DELETE
+
+
+--
+
+----------
+
+Para inspeccionar un formData desde la consola en Chrome (debuggeando el front)
+
+for (let pair of formData.entries()) {
+    console.log(pair[0]+ ', ' + pair[1]); 
+}
+
+--------
+
+

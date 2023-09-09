@@ -1,0 +1,69 @@
+﻿Temática: DTOs
+    /// UserDTO sirve de apoyo al IdentityUser
+    /// El UserID nunca va en los DTOs porque sería una vulnerabilidad del sistema
+    /// En el Context la tabla es .Users
+    // Para setear manualmente roles, por ej Admin => tabla AspNetUserClaims:   
+        Id	UserId	ClaimType	ClaimValue
+        4	c2ee6493-5a73-46f3-a3f2-46d1d11d7176	role	admin
+
+Así se toma el User logueado:
+    var userId = HttpContext.User.Claims.FirstOrDefault(x => x.Type == "email").Value;
+    if (userId == null)
+    {
+        _logger.LogError($"Usuario no autorizado.");
+        _response.ErrorMessages = new List<string> { $"Usuario no autorizado." };
+        _response.IsSuccess = false;
+        _response.StatusCode = HttpStatusCode.Unauthorized;
+        return Unauthorized($"Usuario no autorizado.");
+    }
+
+    (o)
+
+    var email = HttpContext.User.Claims.FirstOrDefault(x => x.Type == "email").Value;
+    if (email != null)
+    {
+        var user = await _userManager.FindByEmailAsync(email);
+        if (user != null)
+        {
+            var userId = user.Id;            
+        }
+    }
+
+Cuidado 1: User.Claims sólo funciona si el usuario está logueado!
+Cuidado 2: En la BD, si la tabla AspNetUserClaims está sucia, jode los Claims y no deja acceder al User logueado, hay que limpiarla.
+
+
+--
+
+Temática: Git
+
+Ignorar el bin y obj para github
+
+git rm -r --cached bin
+git rm -r --cached obj
+git rm -r --cached .vs
+
+y luego:
+
+En .gitignore:
+    bin/
+    obj/
+
+
+--
+
+Temática: Autenticación y Autorización
+
+Autenticación: un usuario cualquiera debe estar logueado
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
+
+Autorización: un usuario debe tener el rol asignado (Admin en este caso)
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "IsAdmin")]
+
+Anónimo: abierto sin usuarios
+[AllowAnonymous]
+
+--
+
+
