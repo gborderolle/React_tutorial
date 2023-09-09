@@ -8,8 +8,11 @@ import { movieDTO } from "./movie.model";
 import ListMovies from "./ListMovies";
 import { useLocation, useNavigate } from "react-router-dom";
 import Pagination from "../utils/Pagination";
+import { handleErrors } from "../utils/HandleErrors";
+import ShowErrors from "../utils/ShowErrors";
 
 export default function FilterMovies() {
+  const [errors, setErrors] = useState<string[]>([]);
   const [genres, setGenres] = useState<genreDTO[]>([]);
   const [movies, setMovies] = useState<movieDTO[]>([]);
   const [totalPages, setTotalPages] = useState(0);
@@ -48,7 +51,7 @@ export default function FilterMovies() {
           throw new Error("Formato de datos inesperado de la API.");
         }
       } catch (error: any) {
-        console.error(error);
+        handleErrors(error, setErrors);
       }
     };
     fetchGenres();
@@ -96,7 +99,7 @@ export default function FilterMovies() {
           throw new Error("Formato de datos inesperado de la API.");
         }
       } catch (error: any) {
-        console.error(error);
+        handleErrors(error, setErrors);
       }
     };
     search();
@@ -122,6 +125,7 @@ export default function FilterMovies() {
 
   return (
     <>
+      <ShowErrors errors={errors} />
       <div className="mt-4">
         <h3>Filtrar Películas</h3>
         <Formik

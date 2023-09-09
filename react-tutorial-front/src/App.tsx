@@ -25,7 +25,7 @@ function App() {
 
   useEffect(() => {
     setClaims(getClaims());
-  }, [])
+  }, []);
 
   function update(claims: claim[]) {
     setClaims(claims);
@@ -42,6 +42,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        {/* AuthenticationContext.Provider: Para que toda la app tenga acceso al estado de claims */}
         <AuthenticationContext.Provider value={{ claims, update }}>
           <Menu />
           <div className="container" style={{ marginLeft: "100px" }}>

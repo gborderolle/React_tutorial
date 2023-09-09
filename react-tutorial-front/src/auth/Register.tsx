@@ -7,6 +7,8 @@ import { useContext, useState } from "react";
 import ShowErrors from "../utils/ShowErrors";
 import { saveTokenLocalStorage, getClaims } from "./ManageJWT";
 import AuthenticationContext from "./AuthenticationContext";
+import { APIResponse } from "../utils/ApiResponse";
+import { handleErrors } from "../utils/HandleErrors";
 
 export default function Register() {
   const { update } = useContext(AuthenticationContext);
@@ -14,29 +16,29 @@ export default function Register() {
   const [errors, setErrors] = useState<string[]>([]);
 
   async function register(credentials: userCredential) {
+    const url_values = `${urlAccounts}/register`;
+    const config_values = {
+      headers: {
+        "x-version": "2",
+      },
+    };
+
     try {
-      const url_values = `${urlAccounts}/register`;
-      const config_values = {
-        headers: {
-          "x-version": "2",
-        },
-      };
-      const response = await axios.post<authResponse>(
+      const response = await axios.post<APIResponse<authResponse>>(
         url_values,
         credentials,
         config_values
       );
 
-      saveTokenLocalStorage(response.data);
-      update(getClaims());
-      navigate("/");
-    } catch (error: any) {
-      if (error.response && error.response.data) {
-        setErrors(error.response.data);
+      if (response.data.isSuccess) {
+        saveTokenLocalStorage(response.data.result);
+        update(getClaims());
+        navigate("/");
       } else {
-        // handle other errors or set a default error message
-        setErrors(["An unexpected error occurred."]);
+        setErrors(response.data.errorMessages);
       }
+    } catch (error: any) {
+      handleErrors(error, setErrors);
     }
   }
 

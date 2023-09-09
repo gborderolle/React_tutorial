@@ -5,7 +5,8 @@ import { urlCinemas } from "../utils/endpoints";
 import { useNavigate } from "react-router-dom";
 import ShowErrors from "../utils/ShowErrors";
 import { useState } from "react";
-import showSuccess from "../messages/ShowSuccess";
+import showToastMessage from "../messages/ShowSuccess";
+import { handleErrors } from "../utils/HandleErrors";
 
 export default function CreateCinema() {
   const navigate = useNavigate(); // sirve para navegar entre las páginas
@@ -21,17 +22,15 @@ export default function CreateCinema() {
       };
       await axios.post(url_values, cinema, config_values);
 
-      showSuccess('Creación correcta');
-      setTimeout(() => {
-        navigate("/cinemas");
-      }, 2000);
+      showToastMessage({
+        title: "Creación correcta",
+        icon: "success",
+        callback: () => {
+          navigate("/cinemas");
+        },
+      });
     } catch (error: any) {
-      if (error.response && error.response.data) {
-        setErrors(error.response.data);
-      } else {
-        // handle other errors or set a default error message
-        setErrors(["An unexpected error occurred."]);
-      }
+      handleErrors(error, setErrors);
     }
   }
 

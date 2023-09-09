@@ -8,6 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../utils/Loading";
 import ShowErrors from "../utils/ShowErrors";
 import moment from "moment";
+import { handleErrors } from "../utils/HandleErrors";
 
 export default function EditMovie() {
   const navigate = useNavigate();
@@ -46,11 +47,7 @@ export default function EditMovie() {
           throw new Error("Formato de datos inesperado de la API.");
         }
       } catch (error: any) {
-        if (error.response && error.response.data) {
-          setErrors([error.response.data]); // Asegúrate de que esto es un array
-        } else {
-          setErrors([error.message || "Ha ocurrido un error inesperado."]);
-        }
+        handleErrors(error, setErrors);
       }
     };
 

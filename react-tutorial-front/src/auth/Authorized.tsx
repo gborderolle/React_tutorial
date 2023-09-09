@@ -9,15 +9,16 @@ export default function Authorized(props: authorizedProps) {
   const { claims } = useContext(AuthenticationContext);
 
   useEffect(() => {
+    // Cada vez que se actualizan los claims se determina si cumple con el rol del parámetro (props.role)
     if (props.role) {
       const index = claims.findIndex(
         (claim) => claim.name === "role" && claim.value === props.role
       );
       setIsAuthorized(index > -1);
     } else {
-      setIsAuthorized(claims.length > 0);
+      setIsAuthorized(claims.length > 0); // Determina si el usuario está autenticado (logueado)
     }
-  }, [claims, props.role]);
+  }, [claims, props.role]); // Se ejecuta cuando cambia claims o props.role
 
   return <>{isAuthorized ? props.authorized : props.unauthorized}</>;
 }

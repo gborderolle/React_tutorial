@@ -8,8 +8,9 @@ import LeafletMap from "../utils/LeafletMap";
 import { coordinateDTO } from "../utils/coordinateDTO";
 import moment from "moment";
 import Rating from "../utils/Rating";
-import Swal from "sweetalert2";
-import showSuccess from "../messages/ShowSuccess";
+import showToastMessage from "../messages/ShowSuccess";
+import { handleErrors } from "../utils/HandleErrors";
+import ShowErrors from "../utils/ShowErrors";
 
 export default function DetailsMovie() {
   const { id } = useParams();
@@ -35,7 +36,7 @@ export default function DetailsMovie() {
           throw new Error("Formato de datos inesperado de la API.");
         }
       } catch (error: any) {
-        console.error(error);
+        handleErrors(error, setErrors);
       }
     };
     fetchData();
@@ -91,146 +92,163 @@ export default function DetailsMovie() {
       };
       const config_values = {
         headers: {
-          'x-version': '2',
+          "x-version": "2",
           // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXN1YXJpb0B0ZXN0aW5nLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6InVzdWFyaW9AdGVzdGluZy5jb20iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImMyZWU2NDkzLTVhNzMtNDZmMy1hM2YyLTQ2ZDFkMTFkNzE3NiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiZXhwIjoxNzI1Njc1NDQ2fQ.tvIah0sfI4It7dks78BkzG7_mOXJFVUqLZRFUx5fNBI',
-        }
+        },
       };
-      const response = await axios.post(url_values, param_values, config_values);
+      const response = await axios.post(
+        url_values,
+        param_values,
+        config_values
+      );
 
       if (response && response.data && response.data.result) {
-        showSuccess('Votación correcta');
+        showToastMessage({
+          title: "Votación correcta",
+          icon: "success",
+          callback: () => {
+            navigate("/");
+          },
+        });
       } else {
         throw new Error("Formato de datos inesperado de la API.");
       }
     } catch (error: any) {
-      console.error(error);
+      handleErrors(error, setErrors);
     }
   };
 
   return (
-    <div className="container mt-5">
-      {movieDetails ? (
-        <div className="row">
-          <div className="col-md-4">
-            <div className="card mb-3">
-              <img
-                src={movieDetails.movie.posterURL}
-                alt="Imagen del poster"
-                className="card-img-top"
-              />
-            </div>
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">Actores:</h4>
-                {movieDetails.actors?.map((actor) => (
-                  <div
-                    key={actor.id}
-                    className={`d-flex align-items-center mb-3 ${getRandomColor()} rounded`}
-                  >
-                    <img
-                      src={actor.photoURL}
-                      alt={`Foto de ${actor.name}`}
-                      className="actor-photo rounded mr-3 border-4 border-secondary"
-                      width="100"
-                      height="100"
-                    />
-                    <div>
-                      <p className="card-text mb-0">{actor.name}</p>
+    <>
+      <ShowErrors errors={errors} />
+      <div className="container mt-5">
+        {movieDetails ? (
+          <div className="row">
+            <div className="col-md-4">
+              <div className="card mb-3">
+                <img
+                  src={movieDetails.movie.posterURL}
+                  alt="Imagen del poster"
+                  className="card-img-top"
+                />
+              </div>
+              <div className="card">
+                <div className="card-body">
+                  <h4 className="card-title">Actores:</h4>
+                  {movieDetails.actors?.map((actor) => (
+                    <div
+                      key={actor.id}
+                      className={`d-flex align-items-center mb-3 ${getRandomColor()} rounded`}
+                    >
+                      <img
+                        src={actor.photoURL}
+                        alt={`Foto de ${actor.name}`}
+                        className="actor-photo rounded mr-3 border-4 border-secondary"
+                        width="100"
+                        height="100"
+                      />
+                      <div>
+                        <p className="card-text mb-0">{actor.name}</p>
+                        <p className="card-text text-muted mb-0">
+                          {actor.character}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <br />
+              <div className="card">
+                <div className="card-body">
+                  <h4 className="card-title">Reseñas:</h4>
+                  {movieDetails.reviews?.map((review, index) => (
+                    <div key={index} className="mb-2">
+                      <p className="card-text mb-0">{review.name}</p>
                       <p className="card-text text-muted mb-0">
-                        {actor.character}
+                        Puntuación: {review.score}
                       </p>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-            <br />
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">Reseñas:</h4>
-                {movieDetails.reviews?.map((review, index) => (
-                  <div key={index} className="mb-2">
-                    <p className="card-text mb-0">{review.name}</p>
-                    <p className="card-text text-muted mb-0">
-                      Puntuación: {review.score}
-                    </p>
-                  </div>
-                ))}
+            <div className="col-md-8">
+              <div className="row">
+                <div className="col d-flex align-items-center">
+                  <h2>
+                    {movieDetails.movie.title} (
+                    {moment(movieDetails.movie.premiere).toDate().getFullYear()}
+                    )
+                  </h2>
+                  <Link key={id} to={`/movies/edit/${id}`} className="m-2">
+                    Editar
+                  </Link>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="col-md-8">
-            <div className="row">
-              <div className="col d-flex align-items-center">
-                <h2>
-                  {movieDetails.movie.title} (
-                  {moment(movieDetails.movie.premiere).toDate().getFullYear()})
-                </h2>
-                <Link key={id} to={`/movies/edit/${id}`} className="m-2">
-                  Editar
-                </Link>
+              <div>
+                Tu voto:{" "}
+                <Rating
+                  maxValue={5}
+                  selectedValue={movieDetails.userVote!}
+                  onChange={onVote}
+                />
               </div>
-            </div>
-            <div>
-              Tu voto:{" "}
-              <Rating
-                maxValue={5}
-                selectedValue={movieDetails.userVote!}
-                onChange={onVote} />
-            </div>
 
-            <p className="text-muted">
-              {movieDetails.genres?.map((genre) => (
-                <Link
-                  key={genre.id}
-                  to={`/movies/filter?genreId=${genre.id}`}
-                  className="btn btn-primary btn-sm rounded m-1"
-                >
-                  {genre.name}
-                </Link>
-              ))}
-            </p>
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">Sinópsis:</h4>
-                <p className="lead">{movieDetails.movie.description}</p>
+              <p className="text-muted">
+                {movieDetails.genres?.map((genre) => (
+                  <Link
+                    key={genre.id}
+                    to={`/movies/filter?genreId=${genre.id}`}
+                    className="btn btn-primary btn-sm rounded m-1"
+                  >
+                    {genre.name}
+                  </Link>
+                ))}
+              </p>
+              <div className="card">
+                <div className="card-body">
+                  <h4 className="card-title">Sinópsis:</h4>
+                  <p className="lead">{movieDetails.movie.description}</p>
+                </div>
               </div>
-            </div>
-            <br />
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">Trailer:</h4>
-                <div className="embed-responsive embed-responsive-16by9 mb-3">
-                  {movieDetails.movie.trailer && (
-                    <iframe
-                      src={generateURLYoutubeEmbed(movieDetails.movie.trailer)}
-                      title="youtube-trailer"
-                      className="embed-responsive-item"
-                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
+              <br />
+              <div className="card">
+                <div className="card-body">
+                  <h4 className="card-title">Trailer:</h4>
+                  <div className="embed-responsive embed-responsive-16by9 mb-3">
+                    {movieDetails.movie.trailer && (
+                      <iframe
+                        src={generateURLYoutubeEmbed(
+                          movieDetails.movie.trailer
+                        )}
+                        title="youtube-trailer"
+                        className="embed-responsive-item"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div className="card">
+                <div className="card-body">
+                  <h4 className="card-title">Cines:</h4>
+                  {movieDetails.cinemas && movieDetails.cinemas.length > 0 && (
+                    <LeafletMap
+                      coordinates={convertCoordinates()}
+                      readOnly={true}
+                    />
                   )}
                 </div>
               </div>
             </div>
-            <br />
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">Cines:</h4>
-                {movieDetails.cinemas && movieDetails.cinemas.length > 0 && (
-                  <LeafletMap
-                    coordinates={convertCoordinates()}
-                    readOnly={true}
-                  />
-                )}
-              </div>
-            </div>
           </div>
-        </div>
-      ) : (
-        <Loading />
-      )}
-    </div>
+        ) : (
+          <Loading />
+        )}
+      </div>
+    </>
   );
 }
 

@@ -10,7 +10,8 @@ import { cinemaDTO } from "../cinemas/cinema.model";
 import Loading from "../utils/Loading";
 import { ConvertMovieToFormData } from "../utils/FormDataUtils";
 import { APIResponse, ResponseId } from "../utils/ApiResponse";
-import showSuccess from "../messages/ShowSuccess";
+import showToastMessage from "../messages/ShowSuccess";
+import { handleErrors } from "../utils/HandleErrors";
 
 export default function CreateMovie() {
   const navigate = useNavigate(); // sirve para navegar entre las páginas
@@ -37,25 +38,19 @@ export default function CreateMovie() {
       );
 
       if (response.data.isSuccess) {
-
-        showSuccess('Creación correcta');
-        setTimeout(() => {
-          navigate(`/movies/${response.data.result.id}`);
-          setLoaded(true);
-        }, 2000);
+        showToastMessage({
+          title: "Creación correcta",
+          icon: "success",
+          callback: () => {
+            navigate(`/movies/${response.data.result.id}`);
+            setLoaded(true);
+          },
+        });
       } else {
         setErrors(response.data.errorMessages);
       }
     } catch (error: any) {
-      if (
-        error.response &&
-        error.response.data &&
-        error.response.data.errorMessages
-      ) {
-        setErrors(error.response.data.errorMessages);
-      } else {
-        setErrors(["Se produjo un error inesperado."]);
-      }
+      handleErrors(error, setErrors);
     }
   }
 

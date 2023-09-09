@@ -4,15 +4,14 @@ import { logout } from "../auth/ManageJWT";
 import Button from "./Button";
 import { useContext } from "react";
 import AuthenticationContext from "../auth/AuthenticationContext";
-import Swal from "sweetalert2";
-import showSuccess from "../messages/ShowSuccess";
+import showToastMessage from "../messages/ShowSuccess";
 
 export default function Menu() {
   const navigate = useNavigate(); // sirve para navegar entre las páginas
   const { update, claims } = useContext(AuthenticationContext);
 
   function getUsername(): string {
-    return claims.filter(x => x.name === "email")[0]?.value;
+    return claims.filter((x) => x.name === "email")[0]?.value;
   }
 
   return (
@@ -24,7 +23,7 @@ export default function Menu() {
           }
           to="/"
         >
-          React Películas
+          Cartelera
         </NavLink>
 
         <button
@@ -39,10 +38,13 @@ export default function Menu() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarContent" style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div
+          className="collapse navbar-collapse"
+          id="navbarContent"
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <Authorized
-              role="admin"
               authorized={
                 <>
                   <li className="nav-item">
@@ -95,6 +97,25 @@ export default function Menu() {
                       Reviews
                     </NavLink>
                   </li>
+                </>
+              }
+            ></Authorized>
+
+            <li className="nav-item">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+                to="/filter"
+              >
+                Filtrar películas
+              </NavLink>
+            </li>
+
+            <Authorized
+              role="admin"
+              authorized={
+                <>
                   <li className="nav-item">
                     <NavLink
                       className={({ isActive }) =>
@@ -108,41 +129,43 @@ export default function Menu() {
                 </>
               }
             ></Authorized>
-            <li className="nav-item">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "nav-link active" : "nav-link"
-                }
-                to="/filter"
-              >
-                Filtrar películas
-              </NavLink>
-            </li>
           </ul>
           <div className="d-flex">
             <Authorized
-              authorized={<>
-                <span className="nav-link">Hola, {getUsername()}!</span>
-                <Button
-                  onClick={() => {
-                    logout();
-                    update([]);
+              authorized={
+                <>
+                  <span className="nav-link">Hola, {getUsername()}!</span>
+                  <Button
+                    onClick={() => {
+                      logout();
+                      update([]);
 
-                    showSuccess('Logout correcto');
-                    setTimeout(() => {
-                      navigate("/");
-                    }, 2000);
-                  }}
-                  className="nav-link btn btn-link">Log out</Button>
-              </>}
-              unauthorized={<>
-                <Link to="/register" className="nav-link btn btn-link me-2">Registro</Link>
-                <Link to="/login" className="nav-link btn btn-link">Login</Link>
-              </>
+                      showToastMessage({
+                        title: "Logout correcto",
+                        icon: "success",
+                        callback: () => {
+                          navigate("/login");
+                        },
+                      });
+                    }}
+                    className="nav-link btn btn-link ms-2"
+                  >
+                    Logout
+                  </Button>
+                </>
+              }
+              unauthorized={
+                <>
+                  <Link to="/register" className="nav-link btn btn-link me-2">
+                    Registro
+                  </Link>
+                  <Link to="/login" className="nav-link btn btn-link">
+                    Login
+                  </Link>
+                </>
               }
             />
           </div>
-
         </div>
       </div>
     </nav>

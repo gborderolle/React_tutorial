@@ -3,12 +3,14 @@ import { useContext, useEffect, useState } from "react";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "./Rating.css";
 import AuthenticationContext from "../auth/AuthenticationContext";
-import Swal from "sweetalert2";
+import showToastMessage from "../messages/ShowSuccess";
+import { useNavigate } from "react-router-dom";
 
 export default function Rating(props: ratingProps) {
   const { claims } = useContext(AuthenticationContext);
   const [maxValueArr, setMaxValueArr] = useState<number[]>([]);
   const [selectedValue, setSelectedValue] = useState(props.selectedValue);
+  const navigate = useNavigate(); // sirve para navegar entre las páginas
 
   useEffect(() => {
     setMaxValueArr(Array(props.maxValue).fill(0));
@@ -20,14 +22,15 @@ export default function Rating(props: ratingProps) {
 
   function onClickEvent(vote: number) {
     if (claims.length === 0) {
-      Swal.fire({
-        title: "Error",
-        text: "Debes loguearte para votar",
+      showToastMessage({
+        title: "Debes haer login para votar",
         icon: "error",
+        callback: () => {
+          setSelectedValue(0);
+          props.onChange(0);
+          return;
+        },
       });
-      setSelectedValue(0);
-      props.onChange(0);
-      return;
     }
     setSelectedValue(vote);
     props.onChange(vote);
@@ -39,8 +42,9 @@ export default function Rating(props: ratingProps) {
         <FontAwesomeIcon
           icon={faStar}
           key={index}
-          className={`fa-lg pointer ${selectedValue >= index + 1 ? "checked" : null
-            }`}
+          className={`fa-lg pointer ${
+            selectedValue >= index + 1 ? "checked" : null
+          }`}
           onMouseOver={() => mouseOverEvent(index + 1)}
           onClick={() => onClickEvent(index + 1)}
         />

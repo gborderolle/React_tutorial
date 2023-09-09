@@ -3,7 +3,6 @@ import { landingPageDTO, movieDTO } from "./movies/movie.model";
 import ListMovies from "./movies/ListMovies";
 import axios, { AxiosResponse, isAxiosError } from "axios";
 import { urlMovies } from "./utils/endpoints";
-// import Authorized from "./auth/Authorized";
 
 export default function LandingPage() {
   const [errors, setErrors] = useState<string[]>([]);

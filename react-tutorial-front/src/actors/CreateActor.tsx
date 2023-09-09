@@ -5,7 +5,8 @@ import { urlActors } from "../utils/endpoints";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import ShowErrors from "../utils/ShowErrors";
-import showSuccess from "../messages/ShowSuccess";
+import showToastMessage from "../messages/ShowSuccess";
+import { handleErrors } from "../utils/HandleErrors";
 
 export default function CreateActor() {
   const navigate = useNavigate(); // sirve para navegar entre las páginas
@@ -22,17 +23,15 @@ export default function CreateActor() {
       };
       await axios.post(url_values, actor, config_values);
 
-      showSuccess('Creación correcta');
-      setTimeout(() => {
-        navigate("/actors");
-      }, 2000);
+      showToastMessage({
+        title: "Creación correcta",
+        icon: "success",
+        callback: () => {
+          navigate("/actors");
+        },
+      });
     } catch (error: any) {
-      if (error.response && error.response.data) {
-        setErrors(error.response.data);
-      } else {
-        // handle other errors or set a default error message
-        setErrors(["An unexpected error occurred."]);
-      }
+      handleErrors(error, setErrors);
     }
   }
 
