@@ -106,7 +106,7 @@ export default function Menu() {
                 className={({ isActive }) =>
                   isActive ? "nav-link active" : "nav-link"
                 }
-                to="/filter"
+                to="/movies/filter"
               >
                 Filtrar películas
               </NavLink>
@@ -156,10 +156,16 @@ export default function Menu() {
               }
               unauthorized={
                 <>
-                  <Link to="/register" className="nav-link btn btn-link me-2">
+                  <Link
+                    to="/register"
+                    className="nav-link btn btn-link link-primary m-2"
+                  >
                     Registro
                   </Link>
-                  <Link to="/login" className="nav-link btn btn-link">
+                  <Link
+                    to="/login"
+                    className="nav-link btn btn-link link-primary m-2"
+                  >
                     Login
                   </Link>
                 </>

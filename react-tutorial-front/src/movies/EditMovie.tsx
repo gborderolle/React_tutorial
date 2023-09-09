@@ -65,12 +65,8 @@ export default function EditMovie() {
         },
       });
       navigate("/movies");
-    } catch (error) {
-      if (isAxiosError(error) && error.response) {
-        setErrors(error.response.data);
-      } else {
-        setErrors(["An unexpected error occurred."]);
-      }
+    } catch (error: any) {
+      handleErrors(error, setErrors);
     }
   };
 

@@ -1,6 +1,5 @@
 import { Field, ErrorMessage } from "formik";
 import ShowErrorField from "./ShowErrorField";
-import { type } from "os";
 
 export default function FormGroupText(props: formGroupTextProps) {
   const customStyleObj = props.customStyle ? JSON.parse(props.customStyle) : {};
@@ -17,7 +16,7 @@ export default function FormGroupText(props: formGroupTextProps) {
       <ErrorMessage name={props.field}>
         {(msg: string) => <ShowErrorField message={msg} />}
       </ErrorMessage>
-      <br />
+      {props.removeFinalBreak ? null : <br />}
     </>
   );
 }
@@ -26,13 +25,14 @@ export default function FormGroupText(props: formGroupTextProps) {
 interface formGroupTextProps {
   formName?: string;
   field: string;
-  type: 'text' | 'password';
+  type: "text" | "password";
   label?: string;
   placeholder?: string;
   customClass?: string;
   customStyle?: string;
+  removeFinalBreak?: boolean;
 }
 
 FormGroupText.defaultProps = {
-  type: 'text'
-}
+  type: "text",
+};

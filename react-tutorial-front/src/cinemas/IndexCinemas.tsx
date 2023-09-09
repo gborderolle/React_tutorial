@@ -9,7 +9,6 @@ export default function IndexCinemas() {
         url={urlCinemas}
         urlCreate="create"
         title="Cine"
-        entityName="Cinema"
       >
         {(cinemas, buttons) => (
           <>

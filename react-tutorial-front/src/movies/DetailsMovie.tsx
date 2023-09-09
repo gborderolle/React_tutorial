@@ -186,7 +186,7 @@ export default function DetailsMovie() {
                 </div>
               </div>
               <div>
-                Tu voto:{" "}
+                Promedio: {" " + movieDetails.averageVote} | Tu voto:{" "}
                 <Rating
                   maxValue={5}
                   selectedValue={movieDetails.userVote!}

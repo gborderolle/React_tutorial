@@ -6,6 +6,7 @@ import { useState, useEffect, ReactElement } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ShowErrors from "./ShowErrors";
 import Loading from "./Loading";
+import { handleErrors } from "./HandleErrors";
 
 // The EditEntity component allows for the fetching and editing of an entity.
 export default function EditEntity<TCreate, TRead>(
@@ -63,13 +64,8 @@ export default function EditEntity<TCreate, TRead>(
       } else {
         throw new Error("Unexpected data format from the API.");
       }
-    } catch (error) {
-      if (isAxiosError(error)) {
-        setErrors(error.response.data);
-      } else {
-        // handle other types of errors or set a generic error message
-        setErrors(["An unexpected error occurred."]);
-      }
+    } catch (error: any) {
+      handleErrors(error, setErrors);
     }
   };
 
@@ -107,12 +103,8 @@ export default function EditEntity<TCreate, TRead>(
       } else {
         throw new Error("Unexpected data format from the API.");
       }
-    } catch (error) {
-      if (isAxiosError(error)) {
-        setErrors(error.response.data);
-      } else {
-        setErrors(["An unexpected error occurred."]);
-      }
+    } catch (error: any) {
+      handleErrors(error, setErrors);
     }
     navigate(props.urlIndex);
   };
@@ -130,7 +122,6 @@ export default function EditEntity<TCreate, TRead>(
 interface editEntityProps<TCreate, TRead> {
   url: string; // API endpoint URL
   urlIndex: string; // Route to navigate back after editing
-  entityName: string; // Name of the entity, for display purposes
   children(entity: TCreate, edit: (entity: TCreate) => void): ReactElement; // Render prop pattern for the child component
   transform(entity: TRead): TCreate; // Optional transformation function to convert fetched data to a different shape
   transformFormData?(model: TCreate): FormData;

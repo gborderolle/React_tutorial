@@ -69,7 +69,7 @@ export default function Pagination(props: paginationProps) {
           <li
             key={link.text}
             onClick={() => selectPage(link)}
-            className={`page-item cursor ${getClass(link)}`}
+            className={`page-item cursor m-2 ${getClass(link)}`}
           >
             <span className="page-link">{link.text}</span>
           </li>

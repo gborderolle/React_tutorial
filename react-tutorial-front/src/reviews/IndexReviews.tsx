@@ -8,7 +8,7 @@ export default function IndexReviews() {
         style={{ maxWidth: "50rem" }}
       >
         <div className="card-header">
-          <h3>Índice Reviews</h3>
+          <h3>Reviews</h3>
         </div>
         <div className="card-body">
           <ol className="list-group list-group-numbered">

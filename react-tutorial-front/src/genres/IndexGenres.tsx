@@ -12,7 +12,6 @@ export default function IndexGenres() {
         url={urlGenres}
         urlCreate="create"
         title="Géneros"
-        entityName="Género"
       >
         {(genres, buttons) => (
           <>

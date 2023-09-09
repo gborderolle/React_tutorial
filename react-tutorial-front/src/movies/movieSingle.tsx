@@ -7,7 +7,10 @@ export default function MovieSingle(props: MovieSingleProps) {
   return (
     <>
       <div>
-        <div className="card" style={{ width: "20rem" }}>
+        <div
+          className="card m-2"
+          style={{ width: "20rem", height: "600px", overflow: "auto" }}
+        >
           <Link to={setupLink()}>
             <img
               className="card-img-top"

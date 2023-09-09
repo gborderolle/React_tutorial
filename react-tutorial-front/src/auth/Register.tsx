@@ -9,6 +9,7 @@ import { saveTokenLocalStorage, getClaims } from "./ManageJWT";
 import AuthenticationContext from "./AuthenticationContext";
 import { APIResponse } from "../utils/ApiResponse";
 import { handleErrors } from "../utils/HandleErrors";
+import showToastMessage from "../messages/ShowSuccess";
 
 export default function Register() {
   const { update } = useContext(AuthenticationContext);
@@ -31,9 +32,15 @@ export default function Register() {
       );
 
       if (response.data.isSuccess) {
-        saveTokenLocalStorage(response.data.result);
-        update(getClaims());
-        navigate("/");
+        showToastMessage({
+          title: "Registro correcto",
+          icon: "success",
+          callback: () => {
+            saveTokenLocalStorage(response.data.result);
+            update(getClaims());
+            navigate("/");
+          },
+        });
       } else {
         setErrors(response.data.errorMessages);
       }
@@ -43,13 +50,34 @@ export default function Register() {
   }
 
   return (
-    <>
-      <h3>Registro</h3>
-      <ShowErrors errors={errors} />
-      <FormAuth
-        model={{ email: "", password: "" }}
-        onSubmit={async (values) => await register(values)}
-      />
-    </>
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <div className="card">
+            {/* Sección de la portada */}
+            <div className="card-img-top">
+              <img
+                src="https://e1.pxfuel.com/desktop-wallpaper/574/383/desktop-wallpaper-movie-poster-mix-of-movies.jpg"
+                alt="Cover"
+                className="img-fluid"
+                style={{ objectFit: "cover", height: "200px", width: "100%" }}
+              />
+            </div>
+
+            {/* Sección del formulario de inicio de sesión */}
+            <div className="card-body">
+              <h3 className="text-center mb-4">Registrar</h3>
+              <ShowErrors errors={errors} />
+              <FormAuth
+                model={{ email: "", password: "" }}
+                onSubmit={async (values) => await register(values)}
+                isRegister={true}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
   );
 }

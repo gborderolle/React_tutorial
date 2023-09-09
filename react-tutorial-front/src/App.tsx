@@ -53,7 +53,9 @@ function App() {
                   path={path.path}
                   element={
                     path.isAdmin && !isAdmin() ? (
-                      <div>No tiene permiso</div>
+                      <div className="alert alert-warning">
+                        Su usuario no tiene autorización.
+                      </div>
                     ) : (
                       React.createElement(path.component)
                     )

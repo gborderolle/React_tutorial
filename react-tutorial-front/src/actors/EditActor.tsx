@@ -9,7 +9,6 @@ export default function EditActor() {
     <EditEntity<actorCreationDTO, actorDTO>
       url={urlActors}
       urlIndex="/actors"
-      entityName="Actores"
       transformFormData={ConvertActorToFormData}
     >
       {(entity, editEntity) => (

@@ -9,6 +9,7 @@ import { Typeahead } from "react-bootstrap-typeahead";
 import { actorMovieDTO } from "./actor.model";
 import { ReactElement, useEffect, useState } from "react";
 import { urlActors } from "../utils/endpoints";
+import { handleErrors } from "../utils/HandleErrors";
 
 export default function TypeaheadActors(props: typeaheadActorsProps) {
   const [actors, setActors] = useState<actorMovieDTO[]>([]);
@@ -59,12 +60,8 @@ export default function TypeaheadActors(props: typeaheadActorsProps) {
           console.error("Unexpected data format from the API.");
         }
       })
-      .catch((error) => {
-        if (isAxiosError(error) && error.response) {
-          setErrors(error.response.data);
-        } else {
-          console.error(error);
-        }
+      .catch((error: any) => {
+        handleErrors(error, setErrors);
       });
   }
 

@@ -27,7 +27,7 @@ import RedirectToLanding from "./utils/RedirectToLanding";
 const paths = [
   { path: "/genres/edit/:id", component: EditGenre, isAdmin: true },
   { path: "/genres/create", component: CreateGenre, isAdmin: true },
-  { path: "/genres", component: IndexGenres, isAdmin: true },
+  { path: "/genres", component: IndexGenres },
 
   { path: "/movies/edit/:id", component: EditMovie, isAdmin: true },
   { path: "/movies/:id", component: DetailsMovie },

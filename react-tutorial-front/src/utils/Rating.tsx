@@ -22,6 +22,7 @@ export default function Rating(props: ratingProps) {
 
   function onClickEvent(vote: number) {
     if (claims.length === 0) {
+      // claims.length= 0: No hay user logueado
       showToastMessage({
         title: "Debes haer login para votar",
         icon: "error",

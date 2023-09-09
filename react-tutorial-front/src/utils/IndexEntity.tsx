@@ -1,10 +1,12 @@
-import axios, { isAxiosError, AxiosResponse } from "axios";
+import axios, { AxiosResponse } from "axios";
 import { ReactElement, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Pagination from "./Pagination";
 import Button from "./Button";
 import GenericList from "./GenericList";
 import showConfirm from "./ShowConfirm";
+import { handleErrors } from "./HandleErrors";
+import ShowErrors from "./ShowErrors";
 
 export default function IndexEntity<T>(props: indexEntityProps<T>) {
   const [entities, setEntities] = useState<T[]>();
@@ -26,12 +28,8 @@ export default function IndexEntity<T>(props: indexEntityProps<T>) {
         params: param_values,
       });
       loadData();
-    } catch (error) {
-      if (isAxiosError(error) && error.response) {
-        setErrors(error.response.data);
-      } else {
-        setErrors(["An unexpected error occurred."]);
-      }
+    } catch (error: any) {
+      handleErrors(error, setErrors);
     }
   }
 
@@ -55,12 +53,8 @@ export default function IndexEntity<T>(props: indexEntityProps<T>) {
           console.error("Unexpected data format from the API.");
         }
       })
-      .catch((error) => {
-        if (error.response && error.response.data) {
-          setErrors([error.response.data]); // Asegúrate de que esto es un array
-        } else {
-          setErrors([error.message || "An unexpected error occurred."]);
-        }
+      .catch((error: any) => {
+        handleErrors(error, setErrors);
       });
   }
 
@@ -79,63 +73,72 @@ export default function IndexEntity<T>(props: indexEntityProps<T>) {
   );
 
   return (
-    <div className="mt-4">
-      <div
-        className="card text-white bg-secondary mb-3"
-        style={{ maxWidth: "50rem" }}
-      >
-        <div className="card-header">
-          <h3>{props.title}</h3>
-        </div>
-        <div className="card-body">
-          <ol className="list-group list-group-numbered">
-            <li className="list-group-item d-flex justify-content-between align-items-start">
-              <div className="ms-2 me-auto">
-                {props.urlCreate ? <Link to={props.urlCreate}>Crear {props.entityName}</Link> : null}
-              </div>
-            </li>
-            <li className="list-group-item d-flex justify-content-between align-items-start">
-              <div className="ms-2 me-auto w-100">
-                <label>Listado:</label>
-
-                <GenericList list={entities}>
-                  <table className="table table-stripped">
-                    {props.children(entities!, buttons)}
-                  </table>
-                </GenericList>
-
-                <div
-                  className="form-group"
-                  style={{ display: "inline-flex", alignItems: "center" }}
-                >
-                  <label>Cantidad</label>
-                  <select
-                    className="form-control"
-                    defaultValue={10}
-                    style={{ width: "60px" }}
-                    onChange={(e) => {
-                      setPage(1);
-                      setRecordsPerPage(parseInt(e.currentTarget.value, 10));
-                    }}
-                  >
-                    <option value={10}>10</option>
-                    <option value={25}>25</option>
-                    <option value={50}>50</option>
-                  </select>
+    <>
+      <ShowErrors errors={errors} />
+      <div className="mt-4">
+        <div
+          className="card text-white bg-secondary mb-3"
+          style={{ maxWidth: "50rem" }}
+        >
+          <div className="card-header">
+            <h3>{props.title}</h3>
+          </div>
+          <div className="card-body">
+            <ol className="list-group list-group-numbered">
+              <li className="list-group-item d-flex justify-content-between align-items-start">
+                <div className="ms-2 me-auto">
+                  {props.urlCreate ? (
+                    <Link to={props.urlCreate}>
+                      Crear{" "}
+                      {props.title ? props.title.toLocaleLowerCase() : null}
+                    </Link>
+                  ) : null}
                 </div>
-                <Pagination
-                  totalPages={totalPages}
-                  actualPage={page}
-                  onChange={(newPage) => {
-                    setPage(newPage);
-                  }}
-                />
-              </div>
-            </li>
-          </ol>
+              </li>
+              <li className="list-group-item d-flex justify-content-between align-items-start">
+                <div className="ms-2 me-auto w-100">
+                  <label>Listado:</label>
+
+                  <GenericList list={entities}>
+                    <table className="table table-stripped">
+                      {props.children(entities!, buttons)}
+                    </table>
+                  </GenericList>
+
+                  <hr />
+                  <div
+                    className="form-group"
+                    style={{ display: "inline-flex", alignItems: "center" }}
+                  >
+                    <label>Cantidad</label>
+                    <select
+                      className="form-control"
+                      defaultValue={10}
+                      style={{ width: "60px" }}
+                      onChange={(e) => {
+                        setPage(1);
+                        setRecordsPerPage(parseInt(e.currentTarget.value, 10));
+                      }}
+                    >
+                      <option value={10}>10</option>
+                      <option value={25}>25</option>
+                      <option value={50}>50</option>
+                    </select>
+                  </div>
+                  <Pagination
+                    totalPages={totalPages}
+                    actualPage={page}
+                    onChange={(newPage) => {
+                      setPage(newPage);
+                    }}
+                  />
+                </div>
+              </li>
+            </ol>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -147,5 +150,4 @@ interface indexEntityProps<T> {
     buttons: (urlEdit: string, id: number) => ReactElement
   ): ReactElement;
   title: string;
-  entityName?: string;
 }

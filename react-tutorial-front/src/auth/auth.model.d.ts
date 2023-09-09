@@ -6,6 +6,7 @@ export interface claim {
 export interface userCredential {
   email: string;
   password: string;
+  // username?: string = "";
 }
 
 export interface authResponse {

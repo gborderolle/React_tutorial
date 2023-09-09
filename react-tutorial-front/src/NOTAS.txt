@@ -20,14 +20,12 @@ Movies
     Edit - OK
     Filter - OK
 
-Reviews
+Reviews - No fue necesario
     Create
     Edit
     
 --
 ToDo's:
-
-    - Fix: Username logueado arriba derecha
 
 --
 Login:

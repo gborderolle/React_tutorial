@@ -8,7 +8,6 @@ export default function EditReview() {
     <EditEntity<reviewCreationDTO, reviewDTO>
       url={urlReviews}
       urlIndex="/reviews" // Fixed the backslash to forward slash
-      entityName="reviews"
     >
       {(entity, editEntity) => (
         <FormReview

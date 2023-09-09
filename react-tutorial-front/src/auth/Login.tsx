@@ -33,15 +33,13 @@ export default function Login() {
         credentials,
         config_values
       );
-
       if (response.data.isSuccess) {
-        saveTokenLocalStorage(response.data.result);
-        update(getClaims());
-
         showToastMessage({
           title: "Login correcto",
           icon: "success",
           callback: () => {
+            saveTokenLocalStorage(response.data.result);
+            update(getClaims());
             navigate("/");
           },
         });
@@ -56,15 +54,34 @@ export default function Login() {
   }
 
   return (
-    <>
-      <h3>Login</h3>
-      <ShowErrors errors={errors}></ShowErrors>
-      <FormAuth
-        model={{ email: "", password: "" }}
-        onSubmit={async (values) => await login(values)}
-      />
-      {isLoading ? <Loading /> : null}{" "}
-      {/* Muestra el componente de carga si isLoading es true */}
-    </>
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <div className="card">
+            {/* Sección de la portada */}
+            <div className="card-img-top">
+              <img
+                src="https://e1.pxfuel.com/desktop-wallpaper/574/383/desktop-wallpaper-movie-poster-mix-of-movies.jpg"
+                alt="Cover"
+                className="img-fluid"
+                style={{ objectFit: "cover", height: "200px", width: "100%" }}
+              />
+            </div>
+
+            {/* Sección del formulario de inicio de sesión */}
+            <div className="card-body">
+              <h3 className="text-center mb-4">Iniciar sesión</h3>
+              <ShowErrors errors={errors} />
+              <FormAuth
+                model={{ email: "", password: "" }}
+                onSubmit={async (values) => await login(values)}
+              />
+              {isLoading ? <Loading /> : null}
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
   );
 }

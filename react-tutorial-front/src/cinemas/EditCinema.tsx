@@ -8,7 +8,6 @@ export default function EditCinema() {
     <EditEntity<cinemaCreationDTO, cinemaDTO>
       url={urlCinemas}
       urlIndex="/cinemas"
-      entityName="Cines"
     >
       {(entity, editEntity) => (
         <FormCinema

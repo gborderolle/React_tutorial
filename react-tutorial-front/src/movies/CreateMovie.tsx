@@ -68,11 +68,7 @@ export default function CreateMovie() {
         setLoaded(true);
       })
       .catch((error: any) => {
-        if (error.response && error.response.data) {
-          setErrors([error.response.data]); // Asegúrate de que esto es un array
-        } else {
-          setErrors([error.message || "An unexpected error occurred."]);
-        }
+        handleErrors(error, setErrors);
       });
   }, []);
 

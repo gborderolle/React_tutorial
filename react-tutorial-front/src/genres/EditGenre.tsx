@@ -8,7 +8,6 @@ export default function EditGenre() {
     <EditEntity<genreCreationDTO, genreDTO>
       url={urlGenres}
       urlIndex="/genres"
-      entityName="Géneros"
     >
       {(entity, editEntity) => (
         <FormGenre

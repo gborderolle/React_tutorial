@@ -7,6 +7,8 @@ export async function handleErrors(error: any, setErrors: Function) {
     setErrors(error.response.data.errorMessages);
   } else if (error.response && error.response.data) {
     setErrors([error.response.data]);
+  } else if (error.message) {
+    setErrors([error.message]);
   } else {
     setErrors(["Se produjo un error inesperado."]);
   }

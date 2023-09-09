@@ -3,6 +3,8 @@ import { landingPageDTO, movieDTO } from "./movies/movie.model";
 import ListMovies from "./movies/ListMovies";
 import axios, { AxiosResponse, isAxiosError } from "axios";
 import { urlMovies } from "./utils/endpoints";
+import { handleErrors } from "./utils/HandleErrors";
+import ShowErrors from "./utils/ShowErrors";
 
 export default function LandingPage() {
   const [errors, setErrors] = useState<string[]>([]);
@@ -39,16 +41,13 @@ export default function LandingPage() {
         }
       })
       .catch((error) => {
-        if (isAxiosError(error) && error.response) {
-          setErrors(error.response.data);
-        } else {
-          console.error(error);
-        }
+        handleErrors(error, setErrors);
       });
   }
 
   return (
     <>
+      <ShowErrors errors={errors} />
       <div className="container mt-4">
         <div className="row">
           <div className="col">

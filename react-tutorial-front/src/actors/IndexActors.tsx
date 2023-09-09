@@ -9,7 +9,6 @@ export default function IndexActors() {
         url={urlActors}
         urlCreate="create"
         title="Actors"
-        entityName="Actor"
       >
         {(actors, buttons) => (
           <>
