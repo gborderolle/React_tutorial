@@ -37,6 +37,11 @@ BD:
 usr: db_a4d7d8_reacttutorialback_admin
 psw: reacttutorial1234
 
+--
+
+9. Agregar en appSettings el origen de los request:
+"Frontend_url": "https://reactpeliculastutorialfront.firebaseapp.com"
+
 ---------------------------------------------------
 
 *** Frontend:
@@ -68,4 +73,7 @@ login: [Gmail]
 
 nombre: reactpeliculastutorialfront (nombre único)
 url: https://reactpeliculastutorialfront.firebaseapp.com
+
+
+--
 
