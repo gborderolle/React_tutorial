@@ -23,7 +23,6 @@ Pasaje a HTTPS con Cloudeflare:
 URL de Swagger: https://herkicks.uy/swagger/index.html
 URL para front: https://herkicks.uy/api
 
-
 --
 
 Datos:
