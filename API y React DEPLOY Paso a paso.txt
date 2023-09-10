@@ -33,6 +33,9 @@ Name: reacttutorialback
 BD:
 "Data Source=SQL5111.site4now.net;Initial Catalog=db_a4d7d8_reacttutorialback;User Id=db_a4d7d8_reacttutorialback_admin;Password=YOUR_DB_PASSWORD
 
+------> Importante: al hacer Deploy se crea un appsettings.production.json, atento a esa conexión!! (es la que usa la app en el server).
+
+
 usr: db_a4d7d8_reacttutorialback_admin
 psw: reacttutorial1234
 
