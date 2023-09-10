@@ -1,23 +1,15 @@
-import Dashboard from "views/Dashboard.tsx";
-import IndexGenres from "views/genres/IndexGenres.tsx";
-import UserProfile from "views/UserProfile.tsx";
-import TableList from "views/TableList.tsx";
-import View from "views/View.tsx";
-import Typography from "views/Typography.tsx";
-import Icons from "views/Icons.tsx";
-import Maps from "views/Maps.tsx";
-import Notifications from "views/Notifications.tsx";
-import Upgrade from "views/Upgrade.tsx";
+import Dashboard from "./views/Dashboard.js";
+import UserProfile from "./views/UserProfile.js";
+import TableList from "./views/TableList.js";
+import Typography from "./views/Typography.js";
+import Icons from "./views/Icons.js";
+import Maps from "./views/Maps.js";
+import Notifications from "./views/Notifications.js";
+import Upgrade from "./views/Upgrade.js";
+import IndexGenres from "./views/genres/IndexGenres";
+import View from "./views/global/View";
 
 const dashboardRoutes = [
-  {
-    upgrade: true,
-    path: "/upgrade",
-    name: "Upgrade to PRO",
-    icon: "nc-icon nc-alien-33",
-    component: Upgrade,
-    layout: "/admin",
-  },
   {
     path: "/dashboard",
     name: "Cartelera",

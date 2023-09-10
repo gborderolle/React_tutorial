@@ -21,6 +21,8 @@ export default function IndexGenres() {
                 </p>
               </Card.Header>
               <Card.Body className="table-full-width table-responsive px-0">
+                {/* Sistema */}
+
                 <IndexEntity<genreDTO>
                   url={urlGenres}
                   urlCreate="create"
@@ -49,6 +51,8 @@ export default function IndexGenres() {
                     </>
                   )}
                 </IndexEntity>
+
+                {/* Sistema */}
               </Card.Body>
             </Card>
           </Col>

@@ -1,21 +1,21 @@
 import React, { Component } from "react";
 import { useLocation, Route, Switch } from "react-router-dom";
 
-import AdminNavbar from "components/Navbars/AdminNavbar";
-import Footer from "components/Footer/Footer";
-import Sidebar from "components/Sidebar/Sidebar";
-import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
+import AdminNavbar from "../components/Navbars/AdminNavbar";
+import Footer from "../components/Footer/Footer";
+import Sidebar from "../components/Sidebar/Sidebar";
+import FixedPlugin from "../components/FixedPlugin/FixedPlugin.js";
 
-import routes from "routes.js";
+import routes from "../routes.js";
 
-import sidebarImage from "assets/img/sidebar-3.jpg";
+import sidebarImage from "../assets/img/sidebar-3.jpg";
 
 function Admin() {
   const [image, setImage] = React.useState(sidebarImage);
   const [color, setColor] = React.useState("black");
   const [hasImage, setHasImage] = React.useState(true);
   const location = useLocation();
-  const mainPanel = React.useRef < HTMLElement > (null);
+  const mainPanel = React.useRef(null);
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
       if (prop.layout === "/admin") {
@@ -34,9 +34,7 @@ function Admin() {
   React.useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
-    if (mainPanel.current !== null) {
-      mainPanel.current.scrollTop = 0;
-    }
+    mainPanel.current.scrollTop = 0;
     if (
       window.innerWidth < 993 &&
       document.documentElement.className.indexOf("nav-open") !== -1

@@ -1,37 +1,21 @@
-/*!
-
-=========================================================
-* Light Bootstrap Dashboard React - v2.0.1
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React, { Component } from "react";
 import { useLocation } from "react-router-dom";
 import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
 
-import routes from "routes.js";
+import routes from "../../routes.js";
 
 function Header() {
   const location = useLocation();
-  const mobileSidebarToggle = (e) => {
+  const mobileSidebarToggle = (e: any) => {
     e.preventDefault();
     document.documentElement.classList.toggle("nav-open");
     var node = document.createElement("div");
     node.id = "bodyClick";
-    node.onclick = function () {
-      this.parentElement.removeChild(this);
+    node.onclick = () => {
+      node.parentElement?.removeChild(node);
       document.documentElement.classList.toggle("nav-open");
     };
+
     document.body.appendChild(node);
   };
 
@@ -76,8 +60,8 @@ function Header() {
                 onClick={(e) => e.preventDefault()}
                 className="m-0"
               >
-                <i className="nc-icon nc-palette"></i>
-                <span className="d-lg-none ml-1">Dashboard</span>
+                <i className="nc-icon nc-button-play"></i>
+                <span className="d-lg-none ml-1">Cartelera</span>
               </Nav.Link>
             </Nav.Item>
             <Dropdown as={Nav.Item}>
@@ -131,8 +115,8 @@ function Header() {
                 href="#pablo"
                 onClick={(e) => e.preventDefault()}
               >
-                <i className="nc-icon nc-zoom-split mr-1"></i>
-                <span className="d-lg-block">Buscar</span>
+                <i className="nc-icon nc-zoom-split"></i>
+                <span className="d-lg-block"> Buscar</span>
               </Nav.Link>
             </Nav.Item>
           </Nav>
@@ -143,7 +127,7 @@ function Header() {
                 href="#pablo"
                 onClick={(e) => e.preventDefault()}
               >
-                <span className="no-icon">Account</span>
+                <span className="no-icon">Cuenta</span>
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>

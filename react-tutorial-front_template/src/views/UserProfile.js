@@ -10,7 +10,7 @@ import {
   Nav,
   Container,
   Row,
-  Col,
+  Col
 } from "react-bootstrap";
 
 function User() {
@@ -129,11 +129,11 @@ function User() {
                       <Form.Group>
                         <label>About Me</label>
                         <Form.Control
-                          cols={80}
+                          cols="80"
                           defaultValue="Lamborghini Mercy, Your chick she so thirsty, I'm in
                           that two seat Lambo."
                           placeholder="Here can be your description"
-                          rows={4}
+                          rows="4"
                           as="textarea"
                         ></Form.Control>
                       </Form.Group>
@@ -156,7 +156,7 @@ function User() {
               <div className="card-image">
                 <img
                   alt="..."
-                  src={require("assets/img/photo-1431578500526-4d9613015464.jpeg")}
+                  src={require("../assets/img/photo-1431578500526-4d9613015464.jpeg")}
                 ></img>
               </div>
               <Card.Body>
@@ -165,7 +165,7 @@ function User() {
                     <img
                       alt="..."
                       className="avatar border-gray"
-                      src={require("assets/img/faces/face-3.jpg")}
+                      src={require("../assets/img/faces/face-3.jpg")}
                     ></img>
                     <h5 className="title">Mike Andrew</h5>
                   </a>

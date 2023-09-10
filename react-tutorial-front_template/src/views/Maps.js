@@ -6,7 +6,7 @@ import { Badge, Button, Navbar, Nav, Container } from "react-bootstrap";
 function Maps() {
   const mapRef = React.useRef(null);
   React.useEffect(() => {
-    let google = (window as any).google;
+    let google = window.google;
     let map = mapRef.current;
     let lat = "40.748817";
     let lng = "-73.985428";

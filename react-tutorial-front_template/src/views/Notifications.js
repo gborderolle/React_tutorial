@@ -18,7 +18,7 @@ import {
 function Notifications() {
   const [showModal, setShowModal] = React.useState(false);
   const notificationAlertRef = React.useRef(null);
-  const notify = (place: any) => {
+  const notify = (place) => {
     var color = Math.floor(Math.random() * 5 + 1);
     var type;
     switch (color) {
@@ -55,9 +55,7 @@ function Notifications() {
       icon: "nc-icon nc-bell-55",
       autoDismiss: 7,
     };
-    if (notificationAlertRef.current !== null) {
-      const notificationAlertRef = React.useRef<{ notificationAlert: (options: any) => void }>(null);
-    }
+    notificationAlertRef.current.notificationAlert(options);
   };
   return (
     <>
@@ -234,34 +232,34 @@ function Notifications() {
               </Row>
               <Row className="justify-content-center">
                 <Col lg="3" md="3">
-                  <Button onClick={() => notify("tl")} variant="default">
+                  <Button block onClick={() => notify("tl")} variant="default">
                     Top Left
                   </Button>
                 </Col>
                 <Col lg="3" md="3">
-                  <Button onClick={() => notify("tc")} variant="default">
+                  <Button block onClick={() => notify("tc")} variant="default">
                     Top Center
                   </Button>
                 </Col>
                 <Col lg="3" md="3">
-                  <Button onClick={() => notify("tr")} variant="default">
+                  <Button block onClick={() => notify("tr")} variant="default">
                     Top Right
                   </Button>
                 </Col>
               </Row>
               <Row className="justify-content-center">
                 <Col lg="3" md="3">
-                  <Button onClick={() => notify("bl")} variant="default">
+                  <Button block onClick={() => notify("bl")} variant="default">
                     Bottom Left
                   </Button>
                 </Col>
                 <Col lg="3" md="3">
-                  <Button onClick={() => notify("bc")} variant="default">
+                  <Button block onClick={() => notify("bc")} variant="default">
                     Bottom Center
                   </Button>
                 </Col>
                 <Col lg="3" md="3">
-                  <Button onClick={() => notify("br")} variant="default">
+                  <Button block onClick={() => notify("br")} variant="default">
                     Bottom Right
                   </Button>
                 </Col>
