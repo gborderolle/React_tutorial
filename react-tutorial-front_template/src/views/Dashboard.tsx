@@ -175,7 +175,7 @@ function Dashboard() {
                         "screen and (max-width: 640px)",
                         {
                           axisX: {
-                            labelInterpolationFnc: function (value) {
+                            labelInterpolationFnc: function (value: any) {
                               return value[0];
                             },
                           },
@@ -304,7 +304,7 @@ function Dashboard() {
                         {
                           seriesBarDistance: 5,
                           axisX: {
-                            labelInterpolationFnc: function (value) {
+                            labelInterpolationFnc: function (value: any) {
                               return value[0];
                             },
                           },

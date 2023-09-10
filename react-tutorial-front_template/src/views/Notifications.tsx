@@ -18,7 +18,7 @@ import {
 function Notifications() {
   const [showModal, setShowModal] = React.useState(false);
   const notificationAlertRef = React.useRef(null);
-  const notify = (place) => {
+  const notify = (place: any) => {
     var color = Math.floor(Math.random() * 5 + 1);
     var type;
     switch (color) {
@@ -55,7 +55,9 @@ function Notifications() {
       icon: "nc-icon nc-bell-55",
       autoDismiss: 7,
     };
-    notificationAlertRef.current.notificationAlert(options);
+    if (notificationAlertRef.current !== null) {
+      const notificationAlertRef = React.useRef<{ notificationAlert: (options: any) => void }>(null);
+    }
   };
   return (
     <>
