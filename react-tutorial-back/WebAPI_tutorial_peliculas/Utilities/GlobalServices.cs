@@ -1,6 +1,6 @@
-﻿using System.Globalization;
+﻿using NodaTime;
+using System.Globalization;
 using System.Text;
-using NodaTime;
 
 namespace WebAPI_tutorial_peliculas.Utilities
 {
@@ -14,7 +14,7 @@ namespace WebAPI_tutorial_peliculas.Utilities
 
         public static string GetDatetimeUruguayString()
         {
-            CultureInfo culture = new ("es-UY");
+            CultureInfo culture = new("es-UY");
             var nowInUruguay = SystemClock.Instance.GetCurrentInstant().InZone(DateTimeZoneProviders.Tzdb["America/Montevideo"]);
             return nowInUruguay.ToDateTimeUnspecified().ToString("G", culture);
         }

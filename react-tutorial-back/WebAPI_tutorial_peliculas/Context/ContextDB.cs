@@ -104,7 +104,6 @@ namespace WebAPI_tutorial_peliculas.Context
                 movie1, movie2, movie3, movie4, movie5, movie6, movie7, movie8, movie9, movie11, movie12, movie13, movie14, movie15
             });
 
-
             modelBuilder.Entity<MovieGenre>().HasData(new List<MovieGenre>
             {
                 new MovieGenre(){MovieId=movie1.Id, GenreId=genre1.Id},
