@@ -1,7 +1,6 @@
 // Clase 152: https://www.udemy.com/course/desarrollando-aplicaciones-en-react-y-aspnet-core/learn/lecture/26118756#notes
 
-import { useContext, useEffect, useState } from "react";
-import { ReactElement } from "react-markdown/lib/react-markdown";
+import { ReactElement, useContext, useEffect, useState } from "react";
 import AuthenticationContext from "./AuthenticationContext";
 
 export default function Authorized(props: authorizedProps) {
