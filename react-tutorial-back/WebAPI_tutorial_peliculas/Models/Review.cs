@@ -26,7 +26,7 @@ namespace WebAPI_tutorial_peliculas.Models
         public int Score { get; set; }
 
         // ------------- Relaciones
-        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [Required(ErrorMessage = "El campo {0} es requerido")] // n..0 (0=no existe este sin el padre)
         public int MovieId { get; set; } // n..0
         public Movie Movie { get; set; } // n..0 (0=no existe Review sin Book)
 
