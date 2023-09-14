@@ -6,9 +6,15 @@ import "./Sidebar.css";
 
 export default function Sidebar({ color, image, routes }: SidebarProps) {
   const location = useLocation();
+
   const activeRoute = (routeName: any) => {
     return location.pathname.indexOf(routeName) > -1 ? "active" : "";
   };
+
+  const isActive = (routeName: string) => {
+    return location.pathname.indexOf(routeName) > -1;
+  };
+
   return (
     <div className="sidebar" data-image={image} data-color={color}>
       <div
@@ -39,15 +45,11 @@ export default function Sidebar({ color, image, routes }: SidebarProps) {
                   className={
                     prop.upgrade
                       ? "active active-pro"
-                      : activeRoute(prop.layout + prop.path)
+                      : isActive(prop.layout + prop.path) ? "active" : ""
                   }
                   key={key}
                 >
-                  <NavLink
-                    to={prop.layout + prop.path}
-                    className="nav-link"
-                    activeClassName="active"
-                  >
+                  <NavLink to={prop.layout + prop.path} className="nav-link">
                     <i className={prop.icon} />
                     <p>{prop.name}</p>
                   </NavLink>

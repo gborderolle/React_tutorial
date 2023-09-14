@@ -69,7 +69,6 @@ export default function EditEntity<TCreate, TRead>(
     }
   };
 
-  // Function to edit and update the entity.
   const editEntity = async (editEntity: TCreate) => {
     try {
       const url_values = `${props.url}/${id}`;
@@ -99,7 +98,7 @@ export default function EditEntity<TCreate, TRead>(
       }
 
       if (response!.data.isSuccess && response!.data.result != null) {
-        setEntity(props.transform(response!.data.result as TRead));
+        setEntity(props.transform(response!.data.result as unknown as TRead));  // Cambio aquí
       } else {
         throw new Error("Unexpected data format from the API.");
       }

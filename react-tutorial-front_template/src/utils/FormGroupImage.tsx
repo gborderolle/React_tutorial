@@ -1,6 +1,6 @@
 import { useFormikContext } from "formik";
 import { ChangeEvent, useState } from "react";
-import ShowErrors from "./ShowErrors";
+import ShowErrors from "../views/global/ShowErrors";
 
 export default function FormGroupImage(props: formGroupImageProps) {
   const [errors, setErrors] = useState<string[]>([]);
