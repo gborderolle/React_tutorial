@@ -98,7 +98,7 @@ function Upgrade() {
                     <td>
                       <Button
                         className="btn-round btn-fill disabled"
-                        href="#pablo"
+                        href="#"
                         onClick={(e) => e.preventDefault()}
                         variant="default"
                       >

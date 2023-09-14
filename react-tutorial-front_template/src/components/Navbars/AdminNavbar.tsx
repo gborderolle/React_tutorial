@@ -4,6 +4,7 @@ import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
 import './Navbar.css';
 
 import routes from "../../routes.js";
+import showToastMessage from "../../utils/ShowSuccess";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,17 +62,17 @@ function Header() {
 
         <Navbar.Collapse id="basic-navbar-nav" className={isOpen ? 'open' : ''}>
           <Nav className="nav mr-auto" navbar>
-            <Nav.Item>
+            {/* <Nav.Item>
               <Nav.Link
                 data-toggle="dropdown"
-                href="#pablo"
+                href="#"
                 onClick={(e) => e.preventDefault()}
                 className="m-0"
               >
                 <i className="nc-icon nc-button-play"></i>
                 <span className="d-lg-none ml-1">Cartelera</span>
               </Nav.Link>
-            </Nav.Item>
+            </Nav.Item> */}
             <Dropdown as={Nav.Item}>
               <Dropdown.Toggle
                 as={Nav.Link}
@@ -86,31 +87,31 @@ function Header() {
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 <Dropdown.Item
-                  href="#pablo"
+                  href="#"
                   onClick={(e) => e.preventDefault()}
                 >
                   Notification 1
                 </Dropdown.Item>
                 <Dropdown.Item
-                  href="#pablo"
+                  href="#"
                   onClick={(e) => e.preventDefault()}
                 >
                   Notification 2
                 </Dropdown.Item>
                 <Dropdown.Item
-                  href="#pablo"
+                  href="#"
                   onClick={(e) => e.preventDefault()}
                 >
                   Notification 3
                 </Dropdown.Item>
                 <Dropdown.Item
-                  href="#pablo"
+                  href="#"
                   onClick={(e) => e.preventDefault()}
                 >
                   Notification 4
                 </Dropdown.Item>
                 <Dropdown.Item
-                  href="#pablo"
+                  href="#"
                   onClick={(e) => e.preventDefault()}
                 >
                   Another notification
@@ -120,7 +121,7 @@ function Header() {
             <Nav.Item>
               <Nav.Link
                 className="m-0"
-                href="#pablo"
+                href="#"
                 onClick={(e) => e.preventDefault()}
               >
                 <i className="nc-icon nc-zoom-split"></i>
@@ -132,7 +133,7 @@ function Header() {
             <Nav.Item>
               <Nav.Link
                 className="m-0"
-                href="#pablo"
+                href="#"
                 onClick={(e) => e.preventDefault()}
               >
                 <span className="no-icon">Cuenta</span>
@@ -141,8 +142,18 @@ function Header() {
             <Nav.Item>
               <Nav.Link
                 className="m-0"
-                href="#pablo"
-                onClick={(e) => e.preventDefault()}
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+
+                  showToastMessage({
+                    title: "Logout correcto",
+                    icon: "success",
+                    callback: () => {
+                      //navigate("/login");
+                    },
+                  });
+                }}
               >
                 <span className="no-icon">Log out</span>
               </Nav.Link>
