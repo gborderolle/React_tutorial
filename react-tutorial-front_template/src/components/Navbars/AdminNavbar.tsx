@@ -4,7 +4,7 @@ import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
 import './Navbar.css';
 
 import routes from "../../routes.js";
-import showToastMessage from "../../utils/ShowSuccess";
+import showToastMessage from "../../views/global/ShowSuccess";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);

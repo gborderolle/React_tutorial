@@ -1,4 +1,4 @@
-import GenericList from "../utils/GenericList";
+import GenericList from "../../views/global/GenericList";
 import { movieDTO } from "./movie.model";
 import MovieSingle from "./movieSingle";
 

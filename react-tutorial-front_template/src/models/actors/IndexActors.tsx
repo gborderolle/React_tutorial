@@ -1,10 +1,6 @@
-import React from "react";
-import { movieDTO } from "./movie.model";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import { urlGenres } from "../../utils/endpoints";
-import IndexEntity from "../global/IndexEntity";
 
-export default function IndexMovies() {
+export default function IndexActors() {
   return (
     <>
       <Container fluid>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import ShowErrors from "./ShowErrors";
 import GenericList from "./GenericList";
 import { handleErrors } from "../../utils/HandleErrors";
-import showConfirm from "../../utils/ShowConfirm";
+import showConfirm from "./ShowConfirm";
 import Pagination from "./Pagination";
 
 export default function IndexEntity<T>(props: indexEntityProps<T>) {

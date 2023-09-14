@@ -1,8 +1,4 @@
-import React from "react";
-import { cinemaDTO } from "./cinema.model";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import { urlGenres } from "../../utils/endpoints";
-import IndexEntity from "../global/IndexEntity";
 
 export default function IndexCinemas() {
   return (

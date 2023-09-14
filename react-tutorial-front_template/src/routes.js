@@ -1,17 +1,26 @@
 import Dashboard from "./views/Dashboard";
+import Landing from "./views/landing/LandingPage";
 import Typography from "./views/Typography.js";
 import Icons from "./views/Icons.js";
 import Maps from "./views/Maps.js";
 import Notifications from "./views/Notifications.js";
-import IndexGenres from "./views/genres/IndexGenres";
+import IndexGenres from "./models/genres/IndexGenres";
 import View from "./views/global/View";
+import IndexMovies from "./models/movies/IndexMovies";
 
 const dashboardRoutes = [
   {
     path: "/dashboard",
+    name: "Dashboard",
+    icon: "nc-icon nc-chart-pie-35",
+    component: Dashboard,
+    layout: "/admin",
+  },
+  {
+    path: "/landing",
     name: "Cartelera",
     icon: "nc-icon nc-button-play",
-    component: Dashboard,
+    component: Landing,
     layout: "/admin",
   },
   {
@@ -22,10 +31,10 @@ const dashboardRoutes = [
     layout: "/admin",
   },
   {
-    path: "/view",
+    path: "/movie",
     name: "Películas",
     icon: "nc-icon nc-bullet-list-67",
-    component: View,
+    component: IndexMovies,
     layout: "/admin",
   },
   {

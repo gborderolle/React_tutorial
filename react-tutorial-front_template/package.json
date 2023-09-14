@@ -3,15 +3,20 @@
   "version": "2.0.1",
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.2",
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "axios": "^1.5.0",
     "bootstrap": "4.6.0",
     "chartist": "0.11.4",
+    "formik": "^2.4.4",
     "framer-motion": "^10.16.4",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.9",
     "moment": "^2.29.4",
     "react": ">=16.8.0",
     "react-bootstrap": "2.4.0",
+    "react-bootstrap-typeahead": "^6.2.3",
     "react-chartist": "0.14.4",
     "react-dom": ">=16.8.0",
     "react-markdown": "^8.0.7",
@@ -22,7 +27,8 @@
     "reactstrap": "8.8.1",
     "sass": "1.53.0",
     "sweetalert2": "^11.7.27",
-    "typed-react-markdown": "^0.1.0"
+    "typed-react-markdown": "^0.1.0",
+    "yup": "^1.2.0"
   },
   "optionalDependencies": {
     "jquery": "3.5.1",

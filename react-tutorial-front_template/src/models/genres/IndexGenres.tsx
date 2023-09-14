@@ -1,11 +1,10 @@
 // Editar: Clase 120: https://www.udemy.com/course/desarrollando-aplicaciones-en-react-y-aspnet-core/learn/lecture/26020780#overview
 // Borrar: Clase 121: https://www.udemy.com/course/desarrollando-aplicaciones-en-react-y-aspnet-core/learn/lecture/26021230#overview
 
-import React from "react";
 import { genreDTO } from "./genre.model";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { urlGenres } from "../../utils/endpoints";
-import IndexEntity from "../global/IndexEntity";
+import IndexEntity from "../../views/global/IndexEntity";
 
 export default function IndexGenres() {
   return (
