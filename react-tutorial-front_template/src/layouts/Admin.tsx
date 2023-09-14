@@ -18,6 +18,8 @@ const Admin: React.FC = () => {
   const mainPanel = useRef<HTMLDivElement>(null);
 
   const getRoutes = (routes: RouteItem[]) => {
+
+    console.log(routes);
     return routes.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
