@@ -12,14 +12,17 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import AdminLayout from "./layouts/Admin.js";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
 
 root.render(
   <BrowserRouter>
     {/* AuthenticationContext.Provider: Para que toda la app tenga acceso al estado de claims */}
     {/* <AuthenticationContext.Provider value={{ claims, update }}> */}
     <Switch>
-      <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+      {/* <Route path="/admin" render={(props) => <AdminLayout {...props} />} /> */}
+      <Route path="/admin" render={(props) => <AdminLayout />} />
       <Redirect from="/" to="/admin/dashboard" />
     </Switch>
     {/* </AuthenticationContext.Provider> */}

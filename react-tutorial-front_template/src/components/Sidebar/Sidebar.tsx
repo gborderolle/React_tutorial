@@ -1,13 +1,12 @@
-import React, { Component } from "react";
 import { useLocation, NavLink } from "react-router-dom";
 
 import { Nav } from "react-bootstrap";
+import "./Sidebar.css";
 
-import logo from "../../assets/img/reactlogo.png";
 
-function Sidebar({ color, image, routes }) {
+export default function Sidebar({ color, image, routes }: SidebarProps) {
   const location = useLocation();
-  const activeRoute = (routeName) => {
+  const activeRoute = (routeName: any) => {
     return location.pathname.indexOf(routeName) > -1 ? "active" : "";
   };
   return (
@@ -29,11 +28,11 @@ function Sidebar({ color, image, routes }) {
             </div>
           </a>
           <a className="simple-text" href="http://www.creative-tim.com">
-            Creative Tim
+            Dashboard
           </a>
         </div>
         <Nav>
-          {routes.map((prop, key) => {
+          {routes.map((prop: any, key: string) => {
             if (!prop.redirect)
               return (
                 <li
@@ -62,4 +61,9 @@ function Sidebar({ color, image, routes }) {
   );
 }
 
-export default Sidebar;
+interface SidebarProps {
+  color: string;
+  image: string;
+  routes: any;  // Puedes definir esto de manera más precisa si conoces la estructura de 'routes'
+}
+

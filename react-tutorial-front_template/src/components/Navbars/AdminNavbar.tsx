@@ -1,10 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
+import './Navbar.css';
 
 import routes from "../../routes.js";
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const location = useLocation();
   const mobileSidebarToggle = (e: any) => {
     e.preventDefault();
@@ -46,12 +49,17 @@ function Header() {
             {getBrandText()}
           </Navbar.Brand>
         </div>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" className="mr-2">
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          className={`mr-2 ${isOpen ? 'toggled' : ''}`}
+          onClick={() => setIsOpen(!isOpen)}
+        >
           <span className="navbar-toggler-bar burger-lines"></span>
           <span className="navbar-toggler-bar burger-lines"></span>
           <span className="navbar-toggler-bar burger-lines"></span>
         </Navbar.Toggle>
-        <Navbar.Collapse id="basic-navbar-nav">
+
+        <Navbar.Collapse id="basic-navbar-nav" className={isOpen ? 'open' : ''}>
           <Nav className="nav mr-auto" navbar>
             <Nav.Item>
               <Nav.Link

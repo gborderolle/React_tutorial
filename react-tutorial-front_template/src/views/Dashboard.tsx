@@ -1,4 +1,5 @@
 import React from "react";
+import "./Dashboard.css";
 import ChartistGraph from "react-chartist";
 // react-bootstrap components
 import {
@@ -128,7 +129,7 @@ function Dashboard() {
         </Row>
         <Row>
           <Col md="8">
-            <Card>
+            <Card className="card-stats">
               <Card.Header>
                 <Card.Title as="h4">Users Behavior</Card.Title>
                 <p className="card-category">24 Hours performance</p>
@@ -175,7 +176,7 @@ function Dashboard() {
                         "screen and (max-width: 640px)",
                         {
                           axisX: {
-                            labelInterpolationFnc: function (value) {
+                            labelInterpolationFnc: function (value: any) {
                               return value[0];
                             },
                           },
@@ -201,7 +202,7 @@ function Dashboard() {
             </Card>
           </Col>
           <Col md="4">
-            <Card>
+            <Card className="card-stats">
               <Card.Header>
                 <Card.Title as="h4">Email Statistics</Card.Title>
                 <p className="card-category">Last Campaign Performance</p>
@@ -236,7 +237,7 @@ function Dashboard() {
         </Row>
         <Row>
           <Col md="6">
-            <Card>
+            <Card className="card-stats">
               <Card.Header>
                 <Card.Title as="h4">2017 Sales</Card.Title>
                 <p className="card-category">All products including Taxes</p>
@@ -304,7 +305,7 @@ function Dashboard() {
                         {
                           seriesBarDistance: 5,
                           axisX: {
-                            labelInterpolationFnc: function (value) {
+                            labelInterpolationFnc: function (value: any) {
                               return value[0];
                             },
                           },
