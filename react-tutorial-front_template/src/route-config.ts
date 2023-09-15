@@ -2,7 +2,7 @@
 // Clase 64: https://www.udemy.com/course/desarrollando-aplicaciones-en-react-y-aspnet-core/learn/lecture/25858264#overview
 
 import LandingPage from "./views/landing/LandingPage";
-import RedirectToLanding from "./utils/RedirectToLanding";
+import RedirectToMain from "./utils/RedirectToMain";
 import CreateActor from "./models/actors/CreateActor";
 import EditActor from "./models/actors/EditActor";
 import IndexActors from "./models/actors/IndexActors";
@@ -26,6 +26,9 @@ import IndexUsers from "./auth/IndexUsers";
 import AdminLayout from "./layouts/Admin";
 
 const paths = [
+
+  { path: "/landing", component: LandingPage },
+
   { path: "/genres/edit/:id", component: EditGenre, isAdmin: true },
   { path: "/genres/create", component: CreateGenre, isAdmin: true },
   { path: "/genres", component: IndexGenres },
@@ -53,8 +56,9 @@ const paths = [
   { path: "/users", component: IndexUsers, isAdmin: true },
 
   // { path: "/", component: LandingPage },
+  { path: "/dashboard", component: AdminLayout },
   { path: "/", component: AdminLayout },
-  { path: "*", component: RedirectToLanding },
+  { path: "*", component: RedirectToMain },
 ];
 
 export default paths;

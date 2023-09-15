@@ -1,12 +1,23 @@
-import React, { Component, useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { Component, useContext, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
 import './Navbar.css';
 
 import routes from "../../routes.js";
 import showToastMessage from "../../views/global/ShowSuccess";
+import AuthenticationContext from "../../auth/AuthenticationContext";
+import { logout } from "../../auth/ManageJWT";
+import Authorized from "../../auth/Authorized";
 
-function Header() {
+export default function Header() {
+  const navigate = useNavigate(); // sirve para navegar entre las páginas
+  const { update, claims } = useContext(AuthenticationContext);
+
+  function getUsername(): string {
+    return claims.filter((x) => x.name === "email")[0]?.value;
+  }
+
+
   const [isOpen, setIsOpen] = useState(false);
 
   const location = useLocation();
@@ -130,39 +141,71 @@ function Header() {
             </Nav.Item>
           </Nav>
           <Nav className="ml-auto" navbar>
-            <Nav.Item>
-              <Nav.Link
-                className="m-0"
-                href="#"
-                onClick={(e) => e.preventDefault()}
-              >
-                <span className="no-icon">Cuenta</span>
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link
-                className="m-0"
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
 
-                  showToastMessage({
-                    title: "Logout correcto",
-                    icon: "success",
-                    callback: () => {
-                      //navigate("/login");
-                    },
-                  });
-                }}
-              >
-                <span className="no-icon">Log out</span>
-              </Nav.Link>
-            </Nav.Item>
+            <Authorized
+              authorized={
+                <>
+                  <Nav.Item>
+                    <Nav.Link
+                      className="m-0"
+                      href="#"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      <span className="no-icon">Hola, {getUsername()}!</span>
+                    </Nav.Link>
+                  </Nav.Item>
+
+                  <Nav.Item>
+                    <Nav.Link
+                      className="m-0"
+                      href="#"
+                      onClick={() => {
+
+                        logout();
+                        update([]);
+
+                        showToastMessage({
+                          title: "Logout correcto",
+                          icon: "success",
+                          callback: () => {
+                            navigate("/login");
+                          },
+                        });
+
+                      }}
+                    >
+                      <span className="no-icon">Logut</span>
+                    </Nav.Link>
+                  </Nav.Item>
+
+                </>
+              }
+              unauthorized={
+                <>
+                  <Nav.Item>
+                    <Nav.Link
+
+                      href="/register"
+                      className="nav-link btn btn-link link-primary m-2"
+                    >
+                      Registro
+                    </Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link
+                      href="/login"
+                      className="nav-link btn btn-link link-primary m-2"
+                    >
+                      Login
+                    </Nav.Link>
+                  </Nav.Item>
+                </>
+              }
+            ></Authorized>
+
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
 }
-
-export default Header;

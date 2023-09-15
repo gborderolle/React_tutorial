@@ -10,7 +10,6 @@ import { getClaims } from "./auth/ManageJWT";
 import { setupInterceptor } from "./utils/Interceptors";
 import React from "react";
 import paths from "./route-config";
-//import paths from "./routes.js";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/animate.min.css";
@@ -78,8 +77,6 @@ function App() {
                       key={path.path}
                       path={path.path}
                       element={
-                        // React.createElement(path.component)
-
                         path.isAdmin && !isAdmin() ? (
                           <div className="alert alert-warning">
                             Su usuario no tiene autorización.

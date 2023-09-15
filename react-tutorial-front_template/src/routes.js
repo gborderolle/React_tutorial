@@ -7,6 +7,8 @@ import Notifications from "./views/Notifications.js";
 import IndexGenres from "./models/genres/IndexGenres";
 import View from "./views/global/View";
 import IndexMovies from "./models/movies/IndexMovies";
+import IndexActors from "./models/actors/IndexActors";
+import IndexCinemas from "./models/cinemas/IndexCinemas";
 
 const dashboardRoutes = [
   {
@@ -25,7 +27,6 @@ const dashboardRoutes = [
   },
   {
     path: "/genres",
-    // path: "/genre",
     name: "Géneros",
     icon: "nc-icon nc-tag-content",
     component: IndexGenres,
@@ -42,15 +43,15 @@ const dashboardRoutes = [
     path: "/actors",
     name: "Actores",
     icon: "nc-icon nc-circle-09",
-    component: Typography,
-    layout: "/admin",
+    component: IndexActors,
+    layout: "",
   },
   {
-    path: "/icons",
+    path: "/cinemas",
     name: "Cines",
     icon: "nc-icon nc-atom",
-    component: Icons,
-    layout: "/admin",
+    component: IndexCinemas,
+    layout: "",
   },
   {
     path: "/maps",

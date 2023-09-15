@@ -41,15 +41,18 @@ export default function Sidebar({ color, image, routes }: SidebarProps) {
           {routes.map((prop: any, key: string) => {
             if (!prop.redirect)
               return (
+                // ToDo: control de auth
                 <li
                   className={
                     prop.upgrade
                       ? "active active-pro"
-                      : isActive(prop.layout + prop.path) ? "active" : ""
+                      // <NavLink to={prop.layout + prop.path} className="nav-link">
+                      : isActive(prop.path) ? "active" : ""
                   }
                   key={key}
                 >
-                  <NavLink to={prop.layout + prop.path} className="nav-link">
+                  {/* <NavLink to={prop.layout + prop.path} className="nav-link"> */}
+                  <NavLink to={prop.path} className="nav-link">
                     <i className={prop.icon} />
                     <p>{prop.name}</p>
                   </NavLink>
