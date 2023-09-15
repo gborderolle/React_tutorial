@@ -1,33 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";  // Switch cambiado por Routes
-import AdminNavbar from "../components/Navbars/AdminNavbar";
-import Footer from "../components/Footer/Footer";
-import Sidebar from "../components/Sidebar/Sidebar";
-import FixedPlugin from "../components/FixedPlugin/FixedPlugin.js";
+import { Route, Routes, useLocation } from "react-router-dom"; // Switch cambiado por Routes
 import routes from "../routes.js";
 
-// Asumiendo que el archivo de imagen está presente en esta ubicación.
-import sidebarImage from "../assets/img/sidebar-3.jpg";
-// assets/img/sidebar-3.jpg";
-
 const Admin: React.FC = () => {
-  const [image, setImage] = useState<string>(sidebarImage);
-  const [color, setColor] = useState<string>("black");
-  const [hasImage, setHasImage] = useState<boolean>(true);
   const location = useLocation();
   const mainPanel = useRef<HTMLDivElement>(null);
 
   const getRoutes = (routes: RouteItem[]) => {
-
     console.log(routes);
     return routes.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
           <Route
             key={key}
-            path={prop.layout + prop.path}
+            path={prop.path}
+            // path={prop.layout + prop.path}
             element={React.createElement(prop.component)}
-          // render={(props) => <prop.component {...props} />}
+            // element={<prop.component {...prop} />}
+            // render={(props: any) => <prop.component {...props} />}
           />
         );
       } else {
@@ -39,7 +29,9 @@ const Admin: React.FC = () => {
   useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement!.scrollTop = 0;
-    mainPanel.current!.scrollTop = 0;
+    if (mainPanel.current) {
+      mainPanel.current.scrollTop = 0;
+    }
 
     if (
       window.innerWidth < 993 &&
@@ -53,30 +45,11 @@ const Admin: React.FC = () => {
     }
   }, [location]);
 
+  // Admin es el Layout general
+  // Los componentes los carga con getRoutes()
   return (
     <>
-      <div className="wrapper">
-        <Sidebar color={color} image={hasImage ? image : ""} routes={routes} />
-        <div className="main-panel" ref={mainPanel}>
-          <AdminNavbar />
-          <div className="content">
-            <Routes>
-
-              {getRoutes(routes)}
-
-            </Routes>
-          </div>
-          <Footer />
-        </div>
-      </div>
-      <FixedPlugin
-        hasImage={hasImage}
-        setHasImage={() => setHasImage(!hasImage)}
-        color={color}
-        setColor={(color: string) => setColor(color)}  // Tipo explícito para color
-        image={image}
-        setImage={(image: string) => setImage(image)}  // Tipo explícito para image
-      />
+      <Routes>{getRoutes(routes)}</Routes>
     </>
   );
 };
