@@ -3,7 +3,6 @@ import { useLocation, NavLink } from "react-router-dom";
 import { Nav } from "react-bootstrap";
 import "./Sidebar.css";
 
-
 export default function Sidebar({ color, image, routes }: SidebarProps) {
   const location = useLocation();
 
@@ -46,13 +45,15 @@ export default function Sidebar({ color, image, routes }: SidebarProps) {
                   className={
                     prop.upgrade
                       ? "active active-pro"
-                      // <NavLink to={prop.layout + prop.path} className="nav-link">
-                      : isActive(prop.path) ? "active" : ""
+                      : // <NavLink to={prop.layout + prop.path} className="nav-link">
+                      isActive(prop.path)
+                      ? "active"
+                      : ""
                   }
                   key={key}
                 >
                   {/* <NavLink to={prop.layout + prop.path} className="nav-link"> */}
-                  <NavLink to={prop.path} className="nav-link">
+                  <NavLink to={prop.path} className="nav-link hover-effect">
                     <i className={prop.icon} />
                     <p>{prop.name}</p>
                   </NavLink>
@@ -69,6 +70,5 @@ export default function Sidebar({ color, image, routes }: SidebarProps) {
 interface SidebarProps {
   color: string;
   image: string;
-  routes: any;  // Puedes definir esto de manera más precisa si conoces la estructura de 'routes'
+  routes: any; // Puedes definir esto de manera más precisa si conoces la estructura de 'routes'
 }
-

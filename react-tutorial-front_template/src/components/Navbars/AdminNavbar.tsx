@@ -1,7 +1,7 @@
 import React, { Component, useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
-import './Navbar.css';
+import "./Navbar.css";
 
 import routes from "../../routes.js";
 import showToastMessage from "../../views/global/ShowSuccess";
@@ -16,7 +16,6 @@ export default function Header() {
   function getUsername(): string {
     return claims.filter((x) => x.name === "email")[0]?.value;
   }
-
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -63,7 +62,7 @@ export default function Header() {
         </div>
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
-          className={`mr-2 ${isOpen ? 'toggled' : ''}`}
+          className={`mr-2 ${isOpen ? "toggled" : ""}`}
           onClick={() => setIsOpen(!isOpen)}
         >
           <span className="navbar-toggler-bar burger-lines"></span>
@@ -71,7 +70,7 @@ export default function Header() {
           <span className="navbar-toggler-bar burger-lines"></span>
         </Navbar.Toggle>
 
-        <Navbar.Collapse id="basic-navbar-nav" className={isOpen ? 'open' : ''}>
+        <Navbar.Collapse id="basic-navbar-nav" className={isOpen ? "open" : ""}>
           <Nav className="nav mr-auto" navbar>
             <Dropdown as={Nav.Item}>
               <Dropdown.Toggle
@@ -86,34 +85,19 @@ export default function Header() {
                 <span className="d-lg-none ml-1">Notification</span>
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
-                >
+                <Dropdown.Item href="#" onClick={(e) => e.preventDefault()}>
                   Notification 1
                 </Dropdown.Item>
-                <Dropdown.Item
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
-                >
+                <Dropdown.Item href="#" onClick={(e) => e.preventDefault()}>
                   Notification 2
                 </Dropdown.Item>
-                <Dropdown.Item
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
-                >
+                <Dropdown.Item href="#" onClick={(e) => e.preventDefault()}>
                   Notification 3
                 </Dropdown.Item>
-                <Dropdown.Item
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
-                >
+                <Dropdown.Item href="#" onClick={(e) => e.preventDefault()}>
                   Notification 4
                 </Dropdown.Item>
-                <Dropdown.Item
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
-                >
+                <Dropdown.Item href="#" onClick={(e) => e.preventDefault()}>
                   Another notification
                 </Dropdown.Item>
               </Dropdown.Menu>
@@ -130,7 +114,6 @@ export default function Header() {
             </Nav.Item>
           </Nav>
           <Nav className="ml-auto" navbar>
-
             <Authorized
               authorized={
                 <>
@@ -149,7 +132,6 @@ export default function Header() {
                       className="m-0"
                       href="#"
                       onClick={() => {
-
                         logout();
                         update([]);
 
@@ -160,22 +142,19 @@ export default function Header() {
                             navigate("/login");
                           },
                         });
-
                       }}
                     >
                       <span className="no-icon">Logut</span>
                     </Nav.Link>
                   </Nav.Item>
-
                 </>
               }
               unauthorized={
                 <>
                   <Nav.Item>
                     <Nav.Link
-
                       href="/register"
-                      className="nav-link btn btn-link link-primary m-2"
+                      className="nav-link btn btn-link link-primary m-2 hover-effect"
                     >
                       Registro
                     </Nav.Link>
@@ -183,7 +162,7 @@ export default function Header() {
                   <Nav.Item>
                     <Nav.Link
                       href="/login"
-                      className="nav-link btn btn-link link-primary m-2"
+                      className="nav-link btn btn-link link-primary m-2 hover-effect"
                     >
                       Login
                     </Nav.Link>
@@ -191,7 +170,6 @@ export default function Header() {
                 </>
               }
             ></Authorized>
-
           </Nav>
         </Navbar.Collapse>
       </Container>

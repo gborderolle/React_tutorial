@@ -22,7 +22,7 @@ function Dashboard() {
       <Container fluid>
         <Row>
           <Col lg="3" sm="6">
-            <Card className="card-stats">
+            <Card className="card-stats hover-effect">
               <Card.Body>
                 <Row>
                   <Col xs="5">
@@ -48,7 +48,7 @@ function Dashboard() {
             </Card>
           </Col>
           <Col lg="3" sm="6">
-            <Card className="card-stats">
+            <Card className="card-stats hover-effect">
               <Card.Body>
                 <Row>
                   <Col xs="5">
@@ -74,7 +74,7 @@ function Dashboard() {
             </Card>
           </Col>
           <Col lg="3" sm="6">
-            <Card className="card-stats">
+            <Card className="card-stats hover-effect">
               <Card.Body>
                 <Row>
                   <Col xs="5">
@@ -100,7 +100,7 @@ function Dashboard() {
             </Card>
           </Col>
           <Col lg="3" sm="6">
-            <Card className="card-stats">
+            <Card className="card-stats hover-effect">
               <Card.Body>
                 <Row>
                   <Col xs="5">
@@ -128,7 +128,7 @@ function Dashboard() {
         </Row>
         <Row>
           <Col md="8">
-            <Card>
+            <Card className="hover-effect">
               <Card.Header>
                 <Card.Title as="h4">Users Behavior</Card.Title>
                 <p className="card-category">24 Hours performance</p>
@@ -201,7 +201,7 @@ function Dashboard() {
             </Card>
           </Col>
           <Col md="4">
-            <Card>
+            <Card className="hover-effect">
               <Card.Header>
                 <Card.Title as="h4">Email Statistics</Card.Title>
                 <p className="card-category">Last Campaign Performance</p>
@@ -236,7 +236,7 @@ function Dashboard() {
         </Row>
         <Row>
           <Col md="6">
-            <Card>
+            <Card className="hover-effect">
               <Card.Header>
                 <Card.Title as="h4">2017 Sales</Card.Title>
                 <p className="card-category">All products including Taxes</p>
@@ -261,31 +261,11 @@ function Dashboard() {
                       ],
                       series: [
                         [
-                          542,
-                          443,
-                          320,
-                          780,
-                          553,
-                          453,
-                          326,
-                          434,
-                          568,
-                          610,
-                          756,
+                          542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756,
                           895,
                         ],
                         [
-                          412,
-                          243,
-                          280,
-                          580,
-                          453,
-                          353,
-                          300,
-                          364,
-                          368,
-                          410,
-                          636,
+                          412, 243, 280, 580, 453, 353, 300, 364, 368, 410, 636,
                           695,
                         ],
                       ],
@@ -329,7 +309,7 @@ function Dashboard() {
             </Card>
           </Col>
           <Col md="6">
-            <Card className="card-tasks">
+            <Card className="card-tasks hover-effect">
               <Card.Header>
                 <Card.Title as="h4">Tasks</Card.Title>
                 <p className="card-category">Backend development</p>

@@ -15,7 +15,6 @@ import Icons from "./views/Icons";
 import Maps from "./views/Maps";
 import Notifications from "./views/Notifications";
 
-
 const dashboardRoutes = [
   {
     path: "/dashboard",
@@ -81,55 +80,47 @@ const dashboardRoutes = [
     layout: "/admin",
   },
   {
-    path: "/dashboard",
-    name: "Dashboard",
-    icon: "nc-icon nc-chart-pie-35",
-    component: Dashboard,
-    layout: "/admin"
-  },
-  {
     path: "/user",
     name: "User Profile",
     icon: "nc-icon nc-simple-add",
     component: UserProfile,
-    layout: "/admin"
+    layout: "/admin",
   },
   {
     path: "/table",
     name: "Table List",
     icon: "nc-icon nc-simple-add",
     component: TableList,
-    layout: "/admin"
+    layout: "/admin",
   },
   {
     path: "/typography",
     name: "Typography",
     icon: "nc-icon nc-simple-add",
     component: Typography,
-    layout: "/admin"
+    layout: "/admin",
   },
   {
     path: "/icons",
     name: "Icons",
     icon: "nc-icon nc-simple-add",
     component: Icons,
-    layout: "/admin"
+    layout: "/admin",
   },
   {
     path: "/maps",
     name: "Maps",
     icon: "nc-icon nc-simple-add",
     component: Maps,
-    layout: ""
+    layout: "",
   },
   {
     path: "/notifications",
     name: "Notifications",
     icon: "nc-icon nc-simple-add",
     component: Notifications,
-    layout: "/admin"
-  }
-
+    layout: "/admin",
+  },
 ];
 
 export default dashboardRoutes;
