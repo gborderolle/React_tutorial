@@ -3,7 +3,7 @@ import { useLocation, NavLink } from "react-router-dom";
 import { Nav } from "react-bootstrap";
 import "./Sidebar.css";
 
-export default function Sidebar({ color, image, routes: sidebarRoutes }: SidebarProps) {
+export default function Sidebar({ color, image, routes }: SidebarProps) {
   const location = useLocation();
 
   const activeRoute = (routeName: any) => {
@@ -37,17 +37,22 @@ export default function Sidebar({ color, image, routes: sidebarRoutes }: Sidebar
           </a>
         </div>
         <Nav>
-          {sidebarRoutes.map((prop: any, key: string) => {
+          {routes.map((prop: any, key: string) => {
             if (!prop.redirect)
               return (
+                // ToDo: control de auth
                 <li
                   className={
-                    isActive(prop.path)
+                    prop.upgrade
+                      ? "active active-pro"
+                      : // <NavLink to={prop.layout + prop.path} className="nav-link">
+                      isActive(prop.path)
                       ? "active"
                       : ""
                   }
                   key={key}
                 >
+                  {/* <NavLink to={prop.layout + prop.path} className="nav-link"> */}
                   <NavLink to={prop.path} className="nav-link hover-effect">
                     <i className={prop.icon} />
                     <p>{prop.name}</p>

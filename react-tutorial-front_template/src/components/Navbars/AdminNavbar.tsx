@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
 import "./Navbar.css";
 
-import routes from "../../routes.js";
+import routes from "../../sidebarRoutes.js";
 import showToastMessage from "../../views/global/ShowSuccess";
 import AuthenticationContext from "../../auth/AuthenticationContext";
 import { logout } from "../../auth/ManageJWT";

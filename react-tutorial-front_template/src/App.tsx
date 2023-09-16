@@ -1,7 +1,7 @@
 // Configurar ruteo
 // Clase 63: https://www.udemy.com/course/desarrollando-aplicaciones-en-react-y-aspnet-core/learn/lecture/25858262#overview
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, RouterProvider, Routes, createBrowserRouter } from "react-router-dom";
 import setupValidations from "./Validations";
 import { useEffect, useRef, useState } from "react";
 import { claim } from "./auth/auth.model";
@@ -21,9 +21,18 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import AdminNavbar from "./components/Navbars/AdminNavbar";
 import Footer from "./utils/Footer";
 import FixedPlugin from "./components/FixedPlugin/FixedPlugin";
-import routes from "./routes";
+import routes from "./sidebarRoutes";
 
 import sidebarImage from "./assets/img/sidebar-3.jpg";
+import LandingPage from "./views/landing/LandingPage";
+import Dashboard from "./views/Dashboard";
+import IndexReviews from "./models/reviews/IndexReviews";
+import IndexMovies from "./models/movies/IndexMovies";
+import IndexGenres from "./models/genres/IndexGenres";
+import IndexCinemas from "./models/cinemas/IndexCinemas";
+import IndexActors from "./models/actors/IndexActors";
+import RootLayout from "./views/global/RootLayout";
+import Login from "./auth/Login";
 
 setupValidations();
 setupInterceptor();
@@ -38,6 +47,27 @@ function App() {
     // { name: "email", value: "felipe@hotmail.com" },
     // { name: "role", value: "admin" },
   ]);
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <RootLayout />,
+      children: [
+        { path: "login", element: <Login /> },
+
+        { path: "landing", element: <LandingPage /> },
+        { path: "actors", element: <IndexActors /> },
+        { path: "cinemas", element: <IndexCinemas /> },
+        { path: "genres", element: <IndexGenres /> },
+        { path: "movies", element: <IndexMovies /> },
+        { path: "reviews", element: <IndexReviews /> },
+
+        { index: true, element: <Dashboard /> },
+        { path: "*", element: <Dashboard /> },
+      ],
+    },
+  ]);
+
 
   useEffect(() => {
     setClaims(getClaims());
@@ -56,59 +86,9 @@ function App() {
   }
 
   return (
-    <>
-      <BrowserRouter>
-        {/* AuthenticationContext.Provider: Para que toda la app tenga acceso al estado de claims */}
-        <AuthenticationContext.Provider value={{ claims, update }}>
-          {/* <Menu />
-          <div className="container" style={{ marginLeft: "100px" }}> */}
-
-          <div className="wrapper">
-            <Sidebar
-              color={color}
-              image={hasImage ? image : ""}
-              routes={routes}
-            />
-            <div className="main-panel" ref={mainPanel}>
-              <AdminNavbar />
-              <div className="content">
-                <Routes>
-                  {/* Lógica de Ruteo 1 */}
-                  {paths.map((path) => (
-                    <Route
-                      key={path.path}
-                      path={path.path}
-                      element={
-                        path.isAdmin && !isAdmin() ? (
-                          <div className="alert alert-warning">
-                            Su usuario no tiene autorización.
-                          </div>
-                        ) : (
-                          React.createElement(path.component)
-                        )
-                      }
-                    />
-                  ))}
-                </Routes>
-              </div>
-              <Footer />
-            </div>
-          </div>
-          <FixedPlugin
-            hasImage={hasImage}
-            setHasImage={() => setHasImage(!hasImage)}
-            color={color}
-            setColor={(color: string) => setColor(color)}
-            image={image}
-            setImage={(image: string) => setImage(image)}
-          />
-
-          {/* </div>
-          <Footer /> */}
-        </AuthenticationContext.Provider>
-      </BrowserRouter>
-    </>
+    <RouterProvider router={router} />
   );
+
 }
 
 export default App;

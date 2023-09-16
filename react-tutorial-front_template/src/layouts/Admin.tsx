@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom"; // Switch cambiado por Routes
-import routes from "../routes.js";
+import routes from "../sidebarRoutes.js";
 import AuthenticationContext from "../auth/AuthenticationContext";
 import AdminNavbar from "../components/Navbars/AdminNavbar";
 import Sidebar from "../components/Sidebar/Sidebar";
@@ -57,7 +57,6 @@ const Admin: React.FC = () => {
   // Los componentes los carga con getRoutes()
   return (
     <>
-
       {isAuthenticated &&
         <Sidebar
           color={color}
@@ -66,7 +65,6 @@ const Admin: React.FC = () => {
         />
       }
       {isAuthenticated && <AdminNavbar />}
-      {/* Lógica de Ruteo 2 */}
       <Routes>{getRoutes(routes)}</Routes>
     </>
   );

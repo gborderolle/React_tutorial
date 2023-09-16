@@ -44,7 +44,7 @@ namespace WebAPI_tutorial_peliculas.Context
         private void SeedData(ModelBuilder modelBuilder)
         {
             SeedUsers(modelBuilder);
-            //SeedEntities(modelBuilder); // Datos de prueba
+            SeedEntities(modelBuilder); // Datos de prueba
         }
 
         private static void SeedEntities(ModelBuilder modelBuilder)

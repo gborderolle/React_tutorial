@@ -15,7 +15,7 @@ import Icons from "./views/Icons";
 import Maps from "./views/Maps";
 import Notifications from "./views/Notifications";
 
-const dashboardRoutes = [
+const sidebarRoutes = [
   {
     path: "/dashboard",
     name: "Dashboard",
@@ -79,48 +79,48 @@ const dashboardRoutes = [
     component: IndexUsers,
     layout: "/admin",
   },
-  {
-    path: "/user",
-    name: "User Profile",
-    icon: "nc-icon nc-simple-add",
-    component: UserProfile,
-    layout: "/admin",
-  },
-  {
-    path: "/table",
-    name: "Table List",
-    icon: "nc-icon nc-simple-add",
-    component: TableList,
-    layout: "/admin",
-  },
-  {
-    path: "/typography",
-    name: "Typography",
-    icon: "nc-icon nc-simple-add",
-    component: Typography,
-    layout: "/admin",
-  },
-  {
-    path: "/icons",
-    name: "Icons",
-    icon: "nc-icon nc-simple-add",
-    component: Icons,
-    layout: "/admin",
-  },
-  {
-    path: "/maps",
-    name: "Maps",
-    icon: "nc-icon nc-simple-add",
-    component: Maps,
-    layout: "",
-  },
-  {
-    path: "/notifications",
-    name: "Notifications",
-    icon: "nc-icon nc-simple-add",
-    component: Notifications,
-    layout: "/admin",
-  },
+  // {
+  //   path: "/user",
+  //   name: "User Profile",
+  //   icon: "nc-icon nc-simple-add",
+  //   component: UserProfile,
+  //   layout: "/admin",
+  // },
+  // {
+  //   path: "/table",
+  //   name: "Table List",
+  //   icon: "nc-icon nc-simple-add",
+  //   component: TableList,
+  //   layout: "/admin",
+  // },
+  // {
+  //   path: "/typography",
+  //   name: "Typography",
+  //   icon: "nc-icon nc-simple-add",
+  //   component: Typography,
+  //   layout: "/admin",
+  // },
+  // {
+  //   path: "/icons",
+  //   name: "Icons",
+  //   icon: "nc-icon nc-simple-add",
+  //   component: Icons,
+  //   layout: "/admin",
+  // },
+  // {
+  //   path: "/maps",
+  //   name: "Maps",
+  //   icon: "nc-icon nc-simple-add",
+  //   component: Maps,
+  //   layout: "",
+  // },
+  // {
+  //   path: "/notifications",
+  //   name: "Notifications",
+  //   icon: "nc-icon nc-simple-add",
+  //   component: Notifications,
+  //   layout: "/admin",
+  // },
 ];
 
-export default dashboardRoutes;
+export default sidebarRoutes;
