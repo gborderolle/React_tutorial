@@ -72,6 +72,7 @@ function App() {
               <AdminNavbar />
               <div className="content">
                 <Routes>
+                  {/* Lógica de Ruteo 1 */}
                   {paths.map((path) => (
                     <Route
                       key={path.path}
@@ -96,9 +97,9 @@ function App() {
             hasImage={hasImage}
             setHasImage={() => setHasImage(!hasImage)}
             color={color}
-            setColor={(color: string) => setColor(color)} // Tipo explícito para color
+            setColor={(color: string) => setColor(color)}
             image={image}
-            setImage={(image: string) => setImage(image)} // Tipo explícito para image
+            setImage={(image: string) => setImage(image)}
           />
 
           {/* </div>

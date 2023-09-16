@@ -1,14 +1,20 @@
 import Dashboard from "./views/Dashboard";
 import Landing from "./views/landing/LandingPage";
-import Typography from "./views/Typography.js";
-import Icons from "./views/Icons.js";
-import Maps from "./views/Maps.js";
-import Notifications from "./views/Notifications.js";
 import IndexGenres from "./models/genres/IndexGenres";
-import View from "./views/global/View";
 import IndexMovies from "./models/movies/IndexMovies";
 import IndexActors from "./models/actors/IndexActors";
 import IndexCinemas from "./models/cinemas/IndexCinemas";
+import IndexReviews from "./models/reviews/IndexReviews";
+import FilterMovies from "./models/movies/FilterMovies";
+import IndexUsers from "./auth/IndexUsers";
+
+import UserProfile from "./views/UserProfile";
+import TableList from "./views/TableList";
+import Typography from "./views/Typography";
+import Icons from "./views/Icons";
+import Maps from "./views/Maps";
+import Notifications from "./views/Notifications";
+
 
 const dashboardRoutes = [
   {
@@ -54,26 +60,76 @@ const dashboardRoutes = [
     layout: "",
   },
   {
-    path: "/maps",
+    path: "/reviews",
     name: "Reviews",
     icon: "nc-icon nc-notes",
-    component: Maps,
-    layout: "/admin",
+    component: IndexReviews,
+    layout: "",
   },
   {
-    path: "/notifications",
+    path: "/movies/filter",
     name: "Filtrar películas",
     icon: "nc-icon nc-zoom-split",
-    component: Notifications,
+    component: FilterMovies,
+    layout: "",
+  },
+  {
+    path: "/users",
+    name: "Administración",
+    icon: "nc-icon nc-settings-90",
+    component: IndexUsers,
     layout: "/admin",
   },
   {
-    path: "/notifications",
-    name: "Administración",
-    icon: "nc-icon nc-settings-90",
-    component: Notifications,
-    layout: "/admin",
+    path: "/dashboard",
+    name: "Dashboard",
+    icon: "nc-icon nc-chart-pie-35",
+    component: Dashboard,
+    layout: "/admin"
   },
+  {
+    path: "/user",
+    name: "User Profile",
+    icon: "nc-icon nc-simple-add",
+    component: UserProfile,
+    layout: "/admin"
+  },
+  {
+    path: "/table",
+    name: "Table List",
+    icon: "nc-icon nc-simple-add",
+    component: TableList,
+    layout: "/admin"
+  },
+  {
+    path: "/typography",
+    name: "Typography",
+    icon: "nc-icon nc-simple-add",
+    component: Typography,
+    layout: "/admin"
+  },
+  {
+    path: "/icons",
+    name: "Icons",
+    icon: "nc-icon nc-simple-add",
+    component: Icons,
+    layout: "/admin"
+  },
+  {
+    path: "/maps",
+    name: "Maps",
+    icon: "nc-icon nc-simple-add",
+    component: Maps,
+    layout: ""
+  },
+  {
+    path: "/notifications",
+    name: "Notifications",
+    icon: "nc-icon nc-simple-add",
+    component: Notifications,
+    layout: "/admin"
+  }
+
 ];
 
 export default dashboardRoutes;

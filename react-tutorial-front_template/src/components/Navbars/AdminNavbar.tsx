@@ -73,17 +73,6 @@ export default function Header() {
 
         <Navbar.Collapse id="basic-navbar-nav" className={isOpen ? 'open' : ''}>
           <Nav className="nav mr-auto" navbar>
-            {/* <Nav.Item>
-              <Nav.Link
-                data-toggle="dropdown"
-                href="#"
-                onClick={(e) => e.preventDefault()}
-                className="m-0"
-              >
-                <i className="nc-icon nc-button-play"></i>
-                <span className="d-lg-none ml-1">Cartelera</span>
-              </Nav.Link>
-            </Nav.Item> */}
             <Dropdown as={Nav.Item}>
               <Dropdown.Toggle
                 as={Nav.Link}

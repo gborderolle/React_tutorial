@@ -1,23 +1,31 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom"; // Switch cambiado por Routes
 import routes from "../routes.js";
+import AuthenticationContext from "../auth/AuthenticationContext";
+import AdminNavbar from "../components/Navbars/AdminNavbar";
+import Sidebar from "../components/Sidebar/Sidebar";
+
+import sidebarImage from "../assets/img/sidebar-3.jpg";
 
 const Admin: React.FC = () => {
+  const { claims } = useContext(AuthenticationContext); // Usa el contexto de autenticación
+  const isAuthenticated = claims && claims.length > 0; // Asume que si hay 'claims', el usuario está autenticado
+
   const location = useLocation();
   const mainPanel = useRef<HTMLDivElement>(null);
 
+  const [image, setImage] = useState<string>(sidebarImage);
+  const [color, setColor] = useState<string>("black");
+  const [hasImage, setHasImage] = useState<boolean>(true);
+
   const getRoutes = (routes: RouteItem[]) => {
-    console.log(routes);
     return routes.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
           <Route
             key={key}
             path={prop.path}
-            // path={prop.layout + prop.path}
             element={React.createElement(prop.component)}
-            // element={<prop.component {...prop} />}
-            // render={(props: any) => <prop.component {...props} />}
           />
         );
       } else {
@@ -49,6 +57,16 @@ const Admin: React.FC = () => {
   // Los componentes los carga con getRoutes()
   return (
     <>
+
+      {isAuthenticated &&
+        <Sidebar
+          color={color}
+          image={hasImage ? image : ""}
+          routes={routes}
+        />
+      }
+      {isAuthenticated && <AdminNavbar />}
+      {/* Lógica de Ruteo 2 */}
       <Routes>{getRoutes(routes)}</Routes>
     </>
   );

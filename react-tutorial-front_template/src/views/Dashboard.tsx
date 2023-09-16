@@ -1,5 +1,4 @@
 import React from "react";
-import "./Dashboard.css";
 import ChartistGraph from "react-chartist";
 // react-bootstrap components
 import {
@@ -129,7 +128,7 @@ function Dashboard() {
         </Row>
         <Row>
           <Col md="8">
-            <Card className="card-stats">
+            <Card>
               <Card.Header>
                 <Card.Title as="h4">Users Behavior</Card.Title>
                 <p className="card-category">24 Hours performance</p>
@@ -202,7 +201,7 @@ function Dashboard() {
             </Card>
           </Col>
           <Col md="4">
-            <Card className="card-stats">
+            <Card>
               <Card.Header>
                 <Card.Title as="h4">Email Statistics</Card.Title>
                 <p className="card-category">Last Campaign Performance</p>
@@ -237,7 +236,7 @@ function Dashboard() {
         </Row>
         <Row>
           <Col md="6">
-            <Card className="card-stats">
+            <Card>
               <Card.Header>
                 <Card.Title as="h4">2017 Sales</Card.Title>
                 <p className="card-category">All products including Taxes</p>

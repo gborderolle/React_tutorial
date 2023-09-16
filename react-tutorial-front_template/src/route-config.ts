@@ -24,6 +24,13 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import IndexUsers from "./auth/IndexUsers";
 import AdminLayout from "./layouts/Admin";
+import Typography from "./views/Typography";
+import TableList from "./views/TableList";
+import Icons from "./views/Icons";
+import Maps from "./views/Maps";
+import Notifications from "./views/Notifications";
+import UserProfile from "./views/UserProfile";
+import Dashboard from "./views/Dashboard";
 
 const paths = [
 
@@ -55,9 +62,17 @@ const paths = [
   { path: "/login", component: Login },
   { path: "/users", component: IndexUsers, isAdmin: true },
 
+  // Originales del template:
+  { path: "/user", component: UserProfile },
+  { path: "/table", component: TableList },
+  { path: "/typography", component: Typography },
+  { path: "/icons", component: Icons },
+  { path: "/maps", component: Maps },
+  { path: "/notifications", component: Notifications },
+
   // { path: "/", component: LandingPage },
-  { path: "/dashboard", component: AdminLayout },
-  { path: "/", component: AdminLayout },
+  { path: "/dashboard", component: Dashboard },
+  { path: "/", component: Dashboard },
   { path: "*", component: RedirectToMain },
 ];
 
