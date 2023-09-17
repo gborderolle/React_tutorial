@@ -10,71 +10,66 @@ import AuthenticationContext from "../../auth/AuthenticationContext";
 import Login from "../../auth/Login";
 
 export default function RootLayout() {
-    const { claims } = useContext(AuthenticationContext); // Usa el contexto de autenticación
-    const isAuthenticated = claims && claims.length > 0; // Asume que si hay 'claims', el usuario está autenticado
+  const { claims } = useContext(AuthenticationContext); // Usa el contexto de autenticación
+  const isAuthenticated = claims && claims.length > 0; // Asume que si hay 'claims', el usuario está autenticado
 
-    const [image, setImage] = useState<string>(sidebarImage);
-    const [color, setColor] = useState<string>("black");
-    const [hasImage, setHasImage] = useState<boolean>(true);
+  const [image, setImage] = useState<string>(sidebarImage);
+  const [color, setColor] = useState<string>("black");
+  const [hasImage, setHasImage] = useState<boolean>(true);
 
-    const location = useLocation();
-    const mainPanel = useRef<HTMLDivElement>(null);
-    const navigate = useNavigate(); // sirve para navegar entre las páginas
+  const location = useLocation();
+  const mainPanel = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate(); // sirve para navegar entre las páginas
 
-    useEffect(() => {
+  useEffect(() => {
+    if (!isAuthenticated) {
+      console.log("ejecuta root");
+      navigate("/login");
+      // alert("hola");
+    }
 
-        if (!isAuthenticated) {
+    document.documentElement.scrollTop = 0;
+    document.scrollingElement!.scrollTop = 0;
+    if (mainPanel.current) {
+      mainPanel.current.scrollTop = 0;
+    }
 
-            console.log("ejecuta root");
+    if (
+      window.innerWidth < 993 &&
+      document.documentElement.className.indexOf("nav-open") !== -1
+    ) {
+      document.documentElement.classList.toggle("nav-open");
+      let element = document.getElementById("bodyClick");
+      if (element) {
+        element.parentNode!.removeChild(element);
+      }
+    }
+  }, [location]);
 
-            // navigate("/login");
-            // alert("hola");
-        }
-
-        document.documentElement.scrollTop = 0;
-        document.scrollingElement!.scrollTop = 0;
-        if (mainPanel.current) {
-            mainPanel.current.scrollTop = 0;
-        }
-
-        if (
-            window.innerWidth < 993 &&
-            document.documentElement.className.indexOf("nav-open") !== -1
-        ) {
-            document.documentElement.classList.toggle("nav-open");
-            let element = document.getElementById("bodyClick");
-            if (element) {
-                element.parentNode!.removeChild(element);
-            }
-        }
-    }, [location]);
-
-    return (
-        <>
-
-            {/* {isAuthenticated ? */}
-            <>
-                <Sidebar
-                    color={color}
-                    image={hasImage ? image : ""}
-                    routes={sidebarRoutes}
-                />
-                <AdminNavbar />
-                <FixedPlugin
-                    hasImage={hasImage}
-                    setHasImage={() => setHasImage(!hasImage)}
-                    color={color}
-                    setColor={(color: string) => setColor(color)}
-                    image={image}
-                    setImage={(image: string) => setImage(image)}
-                />
-                <Outlet />
-            </>
-            {/* :
+  return (
+    <>
+      {/* {isAuthenticated ? */}
+      <>
+        <Sidebar
+          color={color}
+          image={hasImage ? image : ""}
+          routes={sidebarRoutes}
+        />
+        <AdminNavbar />
+        <FixedPlugin
+          hasImage={hasImage}
+          setHasImage={() => setHasImage(!hasImage)}
+          color={color}
+          setColor={(color: string) => setColor(color)}
+          image={image}
+          setImage={(image: string) => setImage(image)}
+        />
+        <Outlet />
+      </>
+      {/* :
             <Login></Login>
                 null
             } */}
-
-        </>
-    );
+    </>
+  );
 }

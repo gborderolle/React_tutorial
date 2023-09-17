@@ -1,7 +1,13 @@
 // Configurar ruteo
 // Clase 63: https://www.udemy.com/course/desarrollando-aplicaciones-en-react-y-aspnet-core/learn/lecture/25858262#overview
 
-import { BrowserRouter, Route, RouterProvider, Routes, createBrowserRouter } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  RouterProvider,
+  Routes,
+  createBrowserRouter,
+} from "react-router-dom";
 import setupValidations from "./Validations";
 import { useEffect, useRef, useState } from "react";
 import { claim } from "./auth/auth.model";
@@ -33,6 +39,7 @@ import IndexCinemas from "./models/cinemas/IndexCinemas";
 import IndexActors from "./models/actors/IndexActors";
 import RootLayout from "./views/global/RootLayout";
 import Login from "./auth/Login";
+import Register from "./auth/Register";
 
 setupValidations();
 setupInterceptor();
@@ -49,12 +56,12 @@ function App() {
   ]);
 
   const router = createBrowserRouter([
+    { path: "login", element: <Login /> },
+    { path: "register", element: <Register /> },
     {
       path: "/",
       element: <RootLayout />,
       children: [
-        { path: "login", element: <Login /> },
-
         { path: "landing", element: <LandingPage /> },
         { path: "actors", element: <IndexActors /> },
         { path: "cinemas", element: <IndexCinemas /> },
@@ -67,7 +74,6 @@ function App() {
       ],
     },
   ]);
-
 
   useEffect(() => {
     setClaims(getClaims());
@@ -85,10 +91,7 @@ function App() {
     );
   }
 
-  return (
-    <RouterProvider router={router} />
-  );
-
+  return <RouterProvider router={router} />;
 }
 
 export default App;
