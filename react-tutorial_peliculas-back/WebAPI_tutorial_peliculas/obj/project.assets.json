@@ -5999,11 +5999,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\WebAPI_tutorial_peliculas.csproj",
+      "projectUniqueName": "D:\\Documents\\GitHub\\React_tutorial_1_peliculas\\react-tutorial_peliculas-back\\WebAPI_tutorial_peliculas\\WebAPI_tutorial_peliculas.csproj",
       "projectName": "WebAPI_tutorial_peliculas",
-      "projectPath": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\WebAPI_tutorial_peliculas.csproj",
+      "projectPath": "D:\\Documents\\GitHub\\React_tutorial_1_peliculas\\react-tutorial_peliculas-back\\WebAPI_tutorial_peliculas\\WebAPI_tutorial_peliculas.csproj",
       "packagesPath": "C:\\Users\\Gonzalo\\.nuget\\packages\\",
-      "outputPath": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\obj\\",
+      "outputPath": "D:\\Documents\\GitHub\\React_tutorial_1_peliculas\\react-tutorial_peliculas-back\\WebAPI_tutorial_peliculas\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6025,8 +6025,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\EmailService\\EmailService.csproj": {
-              "projectPath": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\EmailService\\EmailService.csproj"
+            "D:\\Documents\\GitHub\\React_tutorial_1_peliculas\\react-tutorial_peliculas-back\\EmailService\\EmailService.csproj": {
+              "projectPath": "D:\\Documents\\GitHub\\React_tutorial_1_peliculas\\react-tutorial_peliculas-back\\EmailService\\EmailService.csproj"
             }
           }
         }

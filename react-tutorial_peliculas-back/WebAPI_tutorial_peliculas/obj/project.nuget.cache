@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AyKJ1GnT8bW114yFYpxiw9kXdg8E8OvhIiPF7Y/dFSQb4pxwqzx3NmGsE1RtxImFxArS73Ks5Ma4C09/aStQ2w==",
+  "dgSpecHash": "YPLP53AVgdLSP+LV81aR3LBq48/NfXM6yew4eajTRGyAvsRh+xfJnWIGPIHDffGxSg8bOBeYurh4I1iZaURU5Q==",
   "success": true,
-  "projectFilePath": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\WebAPI_tutorial_peliculas.csproj",
+  "projectFilePath": "D:\\Documents\\GitHub\\React_tutorial_1_peliculas\\react-tutorial_peliculas-back\\WebAPI_tutorial_peliculas\\WebAPI_tutorial_peliculas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gonzalo\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Gonzalo\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
