@@ -4,3 +4,27 @@ react-tutorial-back/WebAPI_tutorial_peliculas/bin/
 react-tutorial-back/WebAPI_tutorial_peliculas/obj/
 react-tutorial-back/.vs/
 react-tutorial_peliculas-back/.vs/WebAPI_tutorial_peliculas/v17/.suo
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+react-tutorial-front/node_modules
+react-tutorial-front/.pnp
+react-tutorial-front/.pnp.js
+
+# testing
+react-tutorial-front/coverage
+
+# production
+react-tutorial-front/build
+
+# misc
+react-tutorial-front/.DS_Store
+react-tutorial-front/.env.local
+react-tutorial-front/.env.development.local
+react-tutorial-front/.env.test.local
+react-tutorial-front/.env.production.local
+
+react-tutorial-front/npm-debug.log*
+react-tutorial-front/yarn-debug.log*
+react-tutorial-front/yarn-error.log*
