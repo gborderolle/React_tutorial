@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+3uNCKmOCjKbj/w652r+R79JEqGqj1aABqWqg8SstoyD5A8xqdPHbgmidhZI8Iv7nGglZ+6/n9+6Yy+lkEWaEQ==",
+  "dgSpecHash": "d0O+vk7JBmz98IiEd6R2tx4p17vUGs2FRGjcI7g2bXZX6vG0Z6/dU2TuRP3WnBrMu59UccmLD/ZfgS0Ui4PDUg==",
   "success": true,
-  "projectFilePath": "D:\\Documents\\GitHub\\React_tutorial_1_peliculas\\react-tutorial_peliculas-back\\EmailService\\EmailService.csproj",
+  "projectFilePath": "d:\\Documents\\GitHub\\React_tutorial_1_peliculas\\react-tutorial_peliculas-back\\EmailService\\EmailService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gonzalo\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\Gonzalo\\.nuget\\packages\\mailkit\\3.2.0\\mailkit.3.2.0.nupkg.sha512",
