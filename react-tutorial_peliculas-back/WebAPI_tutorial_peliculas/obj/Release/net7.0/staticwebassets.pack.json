@@ -1,0 +1,201 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\0270d797-f27d-4db7-a0c1-2905207b3afe.jpg",
+      "PackagePath": "staticwebassets\\actors\\0270d797-f27d-4db7-a0c1-2905207b3afe.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\06bd133b-f878-4770-9827-cbafafc28f0b.jpg",
+      "PackagePath": "staticwebassets\\actors\\06bd133b-f878-4770-9827-cbafafc28f0b.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\0c9e15e5-b894-4e48-86a5-82bf83e3812a.jpg",
+      "PackagePath": "staticwebassets\\actors\\0c9e15e5-b894-4e48-86a5-82bf83e3812a.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\0ef1f395-268d-4e00-943c-85a0a40da989.jpg",
+      "PackagePath": "staticwebassets\\actors\\0ef1f395-268d-4e00-943c-85a0a40da989.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\128fda8c-86be-439f-88d3-3921fc6919c4.png",
+      "PackagePath": "staticwebassets\\actors\\128fda8c-86be-439f-88d3-3921fc6919c4.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\192105e6-19af-46ef-8107-cbf8d50e07e9.jpg",
+      "PackagePath": "staticwebassets\\actors\\192105e6-19af-46ef-8107-cbf8d50e07e9.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\1db4616d-a92e-4dfa-9a02-9a2fc7674a26.png",
+      "PackagePath": "staticwebassets\\actors\\1db4616d-a92e-4dfa-9a02-9a2fc7674a26.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\2cc62809-f78a-412d-8b18-1f7e0cd3130b.jpg",
+      "PackagePath": "staticwebassets\\actors\\2cc62809-f78a-412d-8b18-1f7e0cd3130b.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\2cd6d2f0-9671-4583-bace-25b6012b6fe7.jpg",
+      "PackagePath": "staticwebassets\\actors\\2cd6d2f0-9671-4583-bace-25b6012b6fe7.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\2db22b19-84bc-4dda-8549-44cebc6ad8bf.jpg",
+      "PackagePath": "staticwebassets\\actors\\2db22b19-84bc-4dda-8549-44cebc6ad8bf.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\2fb4fde7-b2c1-4d6f-bf32-442ba76f3b0c.png",
+      "PackagePath": "staticwebassets\\actors\\2fb4fde7-b2c1-4d6f-bf32-442ba76f3b0c.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\313860e1-7237-4c16-a352-8cc256b42188.jpg",
+      "PackagePath": "staticwebassets\\actors\\313860e1-7237-4c16-a352-8cc256b42188.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\34d0d2f1-b139-443a-b094-46ddb74bb8e2.jpg",
+      "PackagePath": "staticwebassets\\actors\\34d0d2f1-b139-443a-b094-46ddb74bb8e2.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\389ae6f5-f034-4959-8c50-75534298ef15.png",
+      "PackagePath": "staticwebassets\\actors\\389ae6f5-f034-4959-8c50-75534298ef15.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\43964b5b-4847-46b2-a304-166823df2f63.jpg",
+      "PackagePath": "staticwebassets\\actors\\43964b5b-4847-46b2-a304-166823df2f63.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\46b31110-94cf-4ea5-b80b-596da52eef64.jpg",
+      "PackagePath": "staticwebassets\\actors\\46b31110-94cf-4ea5-b80b-596da52eef64.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\4eb6aaa4-3885-4dc5-9bb4-3c7f5e0673c4.png",
+      "PackagePath": "staticwebassets\\actors\\4eb6aaa4-3885-4dc5-9bb4-3c7f5e0673c4.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\511a0312-bc84-44e6-ae40-6202edcfbb4f.jpg",
+      "PackagePath": "staticwebassets\\actors\\511a0312-bc84-44e6-ae40-6202edcfbb4f.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\528cde8f-ff46-426c-bb4d-685cf72cb576.jpg",
+      "PackagePath": "staticwebassets\\actors\\528cde8f-ff46-426c-bb4d-685cf72cb576.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\52a0e98a-d79a-4146-987e-abe04c3e43c8.png",
+      "PackagePath": "staticwebassets\\actors\\52a0e98a-d79a-4146-987e-abe04c3e43c8.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\56be73cc-4a65-4e7f-bb5a-fac73f7db223.jpg",
+      "PackagePath": "staticwebassets\\actors\\56be73cc-4a65-4e7f-bb5a-fac73f7db223.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\5a13c304-f310-42e6-a417-8aaf053a9375.jpg",
+      "PackagePath": "staticwebassets\\actors\\5a13c304-f310-42e6-a417-8aaf053a9375.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\69b565b3-0a53-4e5b-b2e8-564971eb09af.png",
+      "PackagePath": "staticwebassets\\actors\\69b565b3-0a53-4e5b-b2e8-564971eb09af.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\746f7d66-1643-4721-9a83-791ead794885.jpg",
+      "PackagePath": "staticwebassets\\actors\\746f7d66-1643-4721-9a83-791ead794885.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\77139ab1-b61f-4552-ba61-3a53837f15c8.jpg",
+      "PackagePath": "staticwebassets\\actors\\77139ab1-b61f-4552-ba61-3a53837f15c8.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\81275bfc-43b3-4f5a-b8b4-b77f29037491.jpg",
+      "PackagePath": "staticwebassets\\actors\\81275bfc-43b3-4f5a-b8b4-b77f29037491.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\8f8f1139-7e79-4bbc-b8db-d7e9d6c35d26.jpg",
+      "PackagePath": "staticwebassets\\actors\\8f8f1139-7e79-4bbc-b8db-d7e9d6c35d26.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\965dcaa2-5348-4acc-a7e1-b86929f5fbe3.jpg",
+      "PackagePath": "staticwebassets\\actors\\965dcaa2-5348-4acc-a7e1-b86929f5fbe3.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\978f2157-77bb-42d4-9934-a33a016d8386.jpg",
+      "PackagePath": "staticwebassets\\actors\\978f2157-77bb-42d4-9934-a33a016d8386.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\9fa8b993-9719-4fa4-b96a-a562c4d6d76a.png",
+      "PackagePath": "staticwebassets\\actors\\9fa8b993-9719-4fa4-b96a-a562c4d6d76a.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\a2e255f3-38f1-452a-b04d-b8d997e25ccb.png",
+      "PackagePath": "staticwebassets\\actors\\a2e255f3-38f1-452a-b04d-b8d997e25ccb.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\a51a9a68-f4bc-4901-a6f1-ffe77ff77cbd.png",
+      "PackagePath": "staticwebassets\\actors\\a51a9a68-f4bc-4901-a6f1-ffe77ff77cbd.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\adf1bd71-e21f-4716-91aa-a25a412a9456.jpg",
+      "PackagePath": "staticwebassets\\actors\\adf1bd71-e21f-4716-91aa-a25a412a9456.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\b209deb8-fb73-468c-b8fd-ac680950f60e.jpg",
+      "PackagePath": "staticwebassets\\actors\\b209deb8-fb73-468c-b8fd-ac680950f60e.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\b5259fd9-e0de-4bb5-9415-b0805964e477.PNG",
+      "PackagePath": "staticwebassets\\actors\\b5259fd9-e0de-4bb5-9415-b0805964e477.PNG"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\b915c328-6154-4536-acf4-cef751e6cf2f.jpg",
+      "PackagePath": "staticwebassets\\actors\\b915c328-6154-4536-acf4-cef751e6cf2f.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\be7ca03d-467c-4889-9bb1-ad98e6597b1d.jpg",
+      "PackagePath": "staticwebassets\\actors\\be7ca03d-467c-4889-9bb1-ad98e6597b1d.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\d0cae09d-6067-432f-ac3d-f4aee9d6e559.jpg",
+      "PackagePath": "staticwebassets\\actors\\d0cae09d-6067-432f-ac3d-f4aee9d6e559.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\d62e9a50-b730-4cb5-a286-10ee3ea13624.png",
+      "PackagePath": "staticwebassets\\actors\\d62e9a50-b730-4cb5-a286-10ee3ea13624.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\d636f3e3-5345-4ace-8259-7bbb3b6b48c2.jpg",
+      "PackagePath": "staticwebassets\\actors\\d636f3e3-5345-4ace-8259-7bbb3b6b48c2.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\db9846a7-3902-4af1-bc0f-28708e16812c.jpg",
+      "PackagePath": "staticwebassets\\actors\\db9846a7-3902-4af1-bc0f-28708e16812c.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\e207f04c-d3ba-443a-a18d-8fdc86fe69ee.jpg",
+      "PackagePath": "staticwebassets\\actors\\e207f04c-d3ba-443a-a18d-8fdc86fe69ee.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\e6deb75e-0f38-48b5-b6ce-1a4f2ad1036b.png",
+      "PackagePath": "staticwebassets\\actors\\e6deb75e-0f38-48b5-b6ce-1a4f2ad1036b.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\f3b594ac-cb9e-499b-8f30-f13e6a8d1fc1.jpg",
+      "PackagePath": "staticwebassets\\actors\\f3b594ac-cb9e-499b-8f30-f13e6a8d1fc1.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\React_tutorial_1\\react-tutorial-back\\WebAPI_tutorial_peliculas\\wwwroot\\actors\\f83c5bf7-1728-43af-aef8-33378735a378.png",
+      "PackagePath": "staticwebassets\\actors\\f83c5bf7-1728-43af-aef8-33378735a378.png"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.WebAPI_tutorial_peliculas.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.build.WebAPI_tutorial_peliculas.props",
+      "PackagePath": "build\\WebAPI_tutorial_peliculas.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.WebAPI_tutorial_peliculas.props",
+      "PackagePath": "buildMultiTargeting\\WebAPI_tutorial_peliculas.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.buildTransitive.WebAPI_tutorial_peliculas.props",
+      "PackagePath": "buildTransitive\\WebAPI_tutorial_peliculas.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

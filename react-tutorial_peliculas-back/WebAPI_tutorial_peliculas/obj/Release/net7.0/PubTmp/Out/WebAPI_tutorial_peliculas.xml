@@ -1,0 +1,291 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAPI_tutorial_peliculas</name>
+    </assembly>
+    <members>
+        <member name="T:WebAPI_tutorial_peliculas.Controllers.V2.AccountsController">
+            <summary>
+            Clase: https://www.udemy.com/course/construyendo-web-apis-restful-con-aspnet-core/learn/lecture/20660148#notes
+            GiHub: https://github.com/gavilanch/React-y-ASP.NET-Core/blob/80c39ac56823491aefb6aed4454f276f4ef53cc1/React%2017%20-%20ASP.NET%20Core%205/Modulo%209%20-%20Seguridad/Fin/peliculasApi/back-end/Controllers/CuentasController.cs#L23
+            </summary>
+        </member>
+        <member name="M:WebAPI_tutorial_peliculas.Controllers.V2.ActorsController.Post(WebAPI_tutorial_peliculas.DTOs.ActorCreateDTO)">
+            <summary>
+            [FromForm]: Subir archivos, Clase: https://www.udemy.com/course/construyendo-web-apis-restful-con-aspnet-core/learn/lecture/19983788#notes
+            </summary>
+            <param name="actorCreateDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI_tutorial_peliculas.Controllers.V2.CinemasController.Delete(System.Int32)">
+            <summary>
+            FromQuery(param en url)  
+            FromBody(valor en el body)
+            FromHeader(valor en el header)
+            FromRoute o Si no se indica nada, como este caso => se toma directo en la URL así: api/movies/1
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI_tutorial_peliculas.Controllers.V2.CinemasController.Near1(WebAPI_tutorial_peliculas.DTOs.CinemaNearFilterDTO)">
+            <summary>
+            No funciona
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI_tutorial_peliculas.Controllers.V2.CinemasController.Near2(WebAPI_tutorial_peliculas.DTOs.CinemaNearFilterDTO)">
+            <summary>
+            Sí funciona
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.Controllers.V2.CustomBaseController`1">
+            <summary>
+            Esta versión simplifica los Controllers con esta base, mantengo ambas por si falla.
+            Clase: https://www.udemy.com/course/construyendo-web-apis-restful-con-aspnet-core/learn/lecture/20659018#notes
+            </summary>
+        </member>
+        <member name="M:WebAPI_tutorial_peliculas.Controllers.V2.MoviesController.Delete(System.Int32)">
+            <summary>
+            FromQuery(param en url)  
+            FromBody(valor en el body)
+            FromHeader(valor en el header)
+            FromRoute o Si no se indica nada, como este caso => se toma directo en la URL así: api/movies/1
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:WebAPI_tutorial_peliculas.Controllers.V2.MoviesController.Put(System.Int32,WebAPI_tutorial_peliculas.DTOs.MovieCreateDTO)" -->
+        <member name="M:WebAPI_tutorial_peliculas.Controllers.V2.MoviesController.Filter(WebAPI_tutorial_peliculas.DTOs.MovieFilterDTO)">
+            <summary>
+            ToDo: MEJORAR MÉTODO: usar filtros avanzados (no dbcontext)
+            Clase: https://www.udemy.com/course/construyendo-web-apis-restful-con-aspnet-core/learn/lecture/20330805#overview
+            </summary>
+            <param name="movieFilterDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI_tutorial_peliculas.Controllers.V2.MoviesController.PostGet">
+            <summary>
+            Clase 136: https://www.udemy.com/course/desarrollando-aplicaciones-en-react-y-aspnet-core/learn/lecture/26047826#notes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI_tutorial_peliculas.Controllers.V2.MoviesController.Get(System.Int32)">
+            <summary>
+            Clase 142: https://www.udemy.com/course/desarrollando-aplicaciones-en-react-y-aspnet-core/learn/lecture/26092084#notes
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.Controllers.V2.ReviewsController">
+            <summary>
+            Clase: https://www.udemy.com/course/construyendo-web-apis-restful-con-aspnet-core/learn/lecture/20660150#announcements
+            </summary>
+        </member>
+        <member name="M:WebAPI_tutorial_peliculas.Controllers.V2.ReviewsController.Post(System.Int32,WebAPI_tutorial_peliculas.DTOs.ReviewCreateDTO)">
+            <summary>
+            Sólo usuarios autenticados pueden escribir reviews de las películas --> [Authorize]
+            Clase: https://www.udemy.com/course/construyendo-web-apis-restful-con-aspnet-core/learn/lecture/20660150#notes
+            </summary>
+            <param name="reviewCreateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.DTOs.ActorCreateDTO">
+            <summary>
+            Los CreateDTO no llevan ID ni Datetimes de crear o modificar
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.DTOs.ActorMovieCreateDTO">
+            <summary>
+            Clase 135: https://www.udemy.com/course/desarrollando-aplicaciones-en-react-y-aspnet-core/learn/lecture/26047194#notes
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.DTOs.CinemaCreateDTO">
+            <summary>
+            Los CreateDTO no llevan ID ni Datetimes de crear o modificar
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.DTOs.CinemaDTO">
+            <summary>
+            Google Maps: latitud y longitud (en ese orden)
+            Ej. apto: -34.90990874483437, -56.192072498205505
+            lat: -34.90990874483437, long: -56.192072498205505
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.DTOs.CinemaNearDTO">
+            <summary>
+            Clase: https://www.udemy.com/course/construyendo-web-apis-restful-con-aspnet-core/learn/lecture/20660144#announcements
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.DTOs.CinemaNearFilterDTO">
+            <summary>
+            Clase: https://www.udemy.com/course/construyendo-web-apis-restful-con-aspnet-core/learn/lecture/20660144#announcements
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.DTOs.GenreCreateDTO">
+            <summary>
+            Los CreateDTO no llevan ID ni Datetimes de crear o modificar
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.DTOs.MovieCreateDTO">
+            <summary>
+            Los CreateDTO no llevan ID ni Datetimes de crear o modificar
+            </summary>
+        </member>
+        <member name="P:WebAPI_tutorial_peliculas.DTOs.MovieCreateDTO.GenreIds">
+            <summary>
+            Usamos un ModelBinder custom orque cuando es [FromForm] el ModelBinder no funciona bien con listados
+            </summary>
+        </member>
+        <member name="P:WebAPI_tutorial_peliculas.DTOs.MoviePatchDTO.Genres">
+            <summary>
+            Usamos un ModelBinder custom orque cuando es [FromForm] el ModelBinder no funciona bien con listados
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.DTOs.PaginationDTO">
+            <summary>
+            Clase: https://www.udemy.com/course/construyendo-web-apis-restful-con-aspnet-core/learn/lecture/20232284#overview
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.DTOs.RatingDTO">
+            <summary>
+            El UserID nunca va en los DTOs porque sería una vulnerabilidad del sistema
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.DTOs.ReviewCreateDTO">
+            <summary>
+            Los CreateDTO no llevan ID ni Datetimes de crear o modificar
+            Acá no puede venir el UserID porque es info sensible, tiene que venir del JsonWebToken -> Controller: HttpContext.User.Claims...
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.DTOs.UserDTO">
+            <summary>
+            Esta clase sirve de apoyo al IdentityUser
+            El UserID nunca va en los DTOs porque sería una vulnerabilidad del sistema
+            En el Context la tabla es .Users
+            
+            Cuidado: uso este Id en el front
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.Filters.BadRequestParse">
+            <summary>
+            Clase 114: https://www.udemy.com/course/desarrollando-aplicaciones-en-react-y-aspnet-core/learn/lecture/25990184#overview
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.Filters.MovieExistsAttribute">
+            <summary>
+            Clase: https://www.udemy.com/course/construyendo-web-apis-restful-con-aspnet-core/learn/lecture/20660150#notes
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:WebAPI_tutorial_peliculas.Middlewares.LogResponseMiddleware" -->
+        <member name="T:WebAPI_tutorial_peliculas.Migrations.migracion">
+            <inheritdoc />
+        </member>
+        <member name="M:WebAPI_tutorial_peliculas.Migrations.migracion.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:WebAPI_tutorial_peliculas.Migrations.migracion.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:WebAPI_tutorial_peliculas.Migrations.migracion.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.Migrations.migracion2">
+            <inheritdoc />
+        </member>
+        <member name="M:WebAPI_tutorial_peliculas.Migrations.migracion2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:WebAPI_tutorial_peliculas.Migrations.migracion2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:WebAPI_tutorial_peliculas.Migrations.migracion2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.Models.ActorMovie">
+            <summary>
+            Navegación n..n
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.Models.Cinema">
+            <summary>
+            Google Maps: latitud y longitud (en ese orden)
+            Ej. apto: -34.90990874483437, -56.192072498205505
+            lat: -34.90990874483437, long: -56.192072498205505
+            </summary>
+        </member>
+        <member name="P:WebAPI_tutorial_peliculas.Models.Cinema.Location">
+            <summary>
+             Clase NetTopologySuite.Geometries
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.Models.IId">
+            <summary>
+            Heredar todas las clases que tengan Id
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.Models.MovieCinema">
+            <summary>
+            Navegación n..n
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.Models.MovieGenre">
+            <summary>
+            Navegación n..n
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.Models.Review">
+            <summary>
+            Clase: https://www.udemy.com/course/construyendo-web-apis-restful-con-aspnet-core/learn/lecture/20660150#announcements
+            </summary>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.Services.FileStorageLocal">
+            <summary>
+            Clase: https://www.udemy.com/course/construyendo-web-apis-restful-con-aspnet-core/learn/lecture/20094958#notes
+            </summary>
+        </member>
+        <member name="M:WebAPI_tutorial_peliculas.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configuración de los Services
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:WebAPI_tutorial_peliculas.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configuración del Middleware
+            Middlewares son los métodos "Use..()"
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+        <member name="M:WebAPI_tutorial_peliculas.Utilities.HttpContextExtensions.InsertParamPaginationHeader``1(Microsoft.AspNetCore.Http.HttpContext,System.Linq.IQueryable{``0})">
+            <summary>
+            ***** -------------------------------> Deprecated 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="httpContext"></param>
+            <param name="queryable"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:WebAPI_tutorial_peliculas.Utilities.HttpContextExtensions.InsertParamPaginationHeader``1(Microsoft.AspNetCore.Http.HttpContext,System.Linq.IQueryable{``0},System.Int32)">
+            <summary>
+            Versión mejorada:
+            Clase: https://www.udemy.com/course/construyendo-web-apis-restful-con-aspnet-core/learn/lecture/20232284#overview
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="httpContext"></param>
+            <param name="queryable"></param>
+            <param name="recordsPerPage"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:WebAPI_tutorial_peliculas.Utilities.UserCredential">
+            <summary>
+            Entidad auxiliar de .NET Identity (no es tabla en la BD)
+            </summary>
+        </member>
+    </members>
+</doc>
