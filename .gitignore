@@ -28,3 +28,5 @@ react-tutorial-front/.env.production.local
 react-tutorial-front/npm-debug.log*
 react-tutorial-front/yarn-debug.log*
 react-tutorial-front/yarn-error.log*
+react-tutorial_peliculas-back/EmailService/bin/
+react-tutorial_peliculas-back/EmailService/obj/
