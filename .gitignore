@@ -30,3 +30,6 @@ react-tutorial-front/yarn-debug.log*
 react-tutorial-front/yarn-error.log*
 react-tutorial_peliculas-back/EmailService/bin/
 react-tutorial_peliculas-back/EmailService/obj/
+
+react-tutorial_peliculas-back/WebAPI_tutorial_peliculas/bin/
+react-tutorial_peliculas-back/WebAPI_tutorial_peliculas/obj/

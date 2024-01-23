@@ -6,8 +6,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project>
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword />
-    <History>True|2023-08-27T05:40:13.1058214Z;False|2023-08-27T02:39:38.7513346-03:00;False|2023-08-27T02:33:52.7467687-03:00;False|2023-08-27T02:21:18.2354650-03:00;</History>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkKJ3SIaea0mKIDHKFyQpSwAAAAACAAAAAAAQZgAAAAEAACAAAACAPB4WyoIO1MSrMdokCAzorUKDocyGVDDrBy03+agD8QAAAAAOgAAAAAIAACAAAAB+tyKUj+0+HkBQrN4PBy2ovP7Kj3NstcI32MREk6cIkiAAAAAz6+8TNsX154eKthtIdlx3O0CaOhYimBsMXBoQcxKdm0AAAACQZoOzv68TtK7e2cRCoOUIPP6Hn7TVTfTOpQdfVFBGe+uLhoTBdAKWpWcanK7CFwtKxqm37BhHLaphS8Fv7Zc4</EncryptedPassword>
+    <History>True|2024-01-23T20:20:46.9814308Z;True|2024-01-22T02:29:37.4537996-03:00;True|2023-08-27T02:40:13.1058214-03:00;False|2023-08-27T02:39:38.7513346-03:00;False|2023-08-27T02:33:52.7467687-03:00;False|2023-08-27T02:21:18.2354650-03:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="ConnectionString_WebAPI_tutorial">
+      <Value>Data Source=sql5112.site4now.net%3bInitial Catalog=db_a4d7d8_reacttutorialback%3bUser Id=db_a4d7d8_reacttutorialback_admin%3bPassword=reacttutorial1234</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="WebAPI_tutorial_peliculas.Context.ContextDB">
+      <Value>Data Source=sql5112.site4now.net%3bInitial Catalog=db_a4d7d8_reacttutorialback%3bUser Id=db_a4d7d8_reacttutorialback_admin%3bPassword=reacttutorial1234</Value>
+    </EFMigrations>
+  </ItemGroup>
 </Project>

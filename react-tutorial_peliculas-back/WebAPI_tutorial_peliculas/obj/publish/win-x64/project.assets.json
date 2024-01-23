@@ -1408,7 +1408,7 @@
           }
         }
       },
-      "MimeKit/4.1.0": {
+      "MimeKit/4.2.0": {
         "type": "package",
         "dependencies": {
           "BouncyCastle.Cryptography": "2.2.1",
@@ -2223,7 +2223,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "MimeKit": "4.1.0",
+          "MimeKit": "4.2.0",
           "NETCore.MailKit": "2.1.0"
         },
         "compile": {
@@ -3604,7 +3604,7 @@
           }
         }
       },
-      "MimeKit/4.1.0": {
+      "MimeKit/4.2.0": {
         "type": "package",
         "dependencies": {
           "BouncyCastle.Cryptography": "2.2.1",
@@ -4432,7 +4432,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "MimeKit": "4.1.0",
+          "MimeKit": "4.2.0",
           "NETCore.MailKit": "2.1.0"
         },
         "compile": {
@@ -6362,13 +6362,14 @@
         "version.txt"
       ]
     },
-    "MimeKit/4.1.0": {
-      "sha512": "JUIaZfYybdRcyt1wgPo1e2j4aI3Rp8USKpxka1WImUs17+2X3Xl0sDJYfbzFchJ46qZeSvIwL+/aAjxPtFsm4A==",
+    "MimeKit/4.2.0": {
+      "sha512": "HlfWiJ6t40r8u/rCK2p/8dm1ILiWw4XHucm2HImDYIFS3uZe7IKZyaCDafEoZR7VG7AW1JQxNPQCAxmAnJfRvA==",
       "type": "package",
-      "path": "mimekit/4.1.0",
+      "path": "mimekit/4.2.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "docs/README.md",
         "icons/mimekit-50.png",
         "lib/net462/MimeKit.dll",
         "lib/net462/MimeKit.dll.config",
@@ -6394,7 +6395,7 @@
         "lib/netstandard2.1/MimeKit.dll.config",
         "lib/netstandard2.1/MimeKit.pdb",
         "lib/netstandard2.1/MimeKit.xml",
-        "mimekit.4.1.0.nupkg.sha512",
+        "mimekit.4.2.0.nupkg.sha512",
         "mimekit.nuspec"
       ]
     },
@@ -8436,11 +8437,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documents\\GitHub\\React_tutorial\\react-tutorial-back\\WebAPI_tutorial_peliculas\\WebAPI_tutorial_peliculas.csproj",
+      "projectUniqueName": "D:\\Documents\\GitHub\\React_tutorial_1_peliculas\\react-tutorial_peliculas-back\\WebAPI_tutorial_peliculas\\WebAPI_tutorial_peliculas.csproj",
       "projectName": "WebAPI_tutorial_peliculas",
-      "projectPath": "D:\\Documents\\GitHub\\React_tutorial\\react-tutorial-back\\WebAPI_tutorial_peliculas\\WebAPI_tutorial_peliculas.csproj",
+      "projectPath": "D:\\Documents\\GitHub\\React_tutorial_1_peliculas\\react-tutorial_peliculas-back\\WebAPI_tutorial_peliculas\\WebAPI_tutorial_peliculas.csproj",
       "packagesPath": "C:\\Users\\Gonzalo\\.nuget\\packages\\",
-      "outputPath": "D:\\Documents\\GitHub\\React_tutorial\\react-tutorial-back\\WebAPI_tutorial_peliculas\\obj\\publish\\win-x64\\",
+      "outputPath": "D:\\Documents\\GitHub\\React_tutorial_1_peliculas\\react-tutorial_peliculas-back\\WebAPI_tutorial_peliculas\\obj\\publish\\win-x64\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -8462,8 +8463,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Documents\\GitHub\\React_tutorial\\react-tutorial-back\\EmailService\\EmailService.csproj": {
-              "projectPath": "D:\\Documents\\GitHub\\React_tutorial\\react-tutorial-back\\EmailService\\EmailService.csproj"
+            "D:\\Documents\\GitHub\\React_tutorial_1_peliculas\\react-tutorial_peliculas-back\\EmailService\\EmailService.csproj": {
+              "projectPath": "D:\\Documents\\GitHub\\React_tutorial_1_peliculas\\react-tutorial_peliculas-back\\EmailService\\EmailService.csproj"
             }
           }
         }
@@ -8556,6 +8557,20 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+            "version": "[7.0.10, 7.0.10]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Runtime.win-x64",
+            "version": "[7.0.10, 7.0.10]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+            "version": "[7.0.10, 7.0.10]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"

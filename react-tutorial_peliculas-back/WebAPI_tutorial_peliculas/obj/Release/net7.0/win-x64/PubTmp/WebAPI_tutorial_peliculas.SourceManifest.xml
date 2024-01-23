@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="D:\Documents\GitHub\React_tutorial\react-tutorial-back\WebAPI_tutorial_peliculas\obj\Release\net7.0\win-x64\PubTmp\Out\" />
-  <dbfullsql path="D:\Documents\GitHub\React_tutorial\react-tutorial-back\WebAPI_tutorial_peliculas\obj\Release\net7.0\win-x64\PubTmp\EFSQLScripts\WebAPI_tutorial_peliculas.Context.ContextDB.sql" />
+  <IisApp path="D:\Documents\GitHub\React_tutorial_1_peliculas\react-tutorial_peliculas-back\WebAPI_tutorial_peliculas\obj\Release\net7.0\win-x64\PubTmp\Out\" />
+  <dbfullsql path="D:\Documents\GitHub\React_tutorial_1_peliculas\react-tutorial_peliculas-back\WebAPI_tutorial_peliculas\obj\Release\net7.0\win-x64\PubTmp\EFSQLScripts\WebAPI_tutorial_peliculas.Context.ContextDB.sql" />
 </sitemanifest>
