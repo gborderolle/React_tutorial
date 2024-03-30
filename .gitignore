@@ -34,3 +34,12 @@ react-tutorial_peliculas-back/EmailService/obj/
 react-tutorial_peliculas-back/WebAPI_tutorial_peliculas/bin/
 react-tutorial_peliculas-back/WebAPI_tutorial_peliculas/obj/
 react-tutorial_peliculas-back/WebAPI_tutorial_peliculas/.vs/
+
+react-tutorial_peliculas-back/.vs/
+react-tutorial_peliculas-back/.vs/*
+react-tutorial_peliculas-back/.vs/ProjectEvaluation/webapi_tutorial_peliculas.projects.v7.bin
+react-tutorial_peliculas-back/WebAPI_tutorial_peliculas/bin/
+react-tutorial_peliculas-back/WebAPI_tutorial_peliculas/bin/*
+
+react-tutorial_peliculas-back/WebAPI_tutorial_peliculas/obj/
+react-tutorial_peliculas-back/WebAPI_tutorial_peliculas/obj/*

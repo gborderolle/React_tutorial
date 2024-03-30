@@ -15,7 +15,7 @@ namespace WebAPI_tutorial_peliculas.Controllers.V2
     [ApiController]
     [HasHeader("x-version", "2")] // Agregar header: "x-version": "1"
     [Route("api/actors")]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ActorsController : CustomBaseController<Actor>
     {
         private readonly IActorRepository _actorRepository; // Servicio que contiene la lógica principal de negocio para Actors.

@@ -152,15 +152,15 @@ namespace WebAPI_tutorial_peliculas.Migrations
                         {
                             Id = "c2ee6493-5a73-46f3-a3f2-46d1d11d7176",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0008c700-0e36-4ff8-b59d-375e199f7234",
+                            ConcurrencyStamp = "03123e52-6965-453a-acb8-5b873b29de29",
                             Email = "admin@testing.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@testing.com",
                             NormalizedUserName = "admin@testing.com",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAhoh7nykmiijA45NJ8HC+mEzv222dHU74FikamllwTLdRegA/lTC2bhBK78Tsxaqg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDv2/fNOwTLh+B+fLGuqfVCQ/p5OkWw63DI2uyeud7Q5JD8DiuaxiDtKmiULF1vJPw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "92d0831d-1616-467b-a5db-3fce583e91ea",
+                            SecurityStamp = "87432b62-522b-46ff-a7b9-e20ac2287c71",
                             TwoFactorEnabled = false,
                             UserName = "Sr.Admin"
                         },
@@ -168,15 +168,15 @@ namespace WebAPI_tutorial_peliculas.Migrations
                         {
                             Id = "e0765c93-676c-4199-b7ee-d7877c471821",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "90e360ad-ce71-4d0e-b903-d7e2eea2530f",
+                            ConcurrencyStamp = "cd40e3db-d1ed-4b08-830b-c8c551544da2",
                             Email = "user@testing.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "user@testing.com",
                             NormalizedUserName = "user@testing.com",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPtFDvczry/ewvtUbUuyoFSUe0CBzOh+sgFLhfG/FY40GY5ylohAk494VQCDhu3RYA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBYtAgxipuXRKGh1VKonVJXTPyoNpD1w1DE+U+oxgg3mis8+fSvZA3TW20PFn5ZRxA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ed80218f-0709-4fcd-8c2f-01588effb33f",
+                            SecurityStamp = "16bfccb1-86af-4cd7-a856-5f2e561502a1",
                             TwoFactorEnabled = false,
                             UserName = "Sr.Normal"
                         });
@@ -309,118 +309,118 @@ namespace WebAPI_tutorial_peliculas.Migrations
                         {
                             Id = 1,
                             Born = new DateTime(1962, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8750),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3846),
                             Name = "Jim Carrey",
                             PhotoURL = "https://www.gettyimages.com/photos/jim-carrey",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8750)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3848)
                         },
                         new
                         {
                             Id = 2,
                             Born = new DateTime(1965, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8758),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3852),
                             Name = "Robert Downey Jr",
                             PhotoURL = "https://www.gettyimages.com/photos/robert-downey-jr",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8758)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3852)
                         },
                         new
                         {
                             Id = 3,
                             Born = new DateTime(1981, 6, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8761),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3854),
                             Name = "Chris Evans",
                             PhotoURL = "https://www.gettyimages.com/photos/chris-evans-robert-downey-jr",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8761)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3854)
                         },
                         new
                         {
                             Id = 4,
                             Born = new DateTime(1975, 6, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8763),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3855),
                             Name = "Angelina Jolie",
                             PhotoURL = "https://www.gettyimages.com/photos/angelina-jolie",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8763)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3855)
                         },
                         new
                         {
                             Id = 5,
                             Born = new DateTime(1967, 10, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8765),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3857),
                             Name = "Julia Roberts",
                             PhotoURL = "https://www.gettyimages.com/photos/julia-roberts",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8766)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3857)
                         },
                         new
                         {
                             Id = 6,
                             Born = new DateTime(1990, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8767),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3859),
                             Name = "Margot Robbie",
                             PhotoURL = "https://www.gettyimages.com/photos/margot-robbie",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8768)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3859)
                         },
                         new
                         {
                             Id = 7,
                             Born = new DateTime(1963, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8769),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3860),
                             Name = "Brad Pitt",
                             PhotoURL = "https://www.gettyimages.com/photos/brad-pitt",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8779)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3871)
                         },
                         new
                         {
                             Id = 8,
                             Born = new DateTime(1974, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8790),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3887),
                             Name = "Penelope Cruz",
                             PhotoURL = "https://www.gettyimages.com/photos/penelope-cruz",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8790)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3888)
                         },
                         new
                         {
                             Id = 9,
                             Born = new DateTime(1984, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8822),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3889),
                             Name = "Scarlett Johansson",
                             PhotoURL = "https://www.gettyimages.com/photos/scarlett-johansson",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8822)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3889)
                         },
                         new
                         {
                             Id = 10,
                             Born = new DateTime(1986, 5, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8824),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3891),
                             Name = "Megan Fox",
                             PhotoURL = "https://www.gettyimages.com/photos/megan-fox",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8825)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3891)
                         },
                         new
                         {
                             Id = 11,
                             Born = new DateTime(1975, 6, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8826),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3892),
                             Name = "Angelina Jolie",
                             PhotoURL = "https://www.gettyimages.com/photos/angelina-jolie",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8827)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3892)
                         },
                         new
                         {
                             Id = 12,
                             Born = new DateTime(1969, 2, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8828),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3894),
                             Name = "Jennifer Aniston",
                             PhotoURL = "https://www.gettyimages.com/photos/jennifer-aniston",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8829)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3894)
                         },
                         new
                         {
                             Id = 13,
                             Born = new DateTime(1988, 11, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8830),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3895),
                             Name = "Emma Stone",
                             PhotoURL = "https://www.gettyimages.com/photos/emma-stone",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8831)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3896)
                         });
                 });
 
@@ -533,82 +533,82 @@ namespace WebAPI_tutorial_peliculas.Migrations
                         new
                         {
                             Id = 1,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2064),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6396),
                             Location = (NetTopologySuite.Geometries.Point)new NetTopologySuite.IO.WKTReader().Read("SRID=4326;POINT (-56.13621764762051 -34.90292421243134)"),
                             Name = "Moviecenter",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2071)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6403)
                         },
                         new
                         {
                             Id = 2,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2125),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6434),
                             Location = (NetTopologySuite.Geometries.Point)new NetTopologySuite.IO.WKTReader().Read("SRID=4326;POINT (-56.14677015960076 -34.90889872353638)"),
                             Name = "LIFE Cinemas",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2125)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6435)
                         },
                         new
                         {
                             Id = 3,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2131),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6438),
                             Location = (NetTopologySuite.Geometries.Point)new NetTopologySuite.IO.WKTReader().Read("SRID=4326;POINT (-56.1566407649374 -34.91871301506793)"),
                             Name = "Casablanca",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2131)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6439)
                         },
                         new
                         {
                             Id = 4,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2135),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6443),
                             Location = (NetTopologySuite.Geometries.Point)new NetTopologySuite.IO.WKTReader().Read("SRID=4326;POINT (-56.2010689038137 -34.90849834167495)"),
                             Name = "Cinemateca",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2135)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6444)
                         },
                         new
                         {
                             Id = 5,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2139),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6447),
                             Location = (NetTopologySuite.Geometries.Point)new NetTopologySuite.IO.WKTReader().Read("SRID=4326;POINT (-56.15886454873049 -34.923823012219856)"),
                             Name = "Punta Carretas Shopping",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2140)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6448)
                         },
                         new
                         {
                             Id = 21,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2184),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6451),
                             Location = (NetTopologySuite.Geometries.Point)new NetTopologySuite.IO.WKTReader().Read("SRID=4326;POINT (-56.164532 -34.901112)"),
                             Name = "AMC Times Square",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2184)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6452)
                         },
                         new
                         {
                             Id = 22,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2189),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6455),
                             Location = (NetTopologySuite.Geometries.Point)new NetTopologySuite.IO.WKTReader().Read("SRID=4326;POINT (-56.168498 -34.914314)"),
                             Name = "Regal LA Live",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2189)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6456)
                         },
                         new
                         {
                             Id = 23,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2192),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6459),
                             Location = (NetTopologySuite.Geometries.Point)new NetTopologySuite.IO.WKTReader().Read("SRID=4326;POINT (-56.18133 -34.905004)"),
                             Name = "Cineplex Chicago",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2193)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6460)
                         },
                         new
                         {
                             Id = 24,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2197),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6463),
                             Location = (NetTopologySuite.Geometries.Point)new NetTopologySuite.IO.WKTReader().Read("SRID=4326;POINT (-56.153841 -34.920369)"),
                             Name = "AMC Miami Beach",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2197)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6464)
                         },
                         new
                         {
                             Id = 25,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2201),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6467),
                             Location = (NetTopologySuite.Geometries.Point)new NetTopologySuite.IO.WKTReader().Read("SRID=4326;POINT (-56.150231 -34.916723)"),
                             Name = "Cineworld Houston",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 593, DateTimeKind.Local).AddTicks(2201)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(6468)
                         });
                 });
 
@@ -639,58 +639,58 @@ namespace WebAPI_tutorial_peliculas.Migrations
                         new
                         {
                             Id = 1,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8581),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3648),
                             Name = "Aventura",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8622)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3680)
                         },
                         new
                         {
                             Id = 2,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8627),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3681),
                             Name = "Animación",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8628)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3682)
                         },
                         new
                         {
                             Id = 3,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8629),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3683),
                             Name = "Suspenso",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8629)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3683)
                         },
                         new
                         {
                             Id = 4,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8630),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3684),
                             Name = "Romance",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8631)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3684)
                         },
                         new
                         {
                             Id = 5,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8632),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3685),
                             Name = "Terror",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8632)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3685)
                         },
                         new
                         {
                             Id = 6,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8633),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3686),
                             Name = "Comedia",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8634)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3687)
                         },
                         new
                         {
                             Id = 7,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8635),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3687),
                             Name = "Sci-fi",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8636)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3688)
                         },
                         new
                         {
                             Id = 8,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8637),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3688),
                             Name = "Documental",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(8637)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(3689)
                         });
                 });
 
@@ -736,170 +736,170 @@ namespace WebAPI_tutorial_peliculas.Migrations
                         new
                         {
                             Id = 1,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9011),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4154),
                             Description = "Un viaje interestelar en busca de un nuevo hogar para la humanidad.",
                             OnCinema = true,
                             PosterURL = "https://m.media-amazon.com/images/I/A1JVqNMI7UL._AC_UF894,1000_QL80_.jpg",
                             Premiere = new DateTime(2014, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Interstellar",
                             Trailer = "https://www.youtube.com/watch?v=2LqzF5WauAw",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9012)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4156)
                         },
                         new
                         {
                             Id = 2,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9019),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4158),
                             Description = "La vida de un hombre es un reality show televisado las 24 horas.",
                             OnCinema = true,
                             PosterURL = "https://flxt.tmsimg.com/assets/p20974_p_v10_aq.jpg",
                             Premiere = new DateTime(1998, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "The Truman Show",
                             Trailer = "https://www.youtube.com/watch?v=dpDhYDiHxgU",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9019)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4159)
                         },
                         new
                         {
                             Id = 3,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9022),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4160),
                             Description = "Un adolescente viaja al pasado y al futuro en un DeLorean modificado.",
                             OnCinema = false,
                             PosterURL = "https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/Back_to_the_Future_Part_II.jpg/220px-Back_to_the_Future_Part_II.jpg",
                             Premiere = new DateTime(1989, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Back to the future",
                             Trailer = "https://www.youtube.com/watch?v=qvsgGtivCgs",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9023)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4161)
                         },
                         new
                         {
                             Id = 4,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9025),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4162),
                             Description = "Agentes secretos protegen a la Tierra de amenazas extraterrestres.",
                             OnCinema = false,
                             PosterURL = "https://upload.wikimedia.org/wikipedia/en/f/fb/Men_in_Black_Poster.jpg",
                             Premiere = new DateTime(1997, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Men in black",
                             Trailer = "https://www.youtube.com/watch?v=UxUTTrU6PA4",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9025)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4163)
                         },
                         new
                         {
                             Id = 5,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9027),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4164),
                             Description = "Un payaso asesino siembra el terror en la noche de Halloween.",
                             OnCinema = true,
                             PosterURL = "https://m.media-amazon.com/images/M/MV5BYmMxNzA0OTUtOTJiOS00NTc4LWJmNTItMGM3OWE0N2Y0NjhjXkEyXkFqcGdeQXVyMTg5NjU4NjE@._V1_FMjpg_UX1000_.jpg",
                             Premiere = new DateTime(2018, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Terrifier",
                             Trailer = "https://www.youtube.com/watch?v=fN5j1MtGO2Q",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9028)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4164)
                         },
                         new
                         {
                             Id = 6,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9029),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4166),
                             Description = "Un grupo de amigos se ve atrapado en un festival pagano en Suecia.",
                             OnCinema = true,
                             PosterURL = "https://grandillusioncinema.org/wp-content/uploads/2023/06/midsommar.jpg",
                             Premiere = new DateTime(2019, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Midsommar",
                             Trailer = "https://www.youtube.com/watch?v=1Vnghdsjmd0",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9030)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4166)
                         },
                         new
                         {
                             Id = 7,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9032),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4167),
                             Description = "Una familia del siglo XVII enfrenta fuerzas sobrenaturales en su granja.",
                             OnCinema = true,
                             PosterURL = "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/The_Witch_poster.png/220px-The_Witch_poster.png",
-                            Premiere = new DateTime(2023, 6, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9034),
+                            Premiere = new DateTime(2023, 11, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4169),
                             Title = "The Witch",
                             Trailer = "https://www.youtube.com/watch?v=iQXmlf3Sefg",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9033)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4168)
                         },
                         new
                         {
                             Id = 8,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9044),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4181),
                             Description = "Dos investigadores paranormales toman un caso de posesión demoníaca.",
                             OnCinema = true,
                             PosterURL = "https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/The_Conjuring_The_Devil_Made_Me_Do_It_poster.jpeg/220px-The_Conjuring_The_Devil_Made_Me_Do_It_poster.jpeg",
-                            Premiere = new DateTime(2023, 7, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9046),
+                            Premiere = new DateTime(2023, 12, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4182),
                             Title = "The Conjuring: The Devil Made Me Do It",
                             Trailer = "https://www.youtube.com/watch?v=YDGw1MTEe9k",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9045)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4181)
                         },
                         new
                         {
                             Id = 9,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9047),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4184),
                             Description = "Una familia debe sobrevivir en un mundo invadido por criaturas que cazan por el sonido.",
                             OnCinema = true,
                             PosterURL = "https://upload.wikimedia.org/wikipedia/en/thumb/a/a0/A_Quiet_Place_Part_II.jpeg/220px-A_Quiet_Place_Part_II.jpeg",
-                            Premiere = new DateTime(2023, 5, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9049),
+                            Premiere = new DateTime(2023, 10, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4185),
                             Title = "A Quiet Place Part II",
                             Trailer = "https://www.youtube.com/watch?v=XEMwSdne6UE",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9048)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4184)
                         },
                         new
                         {
                             Id = 11,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9050),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4186),
                             Description = "Un programador descubre que la realidad es una simulación creada por máquinas inteligentes.",
                             OnCinema = false,
                             PosterURL = "https://upload.wikimedia.org/wikipedia/en/c/c1/The_Matrix_Poster.jpg",
-                            Premiere = new DateTime(2003, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9052),
+                            Premiere = new DateTime(2004, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4187),
                             Title = "The Matrix",
                             Trailer = "https://www.youtube.com/watch?v=m8e-FF8MsqU",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9051)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4186)
                         },
                         new
                         {
                             Id = 12,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9054),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4189),
                             Description = "Un cazador de replicantes debe encontrar y 'retirar' a cuatro androides que han regresado a la Tierra.",
                             OnCinema = false,
                             PosterURL = "https://upload.wikimedia.org/wikipedia/en/5/53/Blade_Runner_poster.jpg",
-                            Premiere = new DateTime(1993, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9056),
+                            Premiere = new DateTime(1994, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4191),
                             Title = "Blade Runner",
                             Trailer = "https://www.youtube.com/watch?v=eogpIG53Cis",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9054)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4190)
                         },
                         new
                         {
                             Id = 13,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9057),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4192),
                             Description = "Un ladrón de sueños toma un último trabajo para implantar una idea en la mente de un ejecutivo.",
                             OnCinema = false,
                             PosterURL = "https://upload.wikimedia.org/wikipedia/en/2/2e/Inception_%282010%29_theatrical_poster.jpg",
-                            Premiere = new DateTime(2013, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9059),
+                            Premiere = new DateTime(2014, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4193),
                             Title = "Inception",
                             Trailer = "https://www.youtube.com/watch?v=YoHD9XEInc0",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9058)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4193)
                         },
                         new
                         {
                             Id = 14,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9060),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4194),
                             Description = "Un androide asesino viaja al pasado para eliminar a la madre del líder de la resistencia humana.",
                             OnCinema = false,
                             PosterURL = "https://upload.wikimedia.org/wikipedia/en/7/70/Terminator1984movieposter.jpg",
-                            Premiere = new DateTime(1983, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9062),
+                            Premiere = new DateTime(1984, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4196),
                             Title = "The Terminator",
                             Trailer = "https://www.youtube.com/watch?v=k64P4l2Wmeg",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9061)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4195)
                         },
                         new
                         {
                             Id = 15,
-                            Creation = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9063),
+                            Creation = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4197),
                             Description = "Un joven granjero se une a la rebelión para derrotar al malévolo Imperio Galáctico.",
                             OnCinema = false,
                             PosterURL = "https://upload.wikimedia.org/wikipedia/en/8/87/StarWarsMoviePoster1977.jpg",
-                            Premiere = new DateTime(1983, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9065),
+                            Premiere = new DateTime(1984, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4198),
                             Title = "Star Wars: Episode IV - A New Hope",
                             Trailer = "https://www.youtube.com/watch?v=vZ734NWnAHA",
-                            Update = new DateTime(2023, 9, 16, 19, 47, 48, 592, DateTimeKind.Local).AddTicks(9064)
+                            Update = new DateTime(2024, 2, 3, 17, 46, 45, 33, DateTimeKind.Local).AddTicks(4197)
                         });
                 });
 

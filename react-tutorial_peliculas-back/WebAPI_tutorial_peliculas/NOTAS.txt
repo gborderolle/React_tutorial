@@ -132,3 +132,28 @@ URL final: http://gborderolle1-001-site1.atempurl.com/swagger/index.html
 
 // ---------------------------------------------------------- *****************
 
+POSTMAN
+GET: https://localhost:5000/api/actors
+HTTPS
+Authorization: (Bearer Token)
+Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHRlc3RpbmcuY29tIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzM4NjE2MjI2fQ.XxptdbzmWIc7tdCf7JpetXSxlJaqdIX8aY1jzvJhPE0
+
+Headers:
+x-version   2
+
+Params: no importa, no poner nada (aunque el método tenga Pagination)
+Body: no importa, no poner nada
+
+--> Endpoint destino: 
+        [HttpGet(Name = "GetActor")] // url completa: https://localhost:7003/api/Actors/
+        public async Task<ActionResult<APIResponse>> Get([FromQuery] PaginationDTO paginationDTO)
+        {}
+
+Este método está bueno para probar el N..N, acá funciona impecable.
+Actor -> List<ActorMovie> -> Movie
+
+Pd: Para que funcione, le quité el Authorize del Controller (ActorsController.cs) porque me devolvía 401: Unauthorized
+También le cambié el puerto de 7015 (genérico) a 5000, para no pisarme con Datalexion_backend
+----
+
+
